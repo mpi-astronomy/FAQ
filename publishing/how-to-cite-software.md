@@ -14,7 +14,7 @@ All research carried out today uses software (Momcheva & Tollerud, 2015). These 
 
 ### What software should I cite?
 
-According to the FORCE11 recommendations (Smith et al., 2016): "software should be cited on the same basis as any other research product such as a paper or book; that is, authors should cite the appropriate set of software products just as they cite the appropriate set of papers". If a claim relies on the analysis done with a particular software, then you should cite it. It is generally not necessary to cite commercial software.
+According to the FORCE11 recommendations (Smith et al., 2016): _"software should be cited on the same basis as any other research product such as a paper or book; that is, authors should cite the appropriate set of software products just as they cite the appropriate set of papers"_. If a claim relies on the analysis done with a particular software, then you should cite it. It is generally not necessary to cite commercial software.
 
 ### Where in my paper should I put software citations? 
 
@@ -34,20 +34,27 @@ Example 2: The AAS Journals (ApJ, ApJL, ApJS and AJ) allow for a separate sectio
 Example 3: For journals that do not have a ```\software``` section, the current recommendation is to include software in the acknowledgements. For example:
 
 ```
+This publication made extensive use of the online authoring Overleaf platform (https://www.overleaf.com/).
+The data processing and analysis made use of matplotlib (Hunter 2007), NumPy (Harris et al. 2020), the IPython package (Pérez & Granger 2007), Vaex (Breddels & Veljanoski 2018), TOPCAT (Taylor 2005), pyphot (http://github.com/mfouesneau/pyphot), QuantStack xtensor (http://xtensor.readthedocs.io/) and R (R Core Team 2013).
 ```
 
 
 ### How should I format my software citations?
 
+The best way to cite software is to include a reference to it in the bibliography. Only entries included in the bibliography are tracked by services that count citations! Footnotes and URLs included in the text of the paper without a reference in the bibliography do not give proper credit to the authors. 
+
 When trying to find how to cite software we suggest you follow these steps:
 
-A. Try to use information provided by the authors.
+**A. Try to use information provided by the authors.**
 
 1. If the authors of the software have a recommended way of getting cited, please use that. Examples: [astropy](https://www.astropy.org/acknowledging.html) and YYY (something other than paper). If there is a paper that is associated with the software, do include the reference to that paper in your bibliography just as you would with any other reference. 
+
 2. If the software is on GitHub and it has a `CITATION.cff` file, use the handy option provided by GitHub to download a BIBTeX citation and include that in your bibliography. EXAMPLE.
+
 3. If the software has a digital object identifier (DOI) mentioned anywhere on its repository or documentation page, you can usually follow the link or [resolve the DOI](https://dx.doi.org/). Most hosting platforms provide a way to download a BIBTeX reference. Examples: 
     - The LMFIT GitHub [reposotory](https://github.com/lmfit/lmfit-py/tree/1.0.3) includes the Zenodo DOI [link](https://zenodo.org/record/11813#.YqKAgxNBxBw) which has the [BiBTeX reference](https://zenodo.org/record/5570790/export/hx#.YqKArBNBxBw).
     - The Virgo [repository](https://github.com/0xCoto/Virgo) has a JOSS DOI [link](https://joss.theoj.org/papers/10.21105/joss.03067) with an easy-to-copy citation in the left-hand bar (as well as a [CITATION.bib file](https://github.com/0xCoto/Virgo/blob/master/CITATION.bib))
+
 4. If none of these are available, but there is a paper that descibes the algorithm and is the standard reference, cite that. Example: [LA Cosmic](http://www.astro.yale.edu/dokkum/lacosmic/) is described in [van Dokkum (2001)](https://ui.adsabs.harvard.edu/abs/2001PASP..113.1420V/abstract)
 
 If more than one of these options exist, i.e., there is a `CITATION.cff` file AND a paper describing the software, do cite both. 
