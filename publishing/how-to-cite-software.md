@@ -14,7 +14,7 @@ All research today uses software (Momcheva & Tollerud, 2015). These uses include
 
 ### What software should I cite?
 
-According to the FORCE11 recommendations (Smith et al., 2016): _"software should be cited on the same basis as any other research product such as a paper or book; that is, authors should cite the appropriate set of software products just as they cite the appropriate set of papers."_ If a claim relies on the analysis done with particular software, you should cite it. It is generally not necessary to cite commercial software.
+According to the FORCE11 recommendations (Smith et al., 2016): _"software should be cited on the same basis as any other research product such as a paper or book; that is, authors should cite the appropriate set of software products just as they cite the appropriate set of papers."_ If a claim relies on the analysis done with particular software, you should cite it. 
 
 ### Where in my paper should I place the software citations? 
 
@@ -57,7 +57,7 @@ When trying to find how to cite software, we suggest you follow these steps:
 
 1. If the software authors have a recommended way of getting cited, please use that. Examples: [astropy](https://www.astropy.org/acknowledging.html) and [LMFIT](https://lmfit.github.io/lmfit-py/faq.html#how-should-i-cite-lmfit). If a paper is associated with the software, do include that reference in your bibliography just as you would with any other reference. 
 
-2. If the software is on GitHub and it has a `CITATION.cff` file, use the handy option provided by GitHub to download a BIBTeX citation and include that in your bibliography. EXAMPLE.
+2. If the software is on GitHub and it has a `CITATION.cff` file, use the handy option provided by GitHub to download a BIBTeX citation and include that in your bibliography. See, for example, the [`eazy-py`](https://github.com/gbrammer/eazy-py) repository.
 
 3. If the software has a digital object identifier (DOI) mentioned anywhere on its repository or documentation page, you can usually follow the link or [resolve the DOI](https://dx.doi.org/). Most hosting platforms provide a way to download a BibTeX reference. Examples: 
     - The LMFIT GitHub [reposotory](https://github.com/lmfit/lmfit-py/tree/1.0.3) includes the Zenodo DOI [link](https://zenodo.org/record/11813#.YqKAgxNBxBw) which has the [BiBTeX reference](https://zenodo.org/record/5570790/export/hx#.YqKArBNBxBw).
