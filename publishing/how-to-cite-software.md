@@ -14,11 +14,9 @@ All research carried out today uses software (Momcheva & Tollerud, 2015). These 
 
 ### What software should I cite?
 
-According to the FORCE11 recommendations (Smith et al., 2016): _"software should be cited on the same basis as any other research product such as a paper or book; that is, authors should cite the appropriate set of software products just as they cite the appropriate set of papers"_. If a claim relies on the analysis done with a particular software, then you should cite it. It is generally not necessary to cite commercial software.
+According to the FORCE11 recommendations (Smith et al., 2016): _"software should be cited on the same basis as any other research product such as a paper or book; that is, authors should cite the appropriate set of software products just as they cite the appropriate set of papers."_ If a claim relies on the analysis done with a particular software, then you should cite it. It is generally not necessary to cite commercial software.
 
-### Where in my paper should I put software citations? 
-
-
+### Where in my paper should I place the software citations? 
 
 Example 1: Include citations to software in the body of the paper, in the same way as you would a cite a relevant paper. For example:
 
@@ -26,18 +24,28 @@ Example 1: Include citations to software in the body of the paper, in the same w
 
 For more examples, see the [AstroBetter post of citing astronomical software](https://www.astrobetter.com/blog/2019/07/01/citing-astronomy-software-inline-text-examples/).
 
-Example 2: The AAS Journals (ApJ, ApJL, ApJS and AJ) allow for a separate section dedicated to software. This section appears before the acknowledgements and is marked by a ```\software``` tag. The tag is included in the AAS journals template. This is a good place to include citations to libraries and open source software projects that were key dependancies but did not get shout-outs in the text of the paper. For example:
+Example 2: The AAS Journals (ApJ, ApJL, ApJS and AJ) allow for a separate section dedicated to software. This section appears before the acknowledgements and is marked by a ```\software``` tag. The tag is included in the AAS journals template. This is a good place to include citations to libraries and open source software projects that were key dependancies but did not get shout-outs in the text of the paper. Here is an example of what this section looks like from [Finkelstein et al. (2022)](https://arxiv.org/pdf/2207.12474.pdf):
 
 ```
+_Software_: Astropy (Astropy Collaboration et al.
+2013), Bagpipes (Carnall et al. 2018), Cigale (Burgarella et al. 2005; Noll et al. 2009; Boquien et al.
+2019), Dense Basis (Iyer & Gawiser 2017; Iyer et al.
+2019), Drizzle (Fruchter & Hook 2002), eazy (Brammer et al. 2008), GalfitM (Peng et al. 2010; Haußler
+et al. 2013), Photutils (Bradley et al. 2020), Prospector (Johnson et al. 2021), SciPy (Virtanen et al. 2020),
+Source Extractor (Bertin & Arnouts 1996), Statmorph (Rodriguez-Gomez et al. 2019), STScI JWST
+Calibration Pipeline (jwst-pipeline.readthedocs.io)
 ```
+The [(Astronomy) Acknowledgement Generator](https://github.com/astrofrog/acknowledgment-generator) can get yous started on creating the ```\software``` section. 
 
-Example 3: For journals that do not have a ```\software``` section, the current recommendation is to include software in the acknowledgements. For example:
+Example 3: For journals that do not have a ```\software``` section, the current recommendation is to include software in the acknowledgements. For example see the MNRAS submission of [Baffuret et al.](https://arxiv.org/pdf/2207.14733.pdf) (2022): 
 
 ```
-This publication made extensive use of the online authoring Overleaf platform (https://www.overleaf.com/).
-The data processing and analysis made use of matplotlib (Hunter 2007), NumPy (Harris et al. 2020), the IPython package (Pérez & Granger 2007), Vaex (Breddels & Veljanoski 2018), TOPCAT (Taylor 2005), pyphot (http://github.com/mfouesneau/pyphot), QuantStack xtensor (http://xtensor.readthedocs.io/) and R (R Core Team 2013).
+Facilities: JWST, HST
+Software: matplotlib (Hunter 2007), numpy (Oliphant 2015),
+scipy (Virtanen et al. 2020), jupyter (Kluyver et al. 2016),
+Astropy (Astropy Collaboration et al. 2013, 2018), grizli (Brammer 2018), 
+SExtractor (Bertin & Arnouts 1996), bagpipes (Carnall et al. 2018).
 ```
-
 
 ### How should I format my software citations?
 
@@ -45,9 +53,9 @@ The best way to cite software is to include a reference to it in the bibliograph
 
 When trying to find how to cite software we suggest you follow these steps:
 
-**A. Try to use information provided by the authors.**
+#### Best: Use information provided by the authors
 
-1. If the authors of the software have a recommended way of getting cited, please use that. Examples: [astropy](https://www.astropy.org/acknowledging.html) and YYY (something other than paper). If there is a paper that is associated with the software, do include the reference to that paper in your bibliography just as you would with any other reference. 
+1. If the authors of the software have a recommended way of getting cited, please use that. Examples: [astropy](https://www.astropy.org/acknowledging.html) and [LMFIT](https://lmfit.github.io/lmfit-py/faq.html#how-should-i-cite-lmfit). If there is a paper that is associated with the software, do include the reference to that paper in your bibliography just as you would with any other reference. 
 
 2. If the software is on GitHub and it has a `CITATION.cff` file, use the handy option provided by GitHub to download a BIBTeX citation and include that in your bibliography. EXAMPLE.
 
@@ -57,26 +65,30 @@ When trying to find how to cite software we suggest you follow these steps:
 
 4. If none of these are available, but there is a paper that descibes the algorithm and is the standard reference, cite that. Example: [LA Cosmic](http://www.astro.yale.edu/dokkum/lacosmic/) is described in [van Dokkum (2001)](https://ui.adsabs.harvard.edu/abs/2001PASP..113.1420V/abstract)
 
-If more than one of these options exist, i.e., there is a `CITATION.cff` file AND a paper describing the software, do cite both. 
+If more than one of these options exist, i.e., there is a `CITATION.cff` file AND a paper describing the software, do cite both. Including a reference is cheap, giving proper credit to your colleagues is priceless.
 
-B. Unfortunately, there are a lot of cases where the authors do not provide explicit directions on how their software should be cited. Look for some external posibilities:
-1. ASCL
-2. ADS
+#### Good: Search for other breadcrumbs
 
-C: If all else fails, include a link to the software in a footnote. 
+There are cases where the authors do not provide explicit directions on how their software should be cited. These codes should still be credited in cases they have contributed significantly to the results in your paper. Look for some external posibilities on a best effort basis:
 
-Examples form AstroBetter: https://www.astrobetter.com/blog/2019/07/01/citing-astronomy-software-inline-text-examples/
+1. Search [ADS](https://ui.adsabs.harvard.edu/) for papers by the software authors that describe the code. ADS now indexes papers by the [Journal of Open Source Software](https://joss.theoj.org/).
 
-If in doubt, get in touch with the Data Science Group.
+2. Search the [Astrophysics Source Coude Library](https://ascl.net/) (ASCL). ASCL generates an unique identifier in ADS which can then be cited. For example, the [2dfdr](https://ascl.net/1505.015) code mentioned in [Martin et al. (2005)](https://ui.adsabs.harvard.edu/abs/2005PASA...22..236M/abstract) can be cited as assigned can be cited as [2015ascl.soft05015A](https://ui.adsabs.harvard.edu/abs/2015ascl.soft05015A/abstract). Use the ASCL entry only if the authors have not provided direct instructions. Many ASCL entries are auto-generated and divergent from the authors' instructions. Example: the [`grizli`](https://github.com/gbrammer/grizli) library has a Zenodo DOI which is not listed on the auto-generated [ASCL page](https://ascl.net/1905.001).
+
+#### Better than nothing: Include a link to the software in a footnote 
+
+If you have exhausted all other avenues, including a link to the software in a footnote is better than not citing it at all. Here are examples form an AstroBetter blog post: https://www.astrobetter.com/blog/2019/07/01/citing-astronomy-software-inline-text-examples/
+
+Hope these recommendations are helpful. If in doubt, get in touch with the Data Science Group. 
 
 
-### Additional resources
+## Additional resources
 
+- [AstroBetter post of citing astronomical software](https://www.astrobetter.com/blog/2019/07/01/citing-astronomy-software-inline-text-examples/
 - Smith AM, Katz DS, Niemeyer KE, FORCE11 Software Citation Working Group.
 (2016) Software Citation Principles. PeerJ Computer Science 2:e86.
 DOI: [10.7717/peerj-cs.86](https://doi.org/10.7717/peerj-cs.86)
-- Katz D.~S. et al., "Software Citation Implementation Challenges", arXiv:1905.08674
+- Katz D. S. et al., "Software Citation Implementation Challenges", [arXiv:1905.08674](https://arxiv.org/abs/1905.08674)
 - Crouch, Stephen et al., "The Software Sustainability Institute: Changing Research Software Attitudes and Practices," DOI: [10.1109/MCSE.2013.133](http://dx.doi.org/10.1109/MCSE.2013.133)
 - AAS journals [software citation instructions](https://journals.aas.org/references/#software)
-
-- Acknowledgement generator: https://github.com/astrofrog/acknowledgment-generator
+- [(Astronomy) Acknowledgement Generator](https://github.com/astrofrog/acknowledgment-generator)
