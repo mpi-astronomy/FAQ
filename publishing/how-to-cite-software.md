@@ -18,13 +18,13 @@ According to the FORCE11 recommendations (Smith et al., 2016): _"software should
 
 ### Where in my paper should I place the software citations? 
 
-Example 1: Include citations to software in the body of the paper, in the same way as you would a cite a relevant paper. For example:
+**Example 1:** Include citations to software in the body of the paper, in the same way as you would a cite a relevant paper. For example:
 
 ```The my_code library (Doe et al., 2021) was used to derive stellar masses and redshifts for the sources.```
 
 For more examples, see the [AstroBetter post of citing astronomical software](https://www.astrobetter.com/blog/2019/07/01/citing-astronomy-software-inline-text-examples/).
 
-Example 2: The AAS Journals (ApJ, ApJL, ApJS and AJ) allow for a separate section dedicated to software. This section appears before the acknowledgements and is marked by a ```\software``` tag. The tag is included in the AAS journals template. This is a good place to include citations to libraries and open source software projects that were key dependancies but did not get shout-outs in the text of the paper. Here is an example of what this section looks like from [Finkelstein et al. (2022)](https://arxiv.org/pdf/2207.12474.pdf):
+**Example 2:** The AAS Journals (ApJ, ApJL, ApJS and AJ) allow for a separate section dedicated to software. This section appears before the acknowledgements and is marked by a ```\software``` tag. The tag is included in the AAS journals template. This is a good place to include citations to libraries and open source software projects that were key dependancies but did not get shout-outs in the text of the paper. Here is an example of what this section looks like from [Finkelstein et al. (2022)](https://arxiv.org/pdf/2207.12474.pdf):
 
 ```
 _Software_: Astropy (Astropy Collaboration et al.
@@ -37,7 +37,7 @@ Calibration Pipeline (jwst-pipeline.readthedocs.io)
 ```
 The [(Astronomy) Acknowledgement Generator](https://github.com/astrofrog/acknowledgment-generator) can get yous started on creating the ```\software``` section. 
 
-Example 3: For journals that do not have a ```\software``` section, the current recommendation is to include software in the acknowledgements. For example see the MNRAS submission of [Baffuret et al.](https://arxiv.org/pdf/2207.14733.pdf) (2022): 
+**Example 3:** For journals that do not have a ```\software``` section, the current recommendation is to include software in the acknowledgements. For example see the MNRAS submission of [Baffuret et al.](https://arxiv.org/pdf/2207.14733.pdf) (2022): 
 
 ```
 Facilities: JWST, HST
