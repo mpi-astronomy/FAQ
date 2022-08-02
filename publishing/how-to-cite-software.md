@@ -84,7 +84,7 @@ Hope these recommendations are helpful. If in doubt, get in touch with the Data 
 
 ## Additional resources
 
-- [AstroBetter post of citing astronomical software](https://www.astrobetter.com/blog/2019/07/01/citing-astronomy-software-inline-text-examples/
+- [AstroBetter post of citing astronomical software](https://www.astrobetter.com/blog/2019/07/01/citing-astronomy-software-inline-text-examples/)
 - Smith AM, Katz DS, Niemeyer KE, FORCE11 Software Citation Working Group.
 (2016) Software Citation Principles. PeerJ Computer Science 2:e86.
 DOI: [10.7717/peerj-cs.86](https://doi.org/10.7717/peerj-cs.86)
