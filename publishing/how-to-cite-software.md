@@ -6,7 +6,7 @@ This article briefly introduces citing software in your papers and why that is i
 
 ### Why should I cite software? 
 
-All research today uses software (Momcheva & Tollerud, 2015). These uses include reducing and analyzing data, creating visualizations and plots, and simulating physical processes, among many others. As such, software is an integral part of doing [supporting?] science. There are (at least) three main reasons why you should cite software in your papers: credit, reproducibility, and visibility.
+All research today uses software ([Momcheva & Tollerud, 2015](https://ui.adsabs.harvard.edu/abs/2015arXiv150703989M/abstract)). These uses include reducing and analyzing data, creating visualizations and plots, and simulating physical processes, among many others. As such, software is an integral part of doing [supporting?] science. There are (at least) three main reasons why you should cite software in your papers: credit, reproducibility, and visibility.
 
 1. Writing software, much like building instruments, requires significant effort. Citing software gives credit to its authors, especially those in academia. It allows them to keep track of the impact of their work in the same way we measure the impact of scientific publications by their number of citations. For projects which have used grant funding to produce software, citations can be reported to funding agencies and used to justify continued funding.
 2. Citations help with research reproducibility and allow others to understand how a given task was carried out. 
@@ -55,7 +55,7 @@ When trying to find how to cite software, we suggest you follow these steps:
 
 #### Best: Use the information provided by the authors
 
-1. If the software authors have a recommended way of getting cited, please use that. Examples: [astropy](https://www.astropy.org/acknowledging.html) and [LMFIT](https://lmfit.github.io/lmfit-py/faq.html#how-should-i-cite-lmfit). If a paper is associated with the software, do include that reference in your bibliography just as you would with any other reference. 
+1. If the software authors have a recommended way of getting cited, please use that. Examples: [`astropy`](https://www.astropy.org/acknowledging.html), [`exoplanet`](https://docs.exoplanet.codes/en/latest/tutorials/citation/) and [LMFIT](https://lmfit.github.io/lmfit-py/faq.html#how-should-i-cite-lmfit). If a paper is associated with the software, do include that reference in your bibliography just as you would with any other reference. 
 
 2. If the software is on GitHub and it has a `CITATION.cff` file, use the handy option provided by GitHub to download a BIBTeX citation and include that in your bibliography. See, for example, the [`eazy-py`](https://github.com/gbrammer/eazy-py) repository.
 
@@ -73,7 +73,7 @@ There are cases where the authors do not provide explicit directions on how to c
 
 1. Search [ADS](https://ui.adsabs.harvard.edu/) for papers by the software authors that describe the code. ADS now indexes papers by the [Journal of Open Source Software](https://joss.theoj.org/).
 
-2. Search the [Astrophysics Source Code Library](https://ascl.net/) (ASCL). ASCL generates a unique identifier in ADS which can then be cited. For example, the [2dfdr](https://ascl.net/1505.015) code mentioned in [Martin et al. (2005)](https://ui.adsabs.harvard.edu/abs/2005PASA...22..236M/abstract) can be cited as assigned can be cited as [2015ascl.soft05015A](https://ui.adsabs.harvard.edu/abs/2015ascl.soft05015A/abstract). Use the ASCL entry only if the authors have not provided direct instructions. Many ASCL entries are auto-generated and divergent from the authors' instructions. For example the [`grizli`](https://github.com/gbrammer/grizli) library has a Zenodo DOI, which is not listed on the auto-generated [ASCL page](https://ascl.net/1905.001).
+2. Search the [Astrophysics Source Code Library](https://ascl.net/) (ASCL). ASCL generates a unique identifier in ADS which can then be cited. For example, the [2dfdr](https://ascl.net/1505.015) code mentioned in [Martin et al. (2005)](https://ui.adsabs.harvard.edu/abs/2005PASA...22..236M/abstract) can be cited as [2015ascl.soft05015A](https://ui.adsabs.harvard.edu/abs/2015ascl.soft05015A/abstract). Use the ASCL entry only if the authors have not provided direct instructions. Many ASCL entries are auto-generated and divergent from the authors' instructions. For example the [`grizli`](https://github.com/gbrammer/grizli) library has a Zenodo DOI, which is not listed on the auto-generated [ASCL page](https://ascl.net/1905.001).
 
 #### Better than nothing: Include a link to the software in a footnote 
 
