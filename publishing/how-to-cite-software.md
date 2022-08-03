@@ -6,7 +6,7 @@ This article briefly introduces citing software in your papers and why that is i
 
 ### Why should I cite software? 
 
-All research today uses software ([Momcheva & Tollerud, 2015](https://ui.adsabs.harvard.edu/abs/2015arXiv150703989M/abstract)). These uses include reducing and analyzing data, creating visualizations and plots, and simulating physical processes, among many others. As such, software is an integral part of doing [supporting?] science. There are (at least) three main reasons why you should cite software in your papers: credit, reproducibility, and visibility.
+All research today uses software ([Momcheva & Tollerud, 2015](https://ui.adsabs.harvard.edu/abs/2015arXiv150703989M/abstract)). These uses include reducing and analyzing data, creating visualizations and plots, and simulating physical processes, among many others. As such, software is an integral part of doing science. There are (at least) three main reasons why you should cite software in your papers: credit, reproducibility, and visibility.
 
 1. Writing software, much like building instruments, requires significant effort. Citing software gives credit to its authors, especially those in academia. It allows them to keep track of the impact of their work in the same way we measure the impact of scientific publications by their number of citations. For projects which have used grant funding to produce software, citations can be reported to funding agencies and used to justify continued funding.
 2. Citations help with research reproducibility and allow others to understand how a given task was carried out. 
