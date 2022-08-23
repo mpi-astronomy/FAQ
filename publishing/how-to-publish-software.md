@@ -56,6 +56,7 @@ You need to make sure that
 1. All contributors agree to publish the code and that your collaboration or institute does not restrict you with specific policies (e.g., licensing).
 
 2. You have a license (a LICENSE file). Various ones exist with different protections for the source/binary code and restriction levels (e.g., some impose that all dependencies have the same license). You can find comparative websites such as [ChooseALicense.com](https://choosealicense.com/licenses/).
+> see also [The Whys and Hows of Licensing Scientific Code](https://www.astrobetter.com/blog/2014/03/10/the-whys-and-hows-of-licensing-scientific-code/)
 
 3. You provide the necessary data to test your code with their expected outputs. Such input reference dataset is also essential to prevent breaking the code if any update happens. It is better if you also provide notes to run the code with this dataset (e.g., an example notebook)
 
