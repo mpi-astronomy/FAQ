@@ -65,6 +65,8 @@ You need to make sure that
 
 #### The good state: popularity
 
+>  your code is **usable** by others, and **welcomes new contributors**. _A solid code that is open to technical discussions_
+
 Going from the bare minimum to a good state is where the heavy work happens. But the actual priority of updates depends on the publication goals. A "good" code aims to increase popularity by making it easier to use. The code is "clean," documented, and structured.
 
 Before any change, you need to protect your code from introducing bugs. Mistakes are always easy to make. A good practice is to use a version control system to find and potentially revert changes (e.g., `git diff file.py`). The best practice is to have **unit tests**. 
@@ -101,9 +103,9 @@ My tip if you have an existing code that needs to upgrade from a "bare minimum" 
 
 #### Advanced stage: evolutivity
 
+> Your code is **usable** by others and **welcomes new contributors**. The software can now get **"deep & fancy" development/updates**.
+  
 This stage is not commonly the first publication of a given code. It represents a stage in which a code can evolve in potentially many aspects.
-
-Your code is usable by others and welcomes new contributors. The software can now get "deep & fancy" development/updates.
 
 You may want to target 
 * the performance of your code, which requires profiling and optimization,
