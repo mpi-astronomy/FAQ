@@ -26,6 +26,18 @@ There are at least **three reasons** one should open source their software: **cr
 
 > see also our _how-to-cite-software_ post.
 
+#### Where to publish?
+
+In terms of where to publish your code, the primary goal is to share your source. You can easily publish your source code on platforms such as [GitLab](https://gitlab.com/), [GitHub](https://github.com/), [framagit](https://framagit.org/), and [Bitbucket](https://bitbucket.org/). You can refer to this [stackshare article](https://stackshare.io/stackups/bitbucket-vs-github-vs-gitlab) comparing some of these platforms. Other platforms also exist but note that their varied popularity may be important to consider.
+
+Do not forget to provide information on how to cite your code with your source. A good practice introduced by GitHub is to define a [`CITATION.cff`](https://citation-file-format.github.io/).
+
+> see also our _how-to-cite-software_ post.
+
+In addition, you can assign a Digital Object Identifier (DOI) to your codes to make them citable and trackable, and Zenodo is the reference in this domain. Depending on the content of your repository, this may be the best way to provide a version reference. 
+
+Finally, you can have an article dedicated to your code. The standard journals in astronomy (e.g., ApJ, MNRAS, A&A) now accept software papers. But outside these journals and computer science journals, the [Journal of Open Source Software (JOSS)](https://joss.theoj.org/) is is an academic journal with a formal peer review process dedicated to the publication of research software packages. Their publication procedure is entirely through GitHub, and the refereeing process is available publicly with the article. Maybe as important, the paper's length can be very minimal. JOSS offers a very low-effort way to have refereed publications for your codes.  
+
 ### What are the actions for software publication?
 
 Again, let's emphasize that we are not writing for software developers in high-tech companies. These may have rigorous requirements.
@@ -104,11 +116,3 @@ Multiple aspects of your code can improve in parallel. You will need to merge ef
 In this context, version control is your friend: you can create branches for the aspects you want to tackle. (note the incentive from GitHub that makes websites from specific branches -- documentation!)
 
 In addition, continuous integration is also your friend: make sure every change fits the overall project (source automated formatting, checking documentation coverage, and running unit tests can all be part of the integration!)
-
-#### Where to publish?
-
-In terms of where to publish your code, the primary goal is to share your source. Additionally, you can communicate data and also have an article.
-
-* GitHub etc
-* Zenodo
-* JOSS
