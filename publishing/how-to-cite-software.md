@@ -51,6 +51,8 @@ SExtractor (Bertin & Arnouts 1996), bagpipes (Carnall et al. 2018).
 
 The best way to cite software is to include a bibliography entry to it. Only those entries in the bibliography are tracked by services that count citations! Footnotes and URLs included in the text of the paper without a reference in the bibliography do not give proper credit to the authors. 
 
+Note that not all journals accept `@software` BibTeX entries. If you encounter issues (e.g., MNRAS), you can replace these with `@misc` entries. 
+
 When trying to find how to cite software, we suggest you follow these steps:
 
 #### Best: Use the information provided by the authors
@@ -84,7 +86,7 @@ We hope these recommendations are helpful. If in doubt, get in touch with the Da
 
 ## Additional resources
 
-- [AstroBetter post of citing astronomical software](https://www.astrobetter.com/blog/2019/07/01/citing-astronomy-software-inline-text-examples/)
+- [AstroBetter post on citing astronomical software](https://www.astrobetter.com/blog/2019/07/01/citing-astronomy-software-inline-text-examples/)
 - Smith AM, Katz DS, Niemeyer KE, FORCE11 Software Citation Working Group.
 (2016) Software Citation Principles. PeerJ Computer Science 2:e86.
 DOI: [10.7717/peerj-cs.86](https://doi.org/10.7717/peerj-cs.86)
