@@ -8,3 +8,4 @@
 - And this is my favorite tool for checking if a choice of colors actually works https://www.color-blindness.com/coblis-color-blindness-simulator/
 - Paper for the Okabe Ito work: https://jfly.uni-koeln.de/color/
 - My python implementation: https://keeper.mpdl.mpg.de/f/0bc11f7fb56c43a088a0/
+- Nature article: https://www.nature.com/articles/d41586-021-02696-z
