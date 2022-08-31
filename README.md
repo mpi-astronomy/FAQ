@@ -10,8 +10,4 @@
 ## Coding
 [How do I start a new software project?](https://github.com/mpi-astronomy/FAQ/blob/main/coding/how-to-start-project.md)
 
-[How do I fit a line?]()
-
-[How do I speed my code with `numba`?]()
-
-[How do I speed my code with `jax`?]()
+[How do I speed my code with `numba`?](https://github.com/mpi-astronomy/FAQ/blob/main/coding/NumbaFun.ipynb)
