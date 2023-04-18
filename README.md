@@ -12,4 +12,4 @@
 
 [How do I speed my code with `numba`?](https://github.com/mpi-astronomy/FAQ/blob/main/coding/NumbaFun.ipynb)
 
-[The straightline fitting problem](https://github.com/mpi-astronomy/FAQ/blob/main/coding/straighline)
+[The straightline fitting problem](https://github.com/mpi-astronomy/FAQ/blob/main/coding/straightline)
