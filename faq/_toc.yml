@@ -10,6 +10,7 @@ parts:
     - file: chapters/publishing/how-to-cite
     - file: chapters/publishing/how-to-publish-software
     - file: chapters/publishing/how-to-color-plots
+    - file: chapters/publishing/old-code
 
   - caption: Python
     chapters:
