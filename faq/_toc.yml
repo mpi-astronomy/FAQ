@@ -1,0 +1,21 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+
+parts:
+  - caption: Publishing
+    chapters:
+    - file: chapters/publishing/how-to-cite
+
+
+
+  - caption: Python
+    chapters:
+    - file: chapters/python/virtualvenv
+
+
+  - caption: Typical Problems
+    chapters:
+    - file: chapters/problems/
