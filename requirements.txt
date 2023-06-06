@@ -6,6 +6,7 @@ emcee
 funsor
 ghp-import
 graphviz
+joblib
 jupyter-book
 jupytext
 matplotlib
