@@ -413,7 +413,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>371 ms ± 1.37 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>389 ms ± 1.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -423,12 +423,80 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 <span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
 
-<span class="o">%</span><span class="k">timeit</span> Parallel(n_jobs=-1)(delayed(sqrt)(i ** 2) for i in range(1_000_000))
+<span class="o">%</span><span class="k">timeit</span> Parallel(n_jobs=4)(delayed(sqrt)(i ** 2) for i in range(1_000_000))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>exception calling callback for &lt;Future at 0x7f91d174f610 state=finished raised PicklingError&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>exception calling callback for &lt;Future at 0x7f5db25a57f0 state=finished raised PicklingError&gt;
+Traceback (most recent call last):
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/loky/backend/queues.py&quot;, line 125, in _feed
+    obj_ = dumps(obj, reducers=reducers)
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/loky/backend/reduction.py&quot;, line 211, in dumps
+    dump(obj, buf, reducers=reducers, protocol=protocol)
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/loky/backend/reduction.py&quot;, line 204, in dump
+    _LokyPickler(file, reducers=reducers, protocol=protocol).dump(obj)
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/cloudpickle/cloudpickle_fast.py&quot;, line 632, in dump
+    return Pickler.dump(self, obj)
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 293, in __reduce__
+    self._reducer_callback()
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 1028, in _batched_calls_reducer_callback
+    self._backend._workers._temp_folder_manager.set_current_context(  # noqa
+AttributeError: &#39;NoneType&#39; object has no attribute &#39;_temp_folder_manager&#39;
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/loky/_base.py&quot;, line 26, in _invoke_callbacks
+    callback(self)
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 385, in __call__
+    self.parallel.dispatch_next()
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 834, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 901, in dispatch_one_batch
+    self._dispatch(tasks)
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 819, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/_parallel_backends.py&quot;, line 556, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+AttributeError: &#39;NoneType&#39; object has no attribute &#39;submit&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>exception calling callback for &lt;Future at 0x7f5db2a58760 state=finished raised PicklingError&gt;
+Traceback (most recent call last):
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/loky/backend/queues.py&quot;, line 125, in _feed
+    obj_ = dumps(obj, reducers=reducers)
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/loky/backend/reduction.py&quot;, line 211, in dumps
+    dump(obj, buf, reducers=reducers, protocol=protocol)
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/loky/backend/reduction.py&quot;, line 204, in dump
+    _LokyPickler(file, reducers=reducers, protocol=protocol).dump(obj)
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/cloudpickle/cloudpickle_fast.py&quot;, line 632, in dump
+    return Pickler.dump(self, obj)
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 293, in __reduce__
+    self._reducer_callback()
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 1028, in _batched_calls_reducer_callback
+    self._backend._workers._temp_folder_manager.set_current_context(  # noqa
+AttributeError: &#39;NoneType&#39; object has no attribute &#39;_temp_folder_manager&#39;
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/loky/_base.py&quot;, line 26, in _invoke_callbacks
+    callback(self)
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 385, in __call__
+    self.parallel.dispatch_next()
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 834, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 901, in dispatch_one_batch
+    self._dispatch(tasks)
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 819, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/_parallel_backends.py&quot;, line 556, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+AttributeError: &#39;NoneType&#39; object has no attribute &#39;submit&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>exception calling callback for &lt;Future at 0x7f5db0420df0 state=finished raised PicklingError&gt;
 Traceback (most recent call last):
   File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/loky/backend/queues.py&quot;, line 125, in _feed
     obj_ = dumps(obj, reducers=reducers)
@@ -467,7 +535,7 @@ AttributeError: &#39;NoneType&#39; object has no attribute &#39;submit&#39;
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
-<span class="nn">----&gt; 4 get_ipython().run_line_magic(&#39;timeit&#39;, &#39;Parallel(n_jobs=-1)(delayed(sqrt)(i ** 2) for i</span> in <span class="ni">range</span><span class="nt">(1_000_000))&#39;)</span>
+<span class="nn">----&gt; 4 get_ipython().run_line_magic(&#39;timeit&#39;, &#39;Parallel(n_jobs=4)(delayed(sqrt)(i ** 2) for i</span> in <span class="ni">range</span><span class="nt">(1_000_000))&#39;)</span>
 
 <span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/IPython/core/interactiveshell.py:2417,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2415</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
