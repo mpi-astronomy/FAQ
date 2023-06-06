@@ -18,6 +18,10 @@ parts:
     - file: chapters/python/NumbaFun
 
 
-  - caption: Typical Problems
+  - caption: Straightline fitting problem
     chapters:
-    - file: chapters/problems/
+    - file: chapters/problems/straightline/README
+    - file: chapters/problems/straightline/straighlinefit_emcee.ipynb
+    - file: chapters/problems/straightline/straighlinefit_jax.ipynb
+    - file: chapters/problems/straightline/straighlinefit_pymc3.ipynb
+    - file: chapters/problems/straightline/straighlinefit_pystan.ipynb
