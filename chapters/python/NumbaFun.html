@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/python/NumbaFun';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Introduction" href="../problems/straightline/README.html" />
+    <link rel="next" title="Why does my parallel code take much more time than a non-paralleled one?" href="parallel-code-slower.html" />
     <link rel="prev" title="Python Virtual environment" href="virtualenv.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -167,6 +167,9 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="virtualenv.html">Python Virtual environment</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Some Fun with Numba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel-code-slower.html">Why does my parallel code take much more time than a non-paralleled one?</a></li>
+
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Straightline fitting problem</span></p>
 <ul class="nav bd-sidenav">
@@ -457,7 +460,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>278 ms ± 5.32 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>187 ms ± 1.52 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -470,7 +473,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>285 ms ± 5.34 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>187 ms ± 1.51 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -483,7 +486,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>280 ms ± 2.41 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>187 ms ± 1.21 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -497,7 +500,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.35 ms ± 431 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.14 ms ± 220 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -510,7 +513,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.32 ms ± 214 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.1 ms ± 21.4 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -523,7 +526,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.39 ms ± 154 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.1 ms ± 30 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
@@ -584,7 +587,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/99b27fe37c1dc5aa4b4c3992e13ca0ec35d857eb487061f802de18ceb183e51d.png" src="../../_images/99b27fe37c1dc5aa4b4c3992e13ca0ec35d857eb487061f802de18ceb183e51d.png" />
+<img alt="../../_images/9e89081194dcbdde7c72f45523a736c9bfa798d45846494637571a6fa0a6a38c.png" src="../../_images/9e89081194dcbdde7c72f45523a736c9bfa798d45846494637571a6fa0a6a38c.png" />
 </div>
 </div>
 </section>
@@ -630,11 +633,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../problems/straightline/README.html"
+       href="parallel-code-slower.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction</p>
+        <p class="prev-next-title">Why does my parallel code take much more time than a non-paralleled one?</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
