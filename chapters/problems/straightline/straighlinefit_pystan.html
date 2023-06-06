@@ -847,36 +847,36 @@ In file included from /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building: 26.0s, done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building: 26.7s, done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Messages from stanc:
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning in &#39;/tmp/httpstan_55dxb9n1/model_oeawjob3.stan&#39;, line 4, column 4: Declaration
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning in &#39;/tmp/httpstan_dyjg6aj_/model_oeawjob3.stan&#39;, line 4, column 4: Declaration
     of arrays by placing brackets after a variable name is deprecated and
     will be removed in Stan 2.33.0. Instead use the array keyword before the
     type. This can be changed automatically using the auto-format flag to
     stanc
-Warning in &#39;/tmp/httpstan_55dxb9n1/model_oeawjob3.stan&#39;, line 5, column 4: Declaration
+Warning in &#39;/tmp/httpstan_dyjg6aj_/model_oeawjob3.stan&#39;, line 5, column 4: Declaration
     of arrays by placing brackets after a variable name is deprecated and
     will be removed in Stan 2.33.0. Instead use the array keyword before the
     type. This can be changed automatically using the auto-format flag to
     stanc
-Warning in &#39;/tmp/httpstan_55dxb9n1/model_oeawjob3.stan&#39;, line 6, column 4: Declaration
+Warning in &#39;/tmp/httpstan_dyjg6aj_/model_oeawjob3.stan&#39;, line 6, column 4: Declaration
     of arrays by placing brackets after a variable name is deprecated and
     will be removed in Stan 2.33.0. Instead use the array keyword before the
     type. This can be changed automatically using the auto-format flag to
     stanc
-Warning in &#39;/tmp/httpstan_55dxb9n1/model_oeawjob3.stan&#39;, line 15, column 4: Declaration
+Warning in &#39;/tmp/httpstan_dyjg6aj_/model_oeawjob3.stan&#39;, line 15, column 4: Declaration
     of arrays by placing brackets after a variable name is deprecated and
     will be removed in Stan 2.33.0. Instead use the array keyword before the
     type. This can be changed automatically using the auto-format flag to
     stanc
-Warning in &#39;/tmp/httpstan_55dxb9n1/model_oeawjob3.stan&#39;, line 22, column 22: Argument
+Warning in &#39;/tmp/httpstan_dyjg6aj_/model_oeawjob3.stan&#39;, line 22, column 22: Argument
     100 suggests there may be parameters that are not unit scale; consider
     rescaling with a multiplier (see manual section 22.12).
-Warning in &#39;/tmp/httpstan_55dxb9n1/model_oeawjob3.stan&#39;, line 22, column 4: Parameter
+Warning in &#39;/tmp/httpstan_dyjg6aj_/model_oeawjob3.stan&#39;, line 22, column 4: Parameter
     beta is given a uniform distribution. The uniform distribution is not
     recommended, for two reasons: (a) Except when there are logical or
     physical constraints, it is very unusual for you to be sure that a
@@ -885,10 +885,10 @@ Warning in &#39;/tmp/httpstan_55dxb9n1/model_oeawjob3.stan&#39;, line 22, column
     sampling algorithm. As a consequence, we recommend soft constraints
     rather than hard constraints; for example, instead of giving an
     elasticity parameter a uniform(0,1) distribution, try normal(0.5,0.5).
-Warning in &#39;/tmp/httpstan_55dxb9n1/model_oeawjob3.stan&#39;, line 21, column 23: Argument
+Warning in &#39;/tmp/httpstan_dyjg6aj_/model_oeawjob3.stan&#39;, line 21, column 23: Argument
     100 suggests there may be parameters that are not unit scale; consider
     rescaling with a multiplier (see manual section 22.12).
-Warning in &#39;/tmp/httpstan_55dxb9n1/model_oeawjob3.stan&#39;, line 21, column 4: Parameter
+Warning in &#39;/tmp/httpstan_dyjg6aj_/model_oeawjob3.stan&#39;, line 21, column 4: Parameter
     alpha is given a uniform distribution. The uniform distribution is not
     recommended, for two reasons: (a) Except when there are logical or
     physical constraints, it is very unusual for you to be sure that a
@@ -936,11 +936,11 @@ Warning in &#39;/tmp/httpstan_55dxb9n1/model_oeawjob3.stan&#39;, line 21, column
 <span class="ne">--&gt; </span><span class="mi">280</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">281</span> <span class="k">else</span><span class="p">:</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/httpstan/services_stub.py:123,</span> in <span class="ni">call</span><span class="nt">(function_name, model_name, fit_name, logger_callback, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">122</span>     <span class="c1"># note: timeout of 0.01 seems to work well based on measurements</span>
-<span class="ne">--&gt; </span><span class="mi">123</span>     <span class="n">readable</span><span class="p">,</span> <span class="n">writeable</span><span class="p">,</span> <span class="n">errored</span> <span class="o">=</span> <span class="n">select</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">potential_readers</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[],</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">readable</span><span class="p">:</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/httpstan/services_stub.py:140,</span> in <span class="ni">call</span><span class="nt">(function_name, model_name, fit_name, logger_callback, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span>         <span class="n">logger_callback</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">140</span>     <span class="n">messages_files</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">messages_compressobjs</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span> <span class="c1"># if `potential_readers == [socket_]` then either (1) no connections</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span> <span class="c1"># have been opened or (2) all connections have been closed.</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 

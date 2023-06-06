@@ -30,9 +30,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-from math import sqrt
-from joblib import Parallel, delayed
-
-%timeit Parallel(n_jobs=4)(delayed(sqrt)(i ** 2) for i in range(1_000_000))
+['from math import sqrt', '', 'N = 1_000_000', 'print("Serial baseline")', '%timeit [sqrt(i ** 2) for i in range(N)]']
+...
+['%timeit Parallel(n_jobs=-1)(delayed(sqrt)(i ** 2) for i in range(N))', 'print("Multiprocessing Pool")', '%timeit Pool().map(sqrt, range(N))', 'print("MultiThread Pool")', '%timeit ThreadPool().map(sqrt, range(N))']
 -------------------
 
