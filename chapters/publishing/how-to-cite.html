@@ -1,0 +1,598 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>How do I cite software in my papers? &#8212; MPI-astronomy-FAQ</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/publishing/how-to-cite';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="How do I publish my software?" href="how-to-publish-software.html" />
+    <link rel="prev" title="MPI-astronomy FAQ" href="../../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    MPI-astronomy FAQ
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Publishing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">How do I cite software in my papers?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-publish-software.html">How do I publish my software?</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/mpi-astronomy/FAQ" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/mpi-astronomy/FAQ/issues/new?title=Issue%20on%20page%20%2Fchapters/publishing/how-to-cite.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/publishing/how-to-cite.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How do I cite software in my papers?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-i-cite-software">Why should I cite software?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-software-should-i-cite">What software should I cite?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-in-my-paper-should-i-place-the-software-citations">Where in my paper should I place the software citations?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-should-i-format-my-software-citations">How should I format my software citations?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-use-the-information-provided-by-the-authors">Best: Use the information provided by the authors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#good-search-for-other-breadcrumbs">Good: Search for other breadcrumbs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#better-than-nothing-include-a-link-to-the-software-in-a-footnote">Better than nothing: Include a link to the software in a footnote</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional resources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="how-do-i-cite-software-in-my-papers">
+<h1>How do I cite software in my papers?<a class="headerlink" href="#how-do-i-cite-software-in-my-papers" title="Permalink to this heading">#</a></h1>
+<p>This article briefly introduces citing software in your papers and why that is important.</p>
+<p>[tl;dr] Do cite software as you would science references. Put citations in the text, in dedicated <code class="docutils literal notranslate"><span class="pre">\software</span></code> or <code class="docutils literal notranslate"><span class="pre">acknowledgments</span></code> sections. Anywhere. If you are unsure how to cite it, ask for help.</p>
+<section id="why-should-i-cite-software">
+<h2>Why should I cite software?<a class="headerlink" href="#why-should-i-cite-software" title="Permalink to this heading">#</a></h2>
+<p>All research today uses software (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015arXiv150703989M/abstract">Momcheva &amp; Tollerud, 2015</a>). These uses include reducing and analyzing data, creating visualizations and plots, and simulating physical processes, among many others. As such, software is an integral part of doing science. There are (at least) three main reasons why you should cite software in your papers: credit, reproducibility, and visibility.</p>
+<ol class="arabic simple">
+<li><p>Writing software, much like building instruments, requires significant effort. Citing software gives credit to its authors, especially those in academia. It allows them to keep track of the impact of their work in the same way we measure the impact of scientific publications by their number of citations. For projects which have used grant funding to produce software, citations can be reported to funding agencies and used to justify continued funding.</p></li>
+<li><p>Citations help with research reproducibility and allow others to understand how a given task was carried out.</p></li>
+<li><p>Citations to software allow other researchers to discover that software. They can then use it for other purposes, advancing their own research field.</p></li>
+</ol>
+</section>
+<section id="what-software-should-i-cite">
+<h2>What software should I cite?<a class="headerlink" href="#what-software-should-i-cite" title="Permalink to this heading">#</a></h2>
+<p>According to the FORCE11 recommendations (Smith et al., 2016): <em>“software should be cited on the same basis as any other research product such as a paper or book; that is, authors should cite the appropriate set of software products just as they cite the appropriate set of papers.”</em> If a claim relies on the analysis done with particular software, you should cite it.</p>
+</section>
+<section id="where-in-my-paper-should-i-place-the-software-citations">
+<h2>Where in my paper should I place the software citations?<a class="headerlink" href="#where-in-my-paper-should-i-place-the-software-citations" title="Permalink to this heading">#</a></h2>
+<p><strong>Example 1:</strong> Include citations to software in the body of the paper, in the same way, you would cite a relevant article. For example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">my_code</span> <span class="pre">library</span> <span class="pre">(Doe</span> <span class="pre">et</span> <span class="pre">al.,</span> <span class="pre">2021)</span> <span class="pre">was</span> <span class="pre">used</span> <span class="pre">to</span> <span class="pre">derive</span> <span class="pre">stellar</span> <span class="pre">masses</span> <span class="pre">and</span> <span class="pre">redshifts</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">sources.</span></code></p>
+<p>For more examples, see the <a class="reference external" href="https://www.astrobetter.com/blog/2019/07/01/citing-astronomy-software-inline-text-examples/">AstroBetter post of citing astronomical software</a>.</p>
+<p><strong>Example 2:</strong> The AAS Journals (ApJ, ApJL, ApJS, and AJ) allow for a separate section dedicated to software. This section appears before the acknowledgments and is marked by a <code class="docutils literal notranslate"><span class="pre">\software</span></code> tag. The AAS journal template includes this tag. It is a good place to include citations to libraries and open source software projects that were necessary dependencies but did not get shout-outs in the text of the paper. Here is an example of what this section looks like from <a class="reference external" href="https://arxiv.org/pdf/2207.12474.pdf">Finkelstein et al. (2022)</a>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>_Software_: Astropy (Astropy Collaboration et al.
+2013), Bagpipes (Carnall et al. 2018), Cigale (Burgarella et al. 2005; Noll et al. 2009; Boquien et al.
+2019), Dense Basis (Iyer &amp; Gawiser 2017; Iyer et al.
+2019), Drizzle (Fruchter &amp; Hook 2002), eazy (Brammer et al. 2008), GalfitM (Peng et al. 2010; Haußler
+et al. 2013), Photutils (Bradley et al. 2020), Prospector (Johnson et al. 2021), SciPy (Virtanen et al. 2020),
+Source Extractor (Bertin &amp; Arnouts 1996), Statmorph (Rodriguez-Gomez et al. 2019), STScI JWST
+Calibration Pipeline (jwst-pipeline.readthedocs.io)
+</pre></div>
+</div>
+<p>The <a class="reference external" href="https://github.com/astrofrog/acknowledgment-generator">(Astronomy) Acknowledgement Generator</a> can get you started on creating the <code class="docutils literal notranslate"><span class="pre">\software</span></code> section.</p>
+<p><strong>Example 3:</strong> For journals that do not have a <code class="docutils literal notranslate"><span class="pre">\software</span></code> section, the current recommendation is to include software in the acknowledgments. For example, see the MNRAS submission of <a class="reference external" href="https://arxiv.org/pdf/2207.14733.pdf">Baffuret et al.</a> (2022):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Facilities: JWST, HST
+Software: matplotlib (Hunter 2007), numpy (Oliphant 2015),
+scipy (Virtanen et al. 2020), jupyter (Kluyver et al. 2016),
+Astropy (Astropy Collaboration et al. 2013, 2018), grizli (Brammer 2018),
+SExtractor (Bertin &amp; Arnouts 1996), bagpipes (Carnall et al. 2018).
+</pre></div>
+</div>
+</section>
+<section id="how-should-i-format-my-software-citations">
+<h2>How should I format my software citations?<a class="headerlink" href="#how-should-i-format-my-software-citations" title="Permalink to this heading">#</a></h2>
+<p>The best way to cite software is to include a bibliography entry to it. Only those entries in the bibliography are tracked by services that count citations! Footnotes and URLs included in the text of the paper without a reference in the bibliography do not give proper credit to the authors.</p>
+<p>Note that not all journals accept <code class="docutils literal notranslate"><span class="pre">&#64;software</span></code> BibTeX entries. If you encounter issues (e.g., MNRAS), you can replace these with <code class="docutils literal notranslate"><span class="pre">&#64;misc</span></code> entries.</p>
+<p>When trying to find how to cite software, we suggest you follow these steps:</p>
+<section id="best-use-the-information-provided-by-the-authors">
+<h3>Best: Use the information provided by the authors<a class="headerlink" href="#best-use-the-information-provided-by-the-authors" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>If the software authors have a recommended way of getting cited, please use that. Examples: <a class="reference external" href="https://www.astropy.org/acknowledging.html"><code class="docutils literal notranslate"><span class="pre">astropy</span></code></a>, <a class="reference external" href="https://docs.exoplanet.codes/en/latest/tutorials/citation/"><code class="docutils literal notranslate"><span class="pre">exoplanet</span></code></a> and <a class="reference external" href="https://lmfit.github.io/lmfit-py/faq.html#how-should-i-cite-lmfit">LMFIT</a>. If a paper is associated with the software, do include that reference in your bibliography just as you would with any other reference.</p></li>
+<li><p>If the software is on GitHub and it has a <code class="docutils literal notranslate"><span class="pre">CITATION.cff</span></code> file, use the handy option provided by GitHub to download a BIBTeX citation and include that in your bibliography. See, for example, the <a class="reference external" href="https://github.com/gbrammer/eazy-py"><code class="docutils literal notranslate"><span class="pre">eazy-py</span></code></a> repository.</p></li>
+<li><p>If the software has a digital object identifier (DOI) mentioned anywhere on its repository or documentation page, you can usually follow the link or <a class="reference external" href="https://dx.doi.org/">resolve the DOI</a>. Most hosting platforms provide a way to download a BibTeX reference. Examples:</p>
+<ul class="simple">
+<li><p>The LMFIT GitHub <a class="reference external" href="https://github.com/lmfit/lmfit-py/tree/1.0.3">reposotory</a> includes the Zenodo DOI <a class="reference external" href="https://zenodo.org/record/11813#.YqKAgxNBxBw">link</a> which has the <a class="reference external" href="https://zenodo.org/record/5570790/export/hx#.YqKArBNBxBw">BiBTeX reference</a>.</p></li>
+<li><p>The Virgo <a class="reference external" href="https://github.com/0xCoto/Virgo">repository</a> has a JOSS DOI <a class="reference external" href="https://joss.theoj.org/papers/10.21105/joss.03067">link</a> with an easy-to-copy citation in the left-hand bar (as well as a <a class="reference external" href="https://github.com/0xCoto/Virgo/blob/master/CITATION.bib">CITATION.bib file</a>)</p></li>
+</ul>
+</li>
+<li><p>If none of these are available, but there is a paper describing the algorithm and the standard reference, cite that one. Example: <a class="reference external" href="http://www.astro.yale.edu/dokkum/lacosmic/">LA Cosmic</a> is described in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2001PASP..113.1420V/abstract">van Dokkum (2001)</a></p></li>
+</ol>
+<p>If more than one of these options exists, i.e., a <code class="docutils literal notranslate"><span class="pre">CITATION.cff</span></code> file in the repository AND a software paper, do cite both. Including a reference in your article is cheap, but giving proper credit to your colleagues is priceless.</p>
+</section>
+<section id="good-search-for-other-breadcrumbs">
+<h3>Good: Search for other breadcrumbs<a class="headerlink" href="#good-search-for-other-breadcrumbs" title="Permalink to this heading">#</a></h3>
+<p>There are cases where the authors do not provide explicit directions on how to cite their software. These codes still deserve credits if they have contributed significantly to the results of your paper. Look for some external possibilities on a best effort basis:</p>
+<ol class="arabic simple">
+<li><p>Search <a class="reference external" href="https://ui.adsabs.harvard.edu/">ADS</a> for papers by the software authors that describe the code. ADS now indexes papers by the <a class="reference external" href="https://joss.theoj.org/">Journal of Open Source Software</a>.</p></li>
+<li><p>Search the <a class="reference external" href="https://ascl.net/">Astrophysics Source Code Library</a> (ASCL). ASCL generates a unique identifier in ADS which can then be cited. For example, the <a class="reference external" href="https://ascl.net/1505.015">2dfdr</a> code mentioned in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005PASA...22..236M/abstract">Martin et al. (2005)</a> can be cited as <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015ascl.soft05015A/abstract">2015ascl.soft05015A</a>. Use the ASCL entry only if the authors have not provided direct instructions. Many ASCL entries are auto-generated and divergent from the authors’ instructions. For example the <a class="reference external" href="https://github.com/gbrammer/grizli"><code class="docutils literal notranslate"><span class="pre">grizli</span></code></a> library has a Zenodo DOI, which is not listed on the auto-generated <a class="reference external" href="https://ascl.net/1905.001">ASCL page</a>.</p></li>
+</ol>
+</section>
+<section id="better-than-nothing-include-a-link-to-the-software-in-a-footnote">
+<h3>Better than nothing: Include a link to the software in a footnote<a class="headerlink" href="#better-than-nothing-include-a-link-to-the-software-in-a-footnote" title="Permalink to this heading">#</a></h3>
+<p>If you have exhausted all other avenues, including a link to the software in a footnote is better than not citing it at all. Here are examples from an AstroBetter blog post: <a class="reference external" href="https://www.astrobetter.com/blog/2019/07/01/citing-astronomy-software-inline-text-examples/">https://www.astrobetter.com/blog/2019/07/01/citing-astronomy-software-inline-text-examples/</a></p>
+<p>We hope these recommendations are helpful. If in doubt, get in touch with the Data Science Group.</p>
+</section>
+</section>
+<section id="additional-resources">
+<h2>Additional resources<a class="headerlink" href="#additional-resources" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.astrobetter.com/blog/2019/07/01/citing-astronomy-software-inline-text-examples/">AstroBetter post on citing astronomical software</a></p></li>
+<li><p>Smith AM, Katz DS, Niemeyer KE, FORCE11 Software Citation Working Group.
+(2016) Software Citation Principles. PeerJ Computer Science 2:e86.
+DOI: <a class="reference external" href="https://doi.org/10.7717/peerj-cs.86">10.7717/peerj-cs.86</a></p></li>
+<li><p>Katz D. S. et al., “Software Citation Implementation Challenges”, <a class="reference external" href="https://arxiv.org/abs/1905.08674">arXiv:1905.08674</a></p></li>
+<li><p>Crouch, Stephen et al., “The Software Sustainability Institute: Changing Research Software Attitudes and Practices,” DOI: <a class="reference external" href="http://dx.doi.org/10.1109/MCSE.2013.133">10.1109/MCSE.2013.133</a></p></li>
+<li><p>AAS journals <a class="reference external" href="https://journals.aas.org/references/#software">software citation instructions</a></p></li>
+<li><p><a class="reference external" href="https://github.com/astrofrog/acknowledgment-generator">(Astronomy) Acknowledgement Generator</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/publishing"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">MPI-astronomy FAQ</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="how-to-publish-software.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">How do I publish my software?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-i-cite-software">Why should I cite software?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-software-should-i-cite">What software should I cite?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-in-my-paper-should-i-place-the-software-citations">Where in my paper should I place the software citations?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-should-i-format-my-software-citations">How should I format my software citations?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-use-the-information-provided-by-the-authors">Best: Use the information provided by the authors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#good-search-for-other-breadcrumbs">Good: Search for other breadcrumbs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#better-than-nothing-include-a-link-to-the-software-in-a-footnote">Better than nothing: Include a link to the software in a footnote</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional resources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Iva Momcheva & Morgan Fouesneau
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

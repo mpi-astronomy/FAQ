@@ -1,0 +1,621 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>How do I publish my software? &#8212; MPI-astronomy-FAQ</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/publishing/how-to-publish-software';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="how-to-color-plots.html" />
+    <link rel="prev" title="How do I cite software in my papers?" href="how-to-cite.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    MPI-astronomy FAQ
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Publishing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="how-to-cite.html">How do I cite software in my papers?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">How do I publish my software?</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/mpi-astronomy/FAQ" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/mpi-astronomy/FAQ/issues/new?title=Issue%20on%20page%20%2Fchapters/publishing/how-to-publish-software.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/publishing/how-to-publish-software.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How do I publish my software?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-open-source-software-in-astronomy">What is <strong>open-source</strong> software (in astronomy)?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-i-publish-my-codes">Why should I publish my codes?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-publish">Where to publish?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-actions-for-software-publication">What are the actions for software publication?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-strict-minimum-usability">The strict minimum: usability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-good-state-popularity">The good state: popularity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-stage-evolutivity">Advanced stage: evolutivity</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="how-do-i-publish-my-software">
+<h1>How do I publish my software?<a class="headerlink" href="#how-do-i-publish-my-software" title="Permalink to this heading">#</a></h1>
+<p>This article briefly introduces what’s essential when publishing software, and hopefully, it will demystify perfectionism requirements for open source publication.</p>
+<blockquote>
+<div><p>There is always more effort to convert an existing project than to start a new one with good practice in mind.</p>
+</div></blockquote>
+<section id="what-is-open-source-software-in-astronomy">
+<h2>What is <strong>open-source</strong> software (in astronomy)?<a class="headerlink" href="#what-is-open-source-software-in-astronomy" title="Permalink to this heading">#</a></h2>
+<p>An open-source code corresponds to a source code made freely available for possible modification and redistribution. It includes (limited) permissions to (re-)use the product’s source code, design documents, or content.</p>
+<p><em>It is somewhat similar to an ArXiv publication using tex source files.</em></p>
+<blockquote>
+<div><p><strong>Open source model</strong>: A copyright holder grants users the rights to use, study, change, and distribute the software to anyone and for any purpose.</p>
+</div></blockquote>
+</section>
+<section id="why-should-i-publish-my-codes">
+<h2>Why should I publish my codes?<a class="headerlink" href="#why-should-i-publish-my-codes" title="Permalink to this heading">#</a></h2>
+<p>Whether to reduce, analyze, visualize data or simulate physical processes, all piece of research today employs software (e.g., survey from Momcheva &amp; Tollerud, 2015).</p>
+<p>There are at least <strong>three reasons</strong> one should open source their software: <strong>credit, reproducibility, and visibility.</strong></p>
+<ul class="simple">
+<li><p><strong>Credit</strong>: writing software requires effort from one or many. Recognizing contributions is essential. Authorship allows us to keep track of an individual’s impact in the same way we measure the impact of scientific publications.</p></li>
+<li><p><strong>Reproducibility</strong>: an open-source code allows others to understand how you obtained a scientific result. Similar to listing assumptions or equations in a paper, a code contains your complete framework.</p></li>
+<li><p><strong>Visibility/Impact</strong>: public software is more prevalent in general because it lowers the barrier to using it (e.g., you do not have to contact a person to run). More visibility means more impact, which increases the number of users. If your code is also open-source, it may be further “improved” by others advancing their research.</p></li>
+</ul>
+<blockquote>
+<div><p>see also our <em>how-to-cite-software</em> post.</p>
+</div></blockquote>
+<section id="where-to-publish">
+<h3>Where to publish?<a class="headerlink" href="#where-to-publish" title="Permalink to this heading">#</a></h3>
+<p>In terms of where to publish your code, the primary goal is to share your source. You can easily publish your source code on platforms such as <a class="reference external" href="https://gitlab.com/">GitLab</a>, <a class="reference external" href="https://github.com/">GitHub</a>, <a class="reference external" href="https://framagit.org/">framagit</a>, and <a class="reference external" href="https://bitbucket.org/">Bitbucket</a>. You can refer to this <a class="reference external" href="https://stackshare.io/stackups/bitbucket-vs-github-vs-gitlab">stackshare article</a> comparing some of these platforms. Other platforms also exist but note that their varied popularity may be important to consider.</p>
+<p>Do not forget to provide information on how to cite your code with your source. A good practice introduced by GitHub is to define a <a class="reference external" href="https://citation-file-format.github.io/"><code class="docutils literal notranslate"><span class="pre">CITATION.cff</span></code></a>.</p>
+<blockquote>
+<div><p>see also our <em>how-to-cite-software</em> post.</p>
+</div></blockquote>
+<p>In addition, you can assign a Digital Object Identifier (DOI) to your codes to make them citable and trackable, and Zenodo is the reference in this domain. Depending on the content of your repository, this may be the best way to provide a version reference.</p>
+<p>Finally, you can have an article dedicated to your code. The standard journals in astronomy (e.g., ApJ, MNRAS, A&amp;A) now accept software papers. But outside these journals and computer science journals, the <a class="reference external" href="https://joss.theoj.org/">Journal of Open Source Software (JOSS)</a> is is an academic journal with a formal peer review process dedicated to the publication of research software packages. Their publication procedure is entirely through GitHub, and the refereeing process is available publicly with the article. Maybe as important, the paper’s length can be very minimal. JOSS offers a very low-effort way to have refereed publications for your codes.</p>
+</section>
+</section>
+<section id="what-are-the-actions-for-software-publication">
+<h2>What are the actions for software publication?<a class="headerlink" href="#what-are-the-actions-for-software-publication" title="Permalink to this heading">#</a></h2>
+<p>Again, let’s emphasize that we are not writing for software developers in high-tech companies. These may have rigorous requirements.</p>
+<p>In academic research, there are [in my opinion] three levels of publishability: strict minimum, good, and advanced states. Which stage to reach depends on your final goals and desired impact of the code.</p>
+<section id="the-strict-minimum-usability">
+<h3>The strict minimum: usability<a class="headerlink" href="#the-strict-minimum-usability" title="Permalink to this heading">#</a></h3>
+<blockquote>
+<div><p>Your code is <strong>usable</strong> by others. <em>Technical discussions may be challenging, and comments from users may not be constructive</em></p>
+</div></blockquote>
+<p>Your code runs end-to-end correctly, and you want to publish for others to use (or to reproduce your results).
+In practice, this state a way to archive legacy codes.</p>
+<p>You need to make sure that</p>
+<ol class="arabic simple">
+<li><p>All contributors agree to publish the code and that your collaboration or institute does not restrict you with specific policies (e.g., licensing).</p></li>
+<li><p>You have a license (a LICENSE file). Various ones exist with different protections for the source/binary code and restriction levels (e.g., some impose that all dependencies have the same license). You can find comparative websites such as <a class="reference external" href="https://choosealicense.com/licenses/">ChooseALicense.com</a>.</p></li>
+<li><p>You provide the necessary data to test your code with their expected outputs. Such input reference dataset is also essential to prevent breaking the code if any update happens. It is better if you also provide notes to run the code with this dataset (e.g., an example notebook)</p></li>
+<li><p>You provide bare minimum documentation: in a README file. Your code needs a name, and it has a purpose to fulfill. The README could contain some usage examples and the necessary dependencies (e.g., python libraries)</p></li>
+</ol>
+<blockquote>
+<div><p>see also <a class="reference external" href="https://www.astrobetter.com/blog/2014/03/10/the-whys-and-hows-of-licensing-scientific-code/">The Whys and Hows of Licensing Scientific Code</a></p>
+</div></blockquote>
+</section>
+<section id="the-good-state-popularity">
+<h3>The good state: popularity<a class="headerlink" href="#the-good-state-popularity" title="Permalink to this heading">#</a></h3>
+<blockquote>
+<div><p>your code is <strong>usable</strong> by others, and <strong>welcomes new contributors</strong>. <em>A solid code that is open to technical discussions</em></p>
+</div></blockquote>
+<p>Going from the bare minimum to a good state is where the heavy work happens. But the actual priority of updates depends on the publication goals. A “good” code aims to increase popularity by making it easier to use. The code is “clean,” documented, and structured.</p>
+<p>Before any change, you need to protect your code from introducing bugs. Mistakes are always easy to make. A good practice is to use a version control system to find and potentially revert changes (e.g., <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">file.py</span></code>). The best practice is to have <strong>unit tests</strong>.</p>
+<p>Unit testing aims to isolate <strong>each</strong> part of the program and indicate that the individual components are correct. The code overall must give the right outputs (bare minimum state), but unit testing ensures each elementary brick of your code produces the proper outcomes.</p>
+<blockquote>
+<div><p>See <code class="docutils literal notranslate"><span class="pre">what-is-good-unittest</span></code></p>
+</div></blockquote>
+<p>Once your code is “protected,” you can start changing its source.</p>
+<p>Like any scientific article, you need to do some “spring cleaning”: remove unnecessary pieces, uniformize style/layout and clarify (add documentation)</p>
+<ol class="arabic simple" start="5">
+<li><p>Remove deprecated functions and libraries.</p></li>
+<li><p>Adopt recommended language practice (e.g., <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> for python). Sometimes you may have the choice (similar to the flavor of English for papers), but you must pick a style and stick to it. The best practice recommends using formatting tools such as (e.g., <a class="reference external" href="https://github.com/peter-evans/autopep8">autopep8</a> or <a class="reference external" href="https://github.com/psf/black">Black</a> for python.</p></li>
+<li><p>Document the source enough for others to follow (stick to a uniform style). One should primarily focus on the API doc strings. Various documentation styles exist, primarily <code class="docutils literal notranslate"><span class="pre">Javadoc</span></code>, <code class="docutils literal notranslate"><span class="pre">sphynx</span></code>, <code class="docutils literal notranslate"><span class="pre">Doxygen</span></code>; some languages have their recommendations. Best practice recommends at least 90% documentation coverage.</p></li>
+<li><p>Avoid/comment/revise uninformative output messages during a code run.</p></li>
+<li><p>Remove unused parts/variables of the code.</p></li>
+</ol>
+<blockquote>
+<div><p>“Spring cleaning” consists of time-consuming steps, each easily prone to breaking codes.</p>
+</div></blockquote>
+<p>Like an article’s section flow, the code’s structure is also essential. You need to decide if your code aims at providing a “script” (project template) or a library/package to be integrated into other projects. Some refactoring may happen to make the source more accessible (see the <code class="docutils literal notranslate"><span class="pre">mpia-python-template</span></code>):</p>
+<ol class="arabic simple" start="10">
+<li><p>Arrange directory structure</p></li>
+<li><p>Substitute hard-coded values for variables with default values (e.g., keywords in python, C++)</p></li>
+<li><p>Adopt coding best practices. Primarily replace repeated pieces of code with calls to a single function and remove unnecessary convoluted parts (e.g., convert_to_bool(str) should use a cast declaration such as bool(str) or cast<bool>(str))</p></li>
+</ol>
+<p>My tip if you have an existing code that needs to upgrade from a “bare minimum” to a “good” state: start from scratch! Such an approach forces you to look at every piece of code and identify which elements are key to being part of unit tests. It also makes adopting new directory structures easier.</p>
+</section>
+<section id="advanced-stage-evolutivity">
+<h3>Advanced stage: evolutivity<a class="headerlink" href="#advanced-stage-evolutivity" title="Permalink to this heading">#</a></h3>
+<blockquote>
+<div><p>Your code is <strong>usable</strong> by others and <strong>welcomes new contributors</strong>. The software can now get <strong>“deep &amp; fancy” development/updates</strong>.</p>
+</div></blockquote>
+<p>This stage is not commonly the first publication of a given code. It represents a stage in which a code can evolve in potentially many aspects.</p>
+<p>You may want to target</p>
+<ul class="simple">
+<li><p>the performance of your code, which requires profiling and optimization,</p></li>
+<li><p>the increase of the user community by polishing the documentation and tutorials,</p></li>
+<li><p>an improvement of internal algorithms, which requires the code to be modular and flexible,</p></li>
+<li><p>the reusability of your code, which needs a rigorous  API and packaging,</p></li>
+<li><p>the building of community development, which needs continuous integration tools and configurations.</p></li>
+</ul>
+<p>All these targets could be equally attractive, but it is essential to remark these are independent of one another.
+Multiple aspects of your code can improve in parallel. You will need to merge efforts eventually.</p>
+<p>In this context, version control is your friend: you can create branches for the aspects you want to tackle. (note the incentive from GitHub that makes websites from specific branches – documentation!)</p>
+<p>In addition, continuous integration is also your friend: make sure every change fits the overall project (source automated formatting, checking documentation coverage, and running unit tests can all be part of the integration!)</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/publishing"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="how-to-cite.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">How do I cite software in my papers?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="how-to-color-plots.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-open-source-software-in-astronomy">What is <strong>open-source</strong> software (in astronomy)?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-should-i-publish-my-codes">Why should I publish my codes?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-publish">Where to publish?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-actions-for-software-publication">What are the actions for software publication?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-strict-minimum-usability">The strict minimum: usability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-good-state-popularity">The good state: popularity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-stage-evolutivity">Advanced stage: evolutivity</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Iva Momcheva & Morgan Fouesneau
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
