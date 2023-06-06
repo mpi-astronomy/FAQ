@@ -13,7 +13,7 @@ parts:
 
   - caption: Python
     chapters:
-    - file: chapters/python/virtualvenv
+    - file: chapters/python/virtualenv
 
 
   - caption: Typical Problems
