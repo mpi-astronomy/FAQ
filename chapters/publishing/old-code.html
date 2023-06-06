@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Python Virtual environment &#8212; MPI-astronomy-FAQ</title>
+    <title>What to do with “legacy” code? &#8212; MPI-astronomy-FAQ</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/python/virtualenv';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/publishing/old-code';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Some Fun with Numba" href="NumbaFun.html" />
-    <link rel="prev" title="What to do with “legacy” code?" href="../publishing/old-code.html" />
+    <link rel="next" title="Python Virtual environment" href="../python/virtualenv.html" />
+    <link rel="prev" title="How to color plots" href="how-to-color-plots.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,16 +157,16 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Publishing</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../publishing/how-to-cite.html">How do I cite software in my papers?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../publishing/how-to-publish-software.html">How do I publish my software?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../publishing/how-to-color-plots.html">How to color plots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../publishing/old-code.html">What to do with “legacy” code?</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="how-to-cite.html">How do I cite software in my papers?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-publish-software.html">How do I publish my software?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-color-plots.html">How to color plots</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">What to do with “legacy” code?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python Virtual environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NumbaFun.html">Some Fun with Numba</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/virtualenv.html">Python Virtual environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/NumbaFun.html">Some Fun with Numba</a></li>
 </ul>
 
     </div>
@@ -238,7 +238,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/mpi-astronomy/FAQ/issues/new?title=Issue%20on%20page%20%2Fchapters/python/virtualenv.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/mpi-astronomy/FAQ/issues/new?title=Issue%20on%20page%20%2Fchapters/publishing/old-code.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -268,7 +268,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/chapters/python/virtualenv.md" target="_blank"
+      <li><a href="../../_sources/chapters/publishing/old-code.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -350,7 +350,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Python Virtual environment</h1>
+    <h1>What to do with “legacy” code?</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -360,8 +360,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-venv-built-in-utility">Using the <code class="docutils literal notranslate"><span class="pre">venv</span></code> built-in utility</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mini-conda">Using (mini)conda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clarify-your-intentions">Clarify Your Intentions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-the-current-state">Save the Current State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#now-what">Now What?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-one-if-you-need-to-change-the-code">Level One: If You Need to Change the Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-two-if-you-need-to-extend-the-code">Level Two: If You Need to Extend the Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-three-if-you-need-to-make-the-code-available">Level Three: If You Need to Make the Code Available</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-four-if-you-need-to-translate-the-code">Level Four: If You Need to “Translate” the Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-your-code">Publish your code.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources:</a></li>
 </ul>
             </nav>
         </div>
@@ -373,73 +382,85 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="python-virtual-environment">
-<h1>Python Virtual environment<a class="headerlink" href="#python-virtual-environment" title="Permalink to this heading">#</a></h1>
-<p>Python provides mechanisms to create isolated conditions to safely run, test, and develop codes without bad interactions with your main system or other projects.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>As <a class="reference external" href="https://github.com/jupyter/jupyter-book">jupyter-book</a> is the format of this repository, you will find throughout these pages Python codes and notebooks that you can run with <a class="reference external" href="https://mybinder.org/">Binder</a> by clicking on the top right icon.</p>
-</div>
-<p>Python applications often use packages and modules that don’t come as part of the standard library. Applications sometimes need a specific library version because the application may require particular bug fixes or an older version of APIs.</p>
-<p>It may not be possible to meet the requirements of every application, especially if the conditions are in conflict, and installing either version 1.0 or 2.0 will leave one application unable to run.
-The solution to this problem is to create a virtual environment. This self-contained directory tree contains a Python installation, plus several additional packages, for a particular version of Python.</p>
-<div class="tip admonition">
-<p class="admonition-title">Python good practice: virtual environment per project</p>
-<p>Use a virtual environment for each project you wish to work on. It will prevent interfering between projects’ libraries and make package managements more transparent.</p>
-</div>
-<div class="tip admonition">
-<p class="admonition-title"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-virtual-environment">Virtual environment</a></p>
-<p>A cooperatively isolated runtime environment that allows Python users and applications to install and upgrade Python distribution packages without interfering with the behaviour of other Python applications running on the same system.</p>
-</div>
-<section id="using-the-venv-built-in-utility">
-<h2>Using the <code class="docutils literal notranslate"><span class="pre">venv</span></code> built-in utility<a class="headerlink" href="#using-the-venv-built-in-utility" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://docs.python.org/3/tutorial/venv.html"><code class="docutils literal notranslate"><span class="pre">venv</span></code></a> is the module used to create and manage virtual environments since Python 3.6.</p>
-<p>To create a virtual environment, decide upon a directory where you want to place it, and run the <code class="docutils literal notranslate"><span class="pre">venv</span></code> module as a script with the directory path</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>&lt;dirname&gt;<span class="w"> </span>--prompt<span class="w"> </span>&lt;projectname&gt;<span class="w"> </span>--symlink<span class="w"> </span>&lt;venv<span class="w"> </span>directory<span class="w"> </span>name&gt;
-<span class="nb">source</span><span class="w"> </span>&lt;dirname&gt;/bin/activate
-pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
-<span class="c1"># example of packages to install</span>
-pip<span class="w"> </span>install<span class="w"> </span>matplotlib<span class="w"> </span>numpy
-<span class="c1"># better: make a list of packages</span>
-pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>requirements.txt
-</pre></div>
-</div>
-<p>This snippet above creates a local directory <code class="docutils literal notranslate"><span class="pre">&lt;dirname&gt;</span></code> (if not existing), which contains all the information of your virtual environment.
-The <code class="docutils literal notranslate"><span class="pre">--symlink</span></code> option allows you to avoid duplicating libraries from the main system (overwritten if you require specific versions.)</p>
-<p>All you need later on is to activate the virtual environment when needed:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>&lt;dirname&gt;/bin/active
-</pre></div>
-</div>
-<p>To deactivate a virtual environment, type:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>deactivate
-</pre></div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="what-to-do-with-legacy-code">
+<h1>What to do with “legacy” code?<a class="headerlink" href="#what-to-do-with-legacy-code" title="Permalink to this heading">#</a></h1>
+<p>The goal of this article is to get you started on working with your own or someone else’s “legacy” code. Legacy is not necessarily old code. Legacy is code that is lacking one or more of the following: documentation, tests and/or installation instructions.</p>
+<p>[tl;dr]</p>
+<p>So it has happened again: you are staring at some old code and you need to get it working. Maybe the code is your own or maybe it came from a collaborator.
+You know the language it is written in or you may not. You may be able to just run it as it is or you may want to re-write major parts of it, sometimes even “translate” it into another language. How do you go about this without losing your mind?</p>
+<section id="clarify-your-intentions">
+<h2>Clarify Your Intentions<a class="headerlink" href="#clarify-your-intentions" title="Permalink to this heading">#</a></h2>
+<p>Beware of scope creep. When working with legacy code, it is very easy for work to expand past the original intentions. What are you trying to get out of this? Once you are clear on the goals, identify the specific actions that are necessary to meet the goals. Here are some possible goals and actions:</p>
+<ul class="simple">
+<li><p>Replicating result: install and run current state of code.</p></li>
+<li><p>Repurpose parts for a new project: identify necessary parts, document code, and extract functionality to a new module.</p></li>
+<li><p>Running code on new data: this can have a wide range of scope, see below.</p></li>
+<li><p>Expand/upgrade code</p></li>
+<li><p>Make code available for collaboration</p></li>
+</ul>
 </section>
-<section id="using-mini-conda">
-<h2>Using (mini)conda<a class="headerlink" href="#using-mini-conda" title="Permalink to this heading">#</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>I personally recommend using <code class="docutils literal notranslate"><span class="pre">venv</span></code> instead of <code class="docutils literal notranslate"><span class="pre">conda</span></code>. The latter is a big machinery if all you need is <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>.</p>
-</div>
-<p>Similar to `venv`` in functions and syntax, you can use <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">(mini)conda</a> to create a virtual environment.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>&lt;projectname&gt;
-conda<span class="w"> </span>activate<span class="w"> </span>&lt;projectname&gt;
-pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
-<span class="c1"># example of packages to install</span>
-pip<span class="w"> </span>install<span class="w"> </span>matplotlib<span class="w"> </span>numpy
-<span class="c1"># better: make a list of packages</span>
-pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>requirements.txt
-</pre></div>
-</div>
-<p>The files from the virtual environment configuration and files are in your home directory. <em>(This could sometimes be an issue on some systems, but there are workarounds)</em></p>
-<p>All you need later on is to activate the virtual environment when required:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>&lt;projectname&gt;
-</pre></div>
-</div>
-<p>To deactivate a virtual environment, type:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>deactivate
-</pre></div>
-</div>
+<section id="save-the-current-state">
+<h2>Save the Current State<a class="headerlink" href="#save-the-current-state" title="Permalink to this heading">#</a></h2>
+<p>Before you touch anything, before you even change a single value, archive the current state of the code. Ideally, an archive will not live on your hard drive.
+The easiest way is to create a zip file and upload it to Google Drive, Dropbox or any other document-sharing service your institution has. Alternatively/additionally,
+upload the code to a private repository on GitLab, BitBucket or GitHub. If this code is not published, please seek the permission of the original authors
+before you put it in a public repository (see <a class="reference external" href="https://github.com/mpi-astronomy/FAQ/blob/main/publishing/how-to-publish-software.md">How to publish software?</a>).</p>
+<p>At his point, it is also useful to preserve any input/output files if these were not provided by the original author. Can you install and run the code? Do you have the needed inputs? Can you generate some outputs? If you can, document all these steps in a simple readme file. Write down what you had to do to get the code running. Archive any inputs or outputs together with the code. This may already be too much effort. Timebox this work. A day of solid effort trying to do this is good. More than that and you are probably going down a rabbit hole.</p>
+<p>If you are trying to replicate results from existing work, this may be where you stop. This could also be the endpoint if you are trying to run the code on new data. More likely than not, however, you will have to make some changes to the code to accommodate new data (e.g., new file formats, new calibrations, etc.). This leads us to…</p>
+</section>
+<section id="now-what">
+<h2>Now What?<a class="headerlink" href="#now-what" title="Permalink to this heading">#</a></h2>
+<section id="level-one-if-you-need-to-change-the-code">
+<h3>Level One: If You Need to Change the Code<a class="headerlink" href="#level-one-if-you-need-to-change-the-code" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>try to understand as much of it as possible, draw a diagram of how it works, and add some doc strings that explain what different functions do</p></li>
+<li><p>maybe write some simple tests that work with the current code so you don’t break the things that already work</p></li>
+<li><p>how big is the scope of change, small? are you sure?</p></li>
+</ul>
+</section>
+<section id="level-two-if-you-need-to-extend-the-code">
+<h3>Level Two: If You Need to Extend the Code<a class="headerlink" href="#level-two-if-you-need-to-extend-the-code" title="Permalink to this heading">#</a></h3>
+<p>Ok, at this point, you are making major contributions. If is worth rethinking how the whole thing works.</p>
+<ul class="simple">
+<li><p>Structure it properly.</p></li>
+<li><p>Add tests as you go.</p></li>
+<li><p>Add documentation as you go.</p></li>
+</ul>
+</section>
+<section id="level-three-if-you-need-to-make-the-code-available">
+<h3>Level Three: If You Need to Make the Code Available<a class="headerlink" href="#level-three-if-you-need-to-make-the-code-available" title="Permalink to this heading">#</a></h3>
+<p>Hopefully, you followed the instructions above, if not, go back to the previous.</p>
+</section>
+<section id="level-four-if-you-need-to-translate-the-code">
+<h3>Level Four: If You Need to “Translate” the Code<a class="headerlink" href="#level-four-if-you-need-to-translate-the-code" title="Permalink to this heading">#</a></h3>
+<p>So you have code that is written in language that can no longer be compiled or was gone out of style in your files (e.g., IRAG, IDL). It happens to the best of us.</p>
+<p>DO NOT go line by line and transpose the code. Never. Ever.</p>
+<ul class="simple">
+<li><p>Identify the functionality you need. Rethink the structure, what was best for the previous language would not be best for this. For example, if you are translating from a functional/procedural to object-oriented language. It is likely that you only need 10-20% of the code base but you need to understand the whole code base to find this 10 - 20 %.</p></li>
+<li><p>Many legacy codes will have their implementations of common functions (e.g., a Gaussian). Use common libraries to replace these.</p></li>
+<li><p>Just because the legacy code made some questionable decisions about structure, hard-coding paths and looping over matrixes, it doesn’t mean you should make the same mistakes.</p></li>
+<li><p>Talk to colleagues on how to re-implement complex functionality such as computationally intensive pieces, interactive graphics, etc.</p></li>
+</ul>
+</section>
+</section>
+<section id="publish-your-code">
+<h2>Publish your code.<a class="headerlink" href="#publish-your-code" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/mpi-astronomy/FAQ/blob/main/publishing/how-to-publish-software.md">How to publish software?</a></p>
+</section>
+<section id="resources">
+<h2>Resources:<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://carpentries-incubator.github.io/python-intermediate-development/">Intermediate Research Software Development in Python</a></p></li>
+<li><p><a class="reference external" href="https://carpentries-incubator.github.io/python-packaging-publishing/">Packaging and Publishing with Python</a></p></li>
+<li><p><a class="reference external" href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745">Best Practices for Scientific Computing</a></p></li>
+<li><p><a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">Good Enough Practices in Scientific Computing (PLoS Comp Bio)</a></p></li>
+<li><p><a class="reference external" href="https://carpentries-incubator.github.io/good-enough-practices/index.html">Carpentries: Good Enough Practices in Scientific Computing</a></p></li>
+<li><p><a class="reference external" href="https://carpentries-incubator.github.io/python-testing/">Python Testing and Continuous Integration</a></p></li>
+<li><p>Don’t really want to do this but here for completeness: <a class="github reference external" href="https://github.com/showyourwork/showyourwork">showyourwork/showyourwork</a></p></li>
+<li><p><a class="reference external" href="https://goodresearch.dev/index.html">The Good Research Code Handbook</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=RMt43wyg-zg">PyCon: Working Effectively with Legacy Code</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=LDdUuoI_lIg">PyCon: What is this Mess</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -456,7 +477,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
         },
         kernelOptions: {
             name: "python3",
-            path: "./chapters/python"
+            path: "./chapters/publishing"
         },
         predefinedOutput: true
     }
@@ -475,20 +496,20 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../publishing/old-code.html"
+       href="how-to-color-plots.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">What to do with “legacy” code?</p>
+        <p class="prev-next-title">How to color plots</p>
       </div>
     </a>
     <a class="right-next"
-       href="NumbaFun.html"
+       href="../python/virtualenv.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Some Fun with Numba</p>
+        <p class="prev-next-title">Python Virtual environment</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -510,8 +531,17 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-venv-built-in-utility">Using the <code class="docutils literal notranslate"><span class="pre">venv</span></code> built-in utility</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mini-conda">Using (mini)conda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clarify-your-intentions">Clarify Your Intentions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-the-current-state">Save the Current State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#now-what">Now What?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-one-if-you-need-to-change-the-code">Level One: If You Need to Change the Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-two-if-you-need-to-extend-the-code">Level Two: If You Need to Extend the Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-three-if-you-need-to-make-the-code-available">Level Three: If You Need to Make the Code Available</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-four-if-you-need-to-translate-the-code">Level Four: If You Need to “Translate” the Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-your-code">Publish your code.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources:</a></li>
 </ul>
   </nav></div>
 
