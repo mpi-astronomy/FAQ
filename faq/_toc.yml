@@ -16,6 +16,7 @@ parts:
     chapters:
     - file: chapters/python/virtualenv
     - file: chapters/python/NumbaFun
+    - file: chapters/python/parallel-code-slower
 
 
   - caption: Straightline fitting problem
