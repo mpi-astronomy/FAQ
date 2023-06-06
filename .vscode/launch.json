@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Compile book",
+            "type": "node-terminal",
+            "command": "jupyter-book build astro_ds",
+            "request": "launch",
+        },
+        {
+            "name": "Serve book",
+            "type": "node-terminal",
+            "command": "python -m http.server --directory astro_ds/_build/html/",
+            "request": "launch",
+        }
+    ]
+}

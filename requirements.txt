@@ -1,0 +1,12 @@
+Cython
+dask 
+distributed
+ghp-import
+graphviz
+jupyter-book
+jupytext
+matplotlib
+numpy
+pytest
+snakemake
+numba

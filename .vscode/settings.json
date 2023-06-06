@@ -1,0 +1,10 @@
+{
+    "editor.tabCompletion": "on",
+    "diffEditor.codeLens": true,
+    "grammarly.selectors": [
+        {
+            "language": "markdown",
+            "scheme": "file"
+        }
+    ],
+}
