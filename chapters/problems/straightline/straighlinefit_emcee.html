@@ -424,8 +424,7 @@ document.write(`
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title requirements.txt { display-mode: &quot;form&quot; }</span>
-<span class="o">%%file</span> requirements.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> requirements.txt
 <span class="n">numpy</span>
 <span class="n">scipy</span>
 <span class="n">matplotlib</span>
@@ -436,7 +435,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UsageError: Line magic function `%%file` not found.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting requirements.txt
 </pre></div>
 </div>
 </div>
@@ -552,7 +551,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Populating the interactive namespace from numpy and matplotlib
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>%pylab is deprecated, use %matplotlib inline and import the required libraries.
+Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
 </div>
@@ -610,7 +610,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/32bcbff6de0c1cafbf95c80b1590066240375cfeae257d913992cfd48ff476f2.png" src="../../../_images/32bcbff6de0c1cafbf95c80b1590066240375cfeae257d913992cfd48ff476f2.png" />
+<img alt="../../../_images/f1bc58b1b99a858829d1cde3d9f69e1a63f79bb7ea5100eb466da28d0c4c33e9.png" src="../../../_images/f1bc58b1b99a858829d1cde3d9f69e1a63f79bb7ea5100eb466da28d0c4c33e9.png" />
 </div>
 </div>
 <p>For any event <span class="math notranslate nohighlight">\(x\)</span> from <span class="math notranslate nohighlight">\(\Omega\)</span>
@@ -675,7 +675,7 @@ Once there is a generative model, we have a direct computation of the likelihood
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/12ad6573fc5338f734eb83cbe7df189c03b70da401fc4116098940acfd6af803.png" src="../../../_images/12ad6573fc5338f734eb83cbe7df189c03b70da401fc4116098940acfd6af803.png" />
+<img alt="../../../_images/9f522533670c55e7b03f1e315f6d165367e5921ded8f43a2b15ca0d3a39875e0.png" src="../../../_images/9f522533670c55e7b03f1e315f6d165367e5921ded8f43a2b15ca0d3a39875e0.png" />
 </div>
 </div>
 <p>We see three outliers, but there is an obvious linear relation between the points overall.</p>
@@ -754,7 +754,118 @@ $<span class="math notranslate nohighlight">\(P(\alpha) = Uniform[0, 1000].\)</s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 2300/2300 [00:06&lt;00:00, 367.29it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/2300 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3%|▎         | 65/2300 [00:00&lt;00:03, 649.81it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  6%|▌         | 130/2300 [00:00&lt;00:03, 643.22it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  8%|▊         | 195/2300 [00:00&lt;00:03, 644.15it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 11%|█▏        | 260/2300 [00:00&lt;00:03, 646.36it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 14%|█▍        | 325/2300 [00:00&lt;00:03, 644.54it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|█▋        | 390/2300 [00:00&lt;00:02, 642.71it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 20%|█▉        | 455/2300 [00:00&lt;00:02, 642.91it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 23%|██▎       | 520/2300 [00:00&lt;00:02, 643.87it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 25%|██▌       | 586/2300 [00:00&lt;00:02, 646.11it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 28%|██▊       | 651/2300 [00:01&lt;00:02, 647.25it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 31%|███       | 716/2300 [00:01&lt;00:02, 642.96it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 34%|███▍      | 781/2300 [00:01&lt;00:02, 640.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 37%|███▋      | 846/2300 [00:01&lt;00:02, 642.47it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|███▉      | 912/2300 [00:01&lt;00:02, 644.92it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 43%|████▎     | 978/2300 [00:01&lt;00:02, 648.38it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 45%|████▌     | 1044/2300 [00:01&lt;00:01, 649.10it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 48%|████▊     | 1109/2300 [00:01&lt;00:01, 648.37it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 51%|█████     | 1174/2300 [00:01&lt;00:01, 648.50it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 54%|█████▍    | 1239/2300 [00:01&lt;00:01, 645.53it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|█████▋    | 1304/2300 [00:02&lt;00:01, 645.83it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60%|█████▉    | 1369/2300 [00:02&lt;00:01, 644.33it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 62%|██████▏   | 1434/2300 [00:02&lt;00:01, 642.97it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 65%|██████▌   | 1499/2300 [00:02&lt;00:01, 640.69it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 68%|██████▊   | 1564/2300 [00:02&lt;00:01, 635.46it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 71%|███████   | 1628/2300 [00:02&lt;00:01, 631.61it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 74%|███████▎  | 1692/2300 [00:02&lt;00:00, 619.10it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 76%|███████▋  | 1756/2300 [00:02&lt;00:00, 622.46it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 79%|███████▉  | 1820/2300 [00:02&lt;00:00, 624.78it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 82%|████████▏ | 1884/2300 [00:02&lt;00:00, 627.83it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 85%|████████▍ | 1947/2300 [00:03&lt;00:00, 626.14it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 87%|████████▋ | 2011/2300 [00:03&lt;00:00, 628.38it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|█████████ | 2074/2300 [00:03&lt;00:00, 627.68it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 93%|█████████▎| 2139/2300 [00:03&lt;00:00, 631.16it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 96%|█████████▌| 2203/2300 [00:03&lt;00:00, 629.71it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 99%|█████████▊| 2266/2300 [00:03&lt;00:00, 621.39it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 2300/2300 [00:03&lt;00:00, 636.65it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -778,7 +889,7 @@ $<span class="math notranslate nohighlight">\(P(\alpha) = Uniform[0, 1000].\)</s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/16aac055db58a9956199a833bbd9aa13ca5e57e11191b8bc1679f8ff32fa3937.png" src="../../../_images/16aac055db58a9956199a833bbd9aa13ca5e57e11191b8bc1679f8ff32fa3937.png" />
+<img alt="../../../_images/446a4a97704e7c54870b31675f54c4fe19aab350215763c92eb1c1c793257689.png" src="../../../_images/446a4a97704e7c54870b31675f54c4fe19aab350215763c92eb1c1c793257689.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -802,10 +913,10 @@ $<span class="math notranslate nohighlight">\(P(\alpha) = Uniform[0, 1000].\)</s
 <div class="cell_output docutils container">
 <p>Without outlier modeling:</p>
 <ul class="simple">
-<li><p>$\alpha$ = 39.8 [38.5, 41]</p></li>
-<li><p>$\beta$ = 0.234 [0.208, 0.263]</p></li>
+<li><p>$\alpha$ = 39.7 [38.5, 40.9]</p></li>
+<li><p>$\beta$ = 0.237 [0.209, 0.264]</p></li>
 </ul>
-<img alt="../../../_images/4bc1c162b55f6128c5ccdbab347940c12c209dddf6a59e6b87e6ac9333b0bc8f.png" src="../../../_images/4bc1c162b55f6128c5ccdbab347940c12c209dddf6a59e6b87e6ac9333b0bc8f.png" />
+<img alt="../../../_images/3301f20fe57839f5bd5fe174d41941ffd092417cedffe7e7d908d76a89251266.png" src="../../../_images/3301f20fe57839f5bd5fe174d41941ffd092417cedffe7e7d908d76a89251266.png" />
 </div>
 </div>
 <p>It’s clear from this plot that the outliers exerts a disproportionate influence on the fit.</p>
@@ -871,7 +982,17 @@ One outlier that is, say <span class="math notranslate nohighlight">\(10-\sigma\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/8987713f218e6fdd4575ea223c57e588d51d2367f4011e574177b31c7cf80e20.png" src="../../../_images/8987713f218e6fdd4575ea223c57e588d51d2367f4011e574177b31c7cf80e20.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">daft</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Instantiate the PGM.</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">pgm</span> <span class="o">=</span> <span class="n">daft</span><span class="o">.</span><span class="n">PGM</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">],</span> <span class="n">grid_unit</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span>                <span class="n">node_unit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label_params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">))</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;daft&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <p>There are multiple ways to define this mixture modeling.</p>

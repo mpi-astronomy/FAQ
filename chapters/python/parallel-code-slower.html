@@ -413,7 +413,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>373 ms ± 1.35 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>452 ms ± 2.32 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -428,58 +428,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>exception calling callback for &lt;Future at 0x7fcaac48f910 state=finished returned list&gt;
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/loky/_base.py&quot;, line 26, in _invoke_callbacks
-    callback(self)
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 385, in __call__
-    self.parallel.dispatch_next()
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 834, in dispatch_next
-    if not self.dispatch_one_batch(self._original_iterator):
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 901, in dispatch_one_batch
-    self._dispatch(tasks)
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 819, in _dispatch
-    job = self._backend.apply_async(batch, callback=cb)
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/_parallel_backends.py&quot;, line 556, in apply_async
-    future = self._workers.submit(SafeFunction(func))
-AttributeError: &#39;NoneType&#39; object has no attribute &#39;submit&#39;
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>exception calling callback for &lt;Future at 0x7fcac4772040 state=finished raised BrokenProcessPool&gt;
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/loky/_base.py&quot;, line 26, in _invoke_callbacks
-    callback(self)
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 385, in __call__
-    self.parallel.dispatch_next()
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 834, in dispatch_next
-    if not self.dispatch_one_batch(self._original_iterator):
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 901, in dispatch_one_batch
-    self._dispatch(tasks)
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 819, in _dispatch
-    job = self._backend.apply_async(batch, callback=cb)
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/_parallel_backends.py&quot;, line 556, in apply_async
-    future = self._workers.submit(SafeFunction(func))
-AttributeError: &#39;NoneType&#39; object has no attribute &#39;submit&#39;
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>exception calling callback for &lt;Future at 0x7fcaac1d9b50 state=finished raised BrokenProcessPool&gt;
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/loky/_base.py&quot;, line 26, in _invoke_callbacks
-    callback(self)
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 385, in __call__
-    self.parallel.dispatch_next()
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 834, in dispatch_next
-    if not self.dispatch_one_batch(self._original_iterator):
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 901, in dispatch_one_batch
-    self._dispatch(tasks)
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/parallel.py&quot;, line 819, in _dispatch
-    job = self._backend.apply_async(batch, callback=cb)
-  File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/_parallel_backends.py&quot;, line 556, in apply_async
-    future = self._workers.submit(SafeFunction(func))
-AttributeError: &#39;NoneType&#39; object has no attribute &#39;submit&#39;
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>exception calling callback for &lt;Future at 0x7fcaad632160 state=finished raised BrokenProcessPool&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>exception calling callback for &lt;Future at 0x7f6ef20a64f0 state=finished returned list&gt;
 Traceback (most recent call last):
   File &quot;/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/joblib/externals/loky/_base.py&quot;, line 26, in _invoke_callbacks
     callback(self)
