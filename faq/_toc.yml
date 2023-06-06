@@ -8,8 +8,8 @@ parts:
   - caption: Publishing
     chapters:
     - file: chapters/publishing/how-to-cite
-
-
+    - file: chapters/publishing/how-to-publish-software
+    - file: chapters/publishing/how-to-color-plots
 
   - caption: Python
     chapters:
