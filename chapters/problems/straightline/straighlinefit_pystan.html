@@ -1,0 +1,1478 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Pystan based solution &#8212; MPI-astronomy-FAQ</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/problems/straightline/straighlinefit_pystan';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="PyMC3 based solution" href="straighlinefit_pymc3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    MPI-astronomy FAQ
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Publishing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../publishing/how-to-cite.html">How do I cite software in my papers?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publishing/how-to-publish-software.html">How do I publish my software?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publishing/how-to-color-plots.html">How to color plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publishing/old-code.html">What to do with “legacy” code?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../python/virtualenv.html">Python Virtual environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/NumbaFun.html">Some Fun with Numba</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Straightline fitting problem</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="straighlinefit_emcee.html">Emcee based solution</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="straighlinefit_jax.html">Numpyro+jax based solution</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="straighlinefit_pymc3.html">PyMC3 based solution</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pystan based solution</a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/mpi-astronomy/FAQ" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/mpi-astronomy/FAQ/issues/new?title=Issue%20on%20page%20%2Fchapters/problems/straightline/straighlinefit_pystan.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/chapters/problems/straightline/straighlinefit_pystan.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pystan based solution</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Pystan based solution</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#m-fouesneau">M. Fouesneau</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preliminary-discussion-around-bayesian-statistics">Preliminary discussion around Bayesian statistics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#straight-line-problem">Straight line problem</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-definition">Problem definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-dataset-straight-line-with-outliers">Generate dataset: Straight line with outliers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blind-fit-no-outlier-model">Blind fit: no outlier model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equations">Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coding">Coding</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixture-model">Mixture Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphical-model">Graphical model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brutal-version-1-parameter-per-datapoint">Brutal version: 1 parameter per datapoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-smarter-version">The smarter version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pystan-based-solution">
+<h1>Pystan based solution<a class="headerlink" href="#pystan-based-solution" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="m-fouesneau">
+<h1>M. Fouesneau<a class="headerlink" href="#m-fouesneau" title="Permalink to this heading">#</a></h1>
+<blockquote>
+<div><p>This Notebook shows how to implement a straight line fitting using MCMC and an outlier mixture model.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title requirements.txt { display-mode: &quot;form&quot; }</span>
+<span class="o">%%file</span> requirements.txt
+<span class="n">numpy</span>
+<span class="n">scipy</span>
+<span class="n">matplotlib</span>
+<span class="n">corner</span>
+<span class="n">daft</span>
+<span class="n">pystan</span><span class="o">==</span><span class="mf">3.3.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+    <span class="n">pystan</span><span class="o">==</span><span class="mf">3.3.0</span>
+               <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Install packages { display-mode: &quot;form&quot; }</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span>--quiet
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title setup notebook { display-mode: &quot;form&quot; }</span>
+<span class="c1"># Loading configuration</span>
+<span class="c1"># Don&#39;t forget that mac has this annoying configuration that leads</span>
+<span class="c1"># to limited number of figures/files</span>
+<span class="c1"># ulimit -n 4096    &lt;---- osx limits to 256</span>
+
+<span class="c1"># Notebook matplotlib mode</span>
+<span class="o">%</span><span class="k">pylab</span> inline                                 
+<span class="c1"># set for retina or hi-resolution displays</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;  
+
+<span class="n">light_minimal</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;font.family&#39;</span><span class="p">:</span> <span class="s1">&#39;serif&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+    <span class="s2">&quot;axes.titlesize&quot;</span><span class="p">:</span> <span class="s2">&quot;x-large&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;axes.labelsize&quot;</span><span class="p">:</span> <span class="s2">&quot;large&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;axes.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#666666&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;xtick.direction&quot;</span><span class="p">:</span> <span class="s2">&quot;out&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ytick.direction&quot;</span><span class="p">:</span> <span class="s2">&quot;out&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;xtick.major.size&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;xtick.minor.size&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ytick.major.size&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ytick.minor.size&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">:</span> <span class="s1">&#39;small&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">:</span> <span class="s1">&#39;small&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ytick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;#666666&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;xtick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;#666666&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;xtick.top&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s1">&#39;ytick.right&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s1">&#39;axes.spines.top&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s1">&#39;axes.spines.right&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s1">&#39;image.aspect&#39;</span><span class="p">:</span> <span class="s1">&#39;auto&#39;</span>
+<span class="p">}</span>
+
+<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">light_minimal</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">corner</span> <span class="kn">import</span> <span class="n">corner</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">cycle</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">is_color_like</span>
+
+<span class="k">def</span> <span class="nf">steppify</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Steppify a curve (x,y). Useful for manually filling histograms &quot;&quot;&quot;</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">dx</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">xx</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dx</span>
+    <span class="n">yy</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">yy</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">y</span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])],</span> <span class="n">xx</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">dx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])]))</span>
+    <span class="k">return</span> <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span>
+
+<span class="k">def</span> <span class="nf">fast_violin</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> 
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Make a violin plot with histograms instead of kde &quot;&quot;&quot;</span>
+    
+    <span class="k">if</span> <span class="n">bins</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">dataset</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanstd</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">d</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">d</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="n">b</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+    
+    <span class="n">default_colors</span> <span class="o">=</span> <span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">,</span> <span class="s1">&#39;C4&#39;</span><span class="p">,</span> <span class="s1">&#39;C5&#39;</span><span class="p">,</span> <span class="s1">&#39;C6&#39;</span><span class="p">,</span> <span class="s1">&#39;C7&#39;</span><span class="p">,</span> <span class="s1">&#39;C8&#39;</span><span class="p">,</span> <span class="s1">&#39;C9&#39;</span>
+    <span class="k">if</span> <span class="n">is_color_like</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">([</span><span class="n">color</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">(</span><span class="n">default_colors</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">color</span><span class="p">)</span> <span class="o">!=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">(</span><span class="n">default_colors</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="n">color</span>
+
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">color_</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">colors</span><span class="p">):</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">bx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">dataset</span><span class="p">[:,</span> <span class="n">k</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">x_</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">bx</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">bx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">y_</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">y0_</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x_</span><span class="p">)</span>
+        <span class="n">y1_</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x_</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">which</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">):</span>
+            <span class="n">y0_</span> <span class="o">+=</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">width</span> <span class="o">*</span> <span class="n">y_</span>
+        <span class="k">if</span> <span class="n">which</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">):</span>
+            <span class="n">y1_</span> <span class="o">+=</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">width</span> <span class="o">*</span> <span class="n">y_</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y0_</span><span class="p">,</span> <span class="n">x_</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y1_</span><span class="p">,</span> <span class="n">x_</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">x_</span><span class="p">,</span> <span class="n">y0_</span><span class="p">,</span> <span class="n">y1_</span><span class="p">,</span>
+                          <span class="n">color</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_color</span><span class="p">(),</span> 
+                          <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="n">percs_where</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.16</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">])</span>
+        <span class="n">percs_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">percs_where</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">y_</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_</span><span class="p">),</span> <span class="n">x_</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> 
+                 <span class="p">[</span><span class="n">percs_val</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">percs_val</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> 
+                 <span class="p">[</span><span class="n">percs_val</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Populating the interactive namespace from numpy and matplotlib
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="preliminary-discussion-around-bayesian-statistics">
+<h1>Preliminary discussion around Bayesian statistics<a class="headerlink" href="#preliminary-discussion-around-bayesian-statistics" title="Permalink to this heading">#</a></h1>
+<p>As astronomers, we are interested in characterizing uncertainties as much as the point-estimate in our analyses. This means we want to infer the distribution of possible/plausible parameter values.</p>
+<p>In the Bayesian context, the Bayes’ theorem, also called chain rule of conditional probabilities, expresses how a degree of belief (prior), expressed as a probability, should rationally change to account for the availability of related evidence.</p>
+<div class="math notranslate nohighlight">
+\[P(A\mid B) = \frac{P(B \mid A) P(A)}{P(B)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are ensembles of events. (<span class="math notranslate nohighlight">\(P(B) \neq 0\)</span>).</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(A\mid B)\)</span> the probability of event <span class="math notranslate nohighlight">\(A\)</span> occurring given that an event <span class="math notranslate nohighlight">\(B\)</span> already occured. It is also called the posterior probability of <span class="math notranslate nohighlight">\(A\)</span> given <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(P(B\mid A)\)</span> is the probability of event <span class="math notranslate nohighlight">\(B\)</span> occurring given that <span class="math notranslate nohighlight">\(A\)</span> already occured. It is also called the likelihood of A given a fixed B.</p></li>
+<li><p><span class="math notranslate nohighlight">\(P(A)\)</span> and <span class="math notranslate nohighlight">\(P(B)\)</span> are the probabilities of observing <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> independently of the other one. They are known as the marginal probabilities or prior probabilities.</p></li>
+</ul>
+<p>We note that in this equation we can swap <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>. The Bayesian framework only brings interpretations. One can see it as a knowledge refinement: given what I know about <span class="math notranslate nohighlight">\(A\)</span> (e.g, gravity, stellar evolution, chemistry) what can we learn with new events <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<p><strong>A note about the proof</strong>: The equation derives from a simple observation (geometry/ensemble theory).</p>
+<p>The figure below gives the visual support</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Baye&#39;s theorem figure { display-mode: &quot;form&quot; }</span>
+<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Ellipse</span><span class="p">,</span> <span class="n">Rectangle</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="n">patches</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Ellipse</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span>
+    <span class="n">Ellipse</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">),</span>
+    <span class="n">Ellipse</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span>
+    <span class="n">Ellipse</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">),</span>
+    <span class="n">Rectangle</span><span class="p">((</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="k">for</span> <span class="n">patch</span> <span class="ow">in</span> <span class="n">patches</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">2.8</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\Omega$&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;A$\cap$B&#39;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span> 
+             <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span>
+             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">),</span>
+             <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span>
+             <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/32bcbff6de0c1cafbf95c80b1590066240375cfeae257d913992cfd48ff476f2.png" src="../../../_images/32bcbff6de0c1cafbf95c80b1590066240375cfeae257d913992cfd48ff476f2.png" />
+</div>
+</div>
+<p>For any event <span class="math notranslate nohighlight">\(x\)</span> from <span class="math notranslate nohighlight">\(\Omega\)</span>
+$<span class="math notranslate nohighlight">\(
+\begin{eqnarray}
+P(x\in A \cap B) &amp; = P(x\in A \mid x \in B) \cdot P(x\in B)\\
+&amp; = P(x\in B \mid x \in A) \cdot P(x\in A)
+\end{eqnarray}
+\)</span><span class="math notranslate nohighlight">\(
+which we can write in a more compact way as 
+\)</span><span class="math notranslate nohighlight">\(
+\begin{eqnarray}
+P(A, B \mid \Omega) &amp; = P(A \mid B, \Omega) \cdot P(B \mid \Omega)\\
+&amp; = P(B \mid A, \Omega) \cdot P(A \mid \Omega)\\
+\end{eqnarray}
+\)</span><span class="math notranslate nohighlight">\(
+Note that, we explicitly noted \)</span>\Omega$ but it is commonly omitted.
+The final equation of the Bayes’ theorem derives from the rearanging the terms of the right hand-side equalities.</p>
+<p>The equation itself is most commonly attributed to reverand Thomas Bayes in 1763, but also to Pierre-Simon de Laplace. However, the current interpretation and usage significantly expanded from its initial formulation.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="straight-line-problem">
+<h1>Straight line problem<a class="headerlink" href="#straight-line-problem" title="Permalink to this heading">#</a></h1>
+<p>In astronomy, we commonly have to fit a model
+to data. A very typical example is the fit of a straight line to a set of points in a two-dimensional plane.
+Astronomers are very good at finding a representation or a transformation of their data in which they can identify linear correlations (e.g., plotting in log-log space, action-angles for orbits, etc).
+Consequently, a polynomial remains a “line” in a more complicated representation space.</p>
+<p>In this exercise, we consider a dataset with uncertainties along one axis only for simplicity, i.e. uncertainties along x negligible. These conditions are rarely met in practice but the principles remain similar.
+However, we also explore the outlier problem: bad data are very common in astronomy.</p>
+<p>We emphasize the importance of having a “generative model” for the data, even an approximate one.
+Once there is a generative model, we have a direct computation of the likelihood of the parameters or the posterior probability distribution.</p>
+<section id="problem-definition">
+<h2>Problem definition<a class="headerlink" href="#problem-definition" title="Permalink to this heading">#</a></h2>
+<p>We will fit a linear model to a dataset <span class="math notranslate nohighlight">\(\{(x_i, y_i, \sigma_i)\}\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \hat{y}(x ~\mid~\alpha, \beta) = \alpha \cdot x + \beta.\]</div>
+<p>Let’s start by looking at the data.</p>
+</section>
+<section id="generate-dataset-straight-line-with-outliers">
+<h2>Generate dataset: Straight line with outliers<a class="headerlink" href="#generate-dataset-straight-line-with-outliers" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Generate data { display-mode: &quot;form&quot; }</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span>
+              <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">88</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">33</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span>
+              <span class="mi">53</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">71</span><span class="p">])</span>
+<span class="n">sy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">3.6</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span>
+               <span class="mf">2.2</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">3.7</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">])</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;line_outlier.dat&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sy</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;line_outlier.dat&#39;</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sy</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/12ad6573fc5338f734eb83cbe7df189c03b70da401fc4116098940acfd6af803.png" src="../../../_images/12ad6573fc5338f734eb83cbe7df189c03b70da401fc4116098940acfd6af803.png" />
+</div>
+</div>
+<p>We see three outliers, but there is an obvious linear relation between the points overall.</p>
+</section>
+<section id="blind-fit-no-outlier-model">
+<h2>Blind fit: no outlier model<a class="headerlink" href="#blind-fit-no-outlier-model" title="Permalink to this heading">#</a></h2>
+<p>Let’s see what happens if we fit the data without any outlier consideration.</p>
+<section id="equations">
+<h3>Equations<a class="headerlink" href="#equations" title="Permalink to this heading">#</a></h3>
+<p>We would like to fit a linear model to this above dataset:</p>
+<div class="math notranslate nohighlight">
+\[ \hat{y}(x ~\mid~\alpha, \beta) = \alpha x + \beta \]</div>
+<p>We commonly start with the Bayes’s rule:</p>
+<div class="math notranslate nohighlight">
+\[ P(\alpha, \beta \mid \{x_i\}, \{y_i\}, \{\sigma_i\}) \propto P(\{x_i\}, \{y_i\} | \alpha, \beta, \{\sigma_i\}) P(\alpha, \beta) \]</div>
+<p>Hence we need to define our prior and likelihood</p>
+<p>Given this model and the gaussian uncertainties on our data, we can compute a Gaussian likelihood for each point:
+$<span class="math notranslate nohighlight">\(
+P(x_i,y_i,~|~\alpha, \beta, \sigma_i) = \frac{1}{\sqrt{2\pi\sigma_i^2}} \exp\left[-\frac{1}{2\sigma_i^2}\left(y_i - {y}(x_i~|~\alpha, \beta)\right)^2\right]
+\)</span><span class="math notranslate nohighlight">\(
+Note that \)</span>\sigma_i<span class="math notranslate nohighlight">\( is on the right hand side of the \)</span>\mid$. It is because we assume given the Gaussian uncertainties when we write the likelihood that way.</p>
+<p>The total likelihood is the product of all the individual likelihoods (as we assume independent measurements).</p>
+<p>For numerical stability reasons, it is preferable to take the log-likelihood of the data. We have:
+$<span class="math notranslate nohighlight">\(
+\log P(\{x_i, y_i\}~|~\alpha, \beta, \{\sigma_i\}) = \mathrm{const} - \sum_i \frac{1}{2\sigma_i^2}\left(y_i - y(x_i~|~\alpha, \beta)\right)^2
+\)</span>$</p>
+<p>The posterior is the likelihood times the prior distributions.
+Let’s assume from the inspection of the data that <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>, we can write
+$<span class="math notranslate nohighlight">\(P(\alpha) = Uniform[0, 100], \)</span><span class="math notranslate nohighlight">\(
+and 
+\)</span><span class="math notranslate nohighlight">\(P(\beta) = Uniform[0, 100].\)</span>$
+(The upper value is abitrary.)</p>
+</section>
+<section id="coding">
+<h3>Coding<a class="headerlink" href="#coding" title="Permalink to this heading">#</a></h3>
+<p>Here we use PyStan.</p>
+<p>The PyStan project is the official Python wrapper of the Stan Probabilistic programming language, which is implemented in C++. It uses a No U-Turn Sampler (which is also in PyMC). As far as API goes, the important difference between PyStan as compared to emcee and PyMC is that it requires you to write and compile non-Python code within your Python script when defining your model.</p>
+<p>Because PyStan depends on the Stan package, installation can be difficult. Although I only did <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pystan</span></code> and it seemed to work just fine on my system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># pystan 3 bug fixing</span>
+<span class="c1"># RuntimeError: asyncio.run() cannot be called from a running event loop</span>
+<span class="kn">import</span> <span class="nn">nest_asyncio</span>
+<span class="n">nest_asyncio</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">stan</span>
+
+<span class="c1">#----------------------------------------------</span>
+<span class="c1"># Create the Stan model</span>
+<span class="c1">#  this is done by defining a string of Stan code.</span>
+
+<span class="n">fit_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">data {</span>
+<span class="s2">    int&lt;lower=0&gt; N; // number of points</span>
+<span class="s2">    real x[N];      // x values</span>
+<span class="s2">    real y[N];      // y values</span>
+<span class="s2">    real sy[N];     // y uncertainties</span>
+<span class="s2">}</span>
+
+<span class="s2">parameters {</span>
+<span class="s2">    real alpha;</span>
+<span class="s2">    real beta;</span>
+<span class="s2">}</span>
+
+<span class="s2">transformed parameters {</span>
+<span class="s2">    real ymodel[N];</span>
+<span class="s2">    for (j in 1:N)</span>
+<span class="s2">        ymodel[j] = beta + alpha * x[j];</span>
+<span class="s2">}</span>
+
+<span class="s2">model {</span>
+<span class="s2">    alpha ~ uniform(0, 100);</span>
+<span class="s2">    beta ~ uniform(0, 100);</span>
+<span class="s2">    y ~ normal(ymodel, sy);</span>
+<span class="s2">}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># perform the fit</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">,</span> <span class="s1">&#39;beta&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+<span class="n">fit_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;sy&#39;</span><span class="p">:</span> <span class="n">sy</span><span class="p">}</span>
+<span class="n">posterior</span> <span class="o">=</span> <span class="n">stan</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">fit_code</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fit_data</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">traces_ols</span> <span class="o">=</span> <span class="n">posterior</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">num_chains</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">25000</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="p">[</span><span class="n">guess</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+<span class="c1"># extract the traces</span>
+<span class="n">traces</span> <span class="o">=</span> <span class="p">[</span><span class="n">traces_ols</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">],</span> <span class="n">traces_ols</span><span class="p">[</span><span class="s1">&#39;beta&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building: 36.0s, done.Messages from stanc:
+Warning in &#39;/tmp/httpstan_78geviow/model_4me2ds6b.stan&#39;, line 22, column 22: Argument 100 suggests there may be parameters that are not unit scale; consider rescaling with a multiplier (see manual section 22.12).
+Warning in &#39;/tmp/httpstan_78geviow/model_4me2ds6b.stan&#39;, line 22, column 4: Parameter beta is given a uniform distribution. The uniform distribution is not recommended, for two reasons: (a) Except when there are logical or physical constraints, it is very unusual for you to be sure that a parameter will fall inside a specified range, and (b) The infinite gradient induced by a uniform density can cause difficulties for Stan&#39;s sampling algorithm. As a consequence, we recommend soft constraints rather than hard constraints; for example, instead of giving an elasticity parameter a uniform(0,1) distribution, try normal(0.5,0.5).
+Warning in &#39;/tmp/httpstan_78geviow/model_4me2ds6b.stan&#39;, line 21, column 23: Argument 100 suggests there may be parameters that are not unit scale; consider rescaling with a multiplier (see manual section 22.12).
+Warning in &#39;/tmp/httpstan_78geviow/model_4me2ds6b.stan&#39;, line 21, column 4: Parameter alpha is given a uniform distribution. The uniform distribution is not recommended, for two reasons: (a) Except when there are logical or physical constraints, it is very unusual for you to be sure that a parameter will fall inside a specified range, and (b) The infinite gradient induced by a uniform density can cause difficulties for Stan&#39;s sampling algorithm. As a consequence, we recommend soft constraints rather than hard constraints; for example, instead of giving an elasticity parameter a uniform(0,1) distribution, try normal(0.5,0.5).
+Sampling:   0%
+Sampling:  25% (26000/104000)
+Sampling:  50% (52000/104000)
+Sampling:  75% (78000/104000)
+Sampling: 100% (104000/104000)
+Sampling: 100% (104000/104000), done.
+Messages received during sampling:
+  Gradient evaluation took 1.6e-05 seconds
+  1000 transitions using 10 leapfrog steps per transition would take 0.16 seconds.
+  Adjust your expectations accordingly!
+  Gradient evaluation took 1.1e-05 seconds
+  1000 transitions using 10 leapfrog steps per transition would take 0.11 seconds.
+  Adjust your expectations accordingly!
+  Gradient evaluation took 1e-05 seconds
+  1000 transitions using 10 leapfrog steps per transition would take 0.1 seconds.
+  Adjust your expectations accordingly!
+  Gradient evaluation took 6e-06 seconds
+  1000 transitions using 10 leapfrog steps per transition would take 0.06 seconds.
+  Adjust your expectations accordingly!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">varnames</span> <span class="o">=</span> <span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">traces_ols</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">varnames</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">corner</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\beta$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\alpha$&#39;</span><span class="p">),</span> <span class="n">quantiles</span><span class="o">=</span><span class="p">(</span><span class="mf">0.16</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/942238af41bb166060f97da2878c843fe9bbad36c4c435c587c9033460fb89e5.png" src="../../../_images/942238af41bb166060f97da2878c843fe9bbad36c4c435c587c9033460fb89e5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;line_outlier.dat&#39;</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sy</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">);</span>
+<span class="n">ypred_blind</span> <span class="o">=</span> <span class="n">sample</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sample</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ypred_blind</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">rasterized</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">percs_blind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">84</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;Without outlier modeling:</span>
+<span class="s2">* $\alpha$ = </span><span class="si">{1:0.3g}</span><span class="s2"> [</span><span class="si">{0:0.3g}</span><span class="s2">, </span><span class="si">{2:0.3g}</span><span class="s2">]</span>
+<span class="s2">* $\beta$ = </span><span class="si">{4:0.3g}</span><span class="s2"> [</span><span class="si">{3:0.3g}</span><span class="s2">, </span><span class="si">{5:0.3g}</span><span class="s2">]</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">percs_blind</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+<span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>Without outlier modeling:</p>
+<ul class="simple">
+<li><p>$\alpha$ = 39.7 [38.5, 40.9]</p></li>
+<li><p>$\beta$ = 0.236 [0.208, 0.263]</p></li>
+</ul>
+<img alt="../../../_images/4d3666c43d38bdd3759552b93ff9a8109110382f00bae95fead117b4e342f39d.png" src="../../../_images/4d3666c43d38bdd3759552b93ff9a8109110382f00bae95fead117b4e342f39d.png" />
+</div>
+</div>
+<p>It’s clear from this plot that the outliers exerts a disproportionate influence on the fit.</p>
+<p>This is due to the nature of our likelihood function.
+One outlier that is, say <span class="math notranslate nohighlight">\(10-\sigma\)</span> (standard deviations) away from the fit will out-weight the contribution of points which are only <span class="math notranslate nohighlight">\(2-\sigma\)</span> away.</p>
+<p>In conclusion, least-square likelihoods are overly sensitive to outliers, and this is causing issues with our fit.</p>
+<p>One way to address this is to simply model the outliers.</p>
+</section>
+</section>
+<section id="mixture-model">
+<h2>Mixture Model<a class="headerlink" href="#mixture-model" title="Permalink to this heading">#</a></h2>
+<p>The Bayesian approach to accounting for outliers generally involves <strong>mixture models</strong> so that the initial model is combined with a complement model accounting for the outliers:</p>
+<div class="math notranslate nohighlight">
+\[P = q \cdot P_{in} + (1 - q) \cdot P_{out},\]</div>
+<p>where <span class="math notranslate nohighlight">\(q\)</span> is the mixing coefficient (between 0 and 1), <span class="math notranslate nohighlight">\(P_{in}\)</span> and <span class="math notranslate nohighlight">\(P_{out}\)</span> the probabilities of being an inlier and outlier, respectively.</p>
+<p>So let’s propose a more complicated model that is a mixture between a <em>signal</em> and a <em>background</em></p>
+<section id="graphical-model">
+<h3>Graphical model<a class="headerlink" href="#graphical-model" title="Permalink to this heading">#</a></h3>
+<p>A short parenthesis on probabilistic programming. One way to represent the above model is through probabilistic graphical models (pgm).</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">daft</span></code> a python package, I draw a (inaccurate) pgm of the straight line model with outliers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">daft</span>
+
+<span class="c1"># Instantiate the PGM.</span>
+<span class="n">pgm</span> <span class="o">=</span> <span class="n">daft</span><span class="o">.</span><span class="n">PGM</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">],</span> <span class="n">grid_unit</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> 
+               <span class="n">node_unit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label_params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">))</span>
+
+<span class="c1"># Hierarchical parameters.</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">daft</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="s2">&quot;sout&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\sigma_</span><span class="si">{out}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="n">fixed</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">daft</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$g$&quot;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="n">fixed</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">daft</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\beta$&quot;</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">))</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">daft</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\alpha$&quot;</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">))</span>
+
+<span class="c1"># Latent variable.</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">daft</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$x_i$&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">daft</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="s2">&quot;gn&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$g_i$&quot;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">daft</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="s2">&quot;yin&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\hat</span><span class="si">{y}</span><span class="s2">_</span><span class="si">{in}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">daft</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="s2">&quot;yout&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$\hat</span><span class="si">{y}</span><span class="s2">_</span><span class="si">{out}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="c1"># Data.</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">daft</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$y_i$&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="c1"># And a plate.</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_plate</span><span class="p">(</span><span class="n">daft</span><span class="o">.</span><span class="n">Plate</span><span class="p">([</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">],</span> 
+                         <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$i = 1, \cdots, N$&quot;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">,</span>
+                         <span class="n">bbox</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span><span class="p">}))</span>
+
+<span class="c1"># add relations</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;yin&quot;</span><span class="p">)</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="s2">&quot;yin&quot;</span><span class="p">)</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;yout&quot;</span><span class="p">)</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="s2">&quot;yout&quot;</span><span class="p">)</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;sout&quot;</span><span class="p">,</span> <span class="s2">&quot;yout&quot;</span><span class="p">)</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;gn&quot;</span><span class="p">)</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;gn&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;yin&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">pgm</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;yout&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">)</span>
+
+<span class="n">pgm</span><span class="o">.</span><span class="n">render</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/8987713f218e6fdd4575ea223c57e588d51d2367f4011e574177b31c7cf80e20.png" src="../../../_images/8987713f218e6fdd4575ea223c57e588d51d2367f4011e574177b31c7cf80e20.png" />
+</div>
+</div>
+<p>There are multiple ways to define this mixture modeling.</p>
+</section>
+<section id="brutal-version-1-parameter-per-datapoint">
+<h3>Brutal version: 1 parameter per datapoint<a class="headerlink" href="#brutal-version-1-parameter-per-datapoint" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[P_i = q_i \cdot P_{in, i} + (1 - q_i) \cdot P_{out, i},\]</div>
+<p><span class="math notranslate nohighlight">\(P_{in, i}\)</span> corresponds to the previous likelihood.</p>
+<p><span class="math notranslate nohighlight">\(P_{out, i}\)</span> is arbitrary as we do not really have information about the causes for the outliers. We assume a similar Gaussian form centered on the affine relation but with a significantly larger dispersion.
+Doing so is intuitively considering the distance to the line to decide whether we have an outlier or not (this is intuitively a Bayesian version of sigma-clipping)</p>
+<p>It is important to note that the total likelihood is a product of sums:
+$<span class="math notranslate nohighlight">\( P = \prod_i P_i = \prod_i \left(q_i \cdot P_{in, i} + (1 - q_i) \cdot P_{out, i}\right).\)</span><span class="math notranslate nohighlight">\(
+Hence, we need to be careful to properly transform the \)</span>\ln P<span class="math notranslate nohighlight">\( into \)</span>P$ during the calculations (see: <code class="docutils literal notranslate"><span class="pre">np.logsumexp</span></code>)</p>
+<p>Hence the likelihood becomes explicitly
+$<span class="math notranslate nohighlight">\(
+\begin{array}{ll}
+P(\{x_i\}, \{y_i\}~|~\theta,\{q_i\},\{\sigma_i\}, \sigma_{out}) = &amp; \frac{q_i}{\sqrt{2\pi \sigma_i^2}}\exp\left[\frac{-\left(\hat{y}(x_i~|~\theta) - y_i\right)^2}{2\sigma_i^2}\right] \\
+&amp;+ \frac{1 - q_i}{\sqrt{2\pi \sigma_{out}^2}}\exp\left[\frac{-\left(\hat{y}(x_i~|~\theta) - y_i\right)^2}{2\sigma_{out}^2}\right].
+\end{array}
+\)</span>$</p>
+<p>We “simply” expanded our model with <span class="math notranslate nohighlight">\(20\)</span> nuisance parameters: <span class="math notranslate nohighlight">\(\{q_i\}\)</span> is a series of weights, which range from 0 to 1 and encode for each point <span class="math notranslate nohighlight">\(i\)</span> the degree to which it fits the model.</p>
+<p><span class="math notranslate nohighlight">\(q_i=0\)</span> indicates an outlier, in which case a Gaussian of width <span class="math notranslate nohighlight">\(\sigma_{out}\)</span> is used in the computation of the likelihood. This <span class="math notranslate nohighlight">\(\sigma_{out}\)</span> can also be a nuisance parameter.
+However, for this example, we fix <span class="math notranslate nohighlight">\(\sigma_{out}\)</span> to an arbitrary large value (large compared with the dispersion of the data)</p>
+<p>Note that we have a prior that all <span class="math notranslate nohighlight">\(q_i\)</span> must be strictly between 0 and 1.</p>
+<p>We now make the probabilistic equations that link the various variables together:</p>
+<p>We would like to fit a linear model to this above dataset:</p>
+<div class="math notranslate nohighlight">
+\[ \hat{y}_{in}(x ~\mid~\alpha, \beta) = \alpha x + \beta \]</div>
+<p>One must provide some prior to properly implement the model. Let’s suppose weak informative normal priors (they correspond to a Ridge regression context)</p>
+<div class="math notranslate nohighlight">
+\[ \alpha \rightsquigarrow \mathcal{U}(0, 100) \]</div>
+<div class="math notranslate nohighlight">
+\[ \beta \rightsquigarrow \mathcal{U}(0, 100) \]</div>
+<p>We also have the outlier component <span class="math notranslate nohighlight">\(\hat{y}_{out}\)</span>
+$<span class="math notranslate nohighlight">\( \hat{y}_{out} \rightsquigarrow \mathcal{N}(\hat{y}_{out}, \sigma_{out})\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\sigma_{out}<span class="math notranslate nohighlight">\( is unknown but positively constrained (half-Normal prior)
+\)</span><span class="math notranslate nohighlight">\( \sigma_{out} \rightsquigarrow \mathcal{N^+}(0, 100)\)</span>$</p>
+<p>And each data point has a probability (0 or 1) to be an outlier or not with a probability <span class="math notranslate nohighlight">\(g_i\)</span>
+$<span class="math notranslate nohighlight">\( g_i \rightsquigarrow \mathcal{U}(0, 1) \)</span>$
+(this is of course, sub-optimal)</p>
+<p>Our final model is a mixture of the two components:</p>
+<div class="math notranslate nohighlight">
+\[ y_i ~\mid~ \hat{y}_{in}, \hat{y}_{out}, \sigma_y, \sigma_{out} \rightsquigarrow 
+(1 - g_i) \, \mathcal{N}(\hat{y}_{in}, \sigma_y) + g_i \, \mathcal{N}(\hat{y}_{out}, \sigma_{out})\]</div>
+<p>We code the model as:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fit_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">data {</span>
+<span class="s2">    int&lt;lower=0&gt; N; // number of points</span>
+<span class="s2">    real x[N];      // x values</span>
+<span class="s2">    real y[N];      // y values</span>
+<span class="s2">    real sy[N];     // y uncertainties</span>
+<span class="s2">}</span>
+
+<span class="s2">parameters {</span>
+<span class="s2">    real alpha;</span>
+<span class="s2">    real beta;</span>
+<span class="s2">    real&lt;lower=0, upper=1&gt; is_outlier[N];</span>
+<span class="s2">}</span>
+
+<span class="s2">transformed parameters {</span>
+<span class="s2">    real yin[N];</span>
+<span class="s2">    real sigma_y_out = 100.;</span>
+<span class="s2">    </span>
+<span class="s2">    for (j in 1:N){</span>
+<span class="s2">        yin[j] = beta + alpha * x[j];</span>
+<span class="s2">    }</span>
+<span class="s2">}</span>
+
+<span class="s2">model {</span>
+<span class="s2">    alpha ~ uniform(0, 100);</span>
+<span class="s2">    beta ~ uniform(0, 100);</span>
+<span class="s2">    is_outlier ~ uniform(0, 1);</span>
+<span class="s2">    for (n in 1:N){</span>
+<span class="s2">        target += log_sum_exp(log(1 - is_outlier[n])</span>
+<span class="s2">                                  + normal_lpdf(y[n] | yin[n], sy[n]),</span>
+<span class="s2">                              log(is_outlier[n]) </span>
+<span class="s2">                                  + normal_lpdf(y[n] | yin[n], sigma_y_out));</span>
+<span class="s2">    }</span>
+<span class="s2">}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="c1"># perform the fit</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">,</span> <span class="s1">&#39;beta&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;frac_outliers&#39;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">}</span>
+<span class="n">fit_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;sy&#39;</span><span class="p">:</span> <span class="n">sy</span><span class="p">}</span>
+<span class="n">posterior</span> <span class="o">=</span> <span class="n">stan</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">fit_code</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fit_data</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">traces_signoise</span> <span class="o">=</span> <span class="n">posterior</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">num_chains</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">25000</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="p">[</span><span class="n">guess</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building: 39.0s, done.Messages from stanc:
+Warning in &#39;/tmp/httpstan_r33qx58g/model_ah6ap5ar.stan&#39;, line 26, column 22: Argument 100 suggests there may be parameters that are not unit scale; consider rescaling with a multiplier (see manual section 22.12).
+Warning in &#39;/tmp/httpstan_r33qx58g/model_ah6ap5ar.stan&#39;, line 26, column 4: Parameter beta is given a uniform distribution. The uniform distribution is not recommended, for two reasons: (a) Except when there are logical or physical constraints, it is very unusual for you to be sure that a parameter will fall inside a specified range, and (b) The infinite gradient induced by a uniform density can cause difficulties for Stan&#39;s sampling algorithm. As a consequence, we recommend soft constraints rather than hard constraints; for example, instead of giving an elasticity parameter a uniform(0,1) distribution, try normal(0.5,0.5).
+Warning in &#39;/tmp/httpstan_r33qx58g/model_ah6ap5ar.stan&#39;, line 25, column 23: Argument 100 suggests there may be parameters that are not unit scale; consider rescaling with a multiplier (see manual section 22.12).
+Warning in &#39;/tmp/httpstan_r33qx58g/model_ah6ap5ar.stan&#39;, line 25, column 4: Parameter alpha is given a uniform distribution. The uniform distribution is not recommended, for two reasons: (a) Except when there are logical or physical constraints, it is very unusual for you to be sure that a parameter will fall inside a specified range, and (b) The infinite gradient induced by a uniform density can cause difficulties for Stan&#39;s sampling algorithm. As a consequence, we recommend soft constraints rather than hard constraints; for example, instead of giving an elasticity parameter a uniform(0,1) distribution, try normal(0.5,0.5).
+Sampling:   0%
+Sampling:   0% (1/52000)
+Sampling:   0% (2/52000)
+Sampling:   0% (101/52000)
+Sampling:   1% (401/52000)
+Sampling:   1% (600/52000)
+Sampling:   2% (1100/52000)
+Sampling:  52% (26900/52000)
+Sampling: 100% (52000/52000)
+Sampling: 100% (52000/52000), done.
+Messages received during sampling:
+  Gradient evaluation took 2.8e-05 seconds
+  1000 transitions using 10 leapfrog steps per transition would take 0.28 seconds.
+  Adjust your expectations accordingly!
+  Gradient evaluation took 2.7e-05 seconds
+  1000 transitions using 10 leapfrog steps per transition would take 0.27 seconds.
+  Adjust your expectations accordingly!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">varnames</span> <span class="o">=</span> <span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">traces_signoise</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">varnames</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">corner</span><span class="p">(</span><span class="n">sample</span><span class="p">[:,</span> <span class="p">:],</span> <span class="n">labels</span><span class="o">=</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\beta$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\alpha$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;1-q&#39;</span><span class="p">),</span> <span class="n">quantiles</span><span class="o">=</span><span class="p">(</span><span class="mf">0.16</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/546bc0274c011d7b729f8b2f4725ff9abf866105bcc5c4d347acffc39de7c8eb.png" src="../../../_images/546bc0274c011d7b729f8b2f4725ff9abf866105bcc5c4d347acffc39de7c8eb.png" />
+</div>
+</div>
+<p>We see a distribution of points near a slope of <span class="math notranslate nohighlight">\(\sim 0.45\)</span>, and an intercept of <span class="math notranslate nohighlight">\(\sim 31\)</span>. We’ll plot this model over the data below, but first let’s see what other information we can extract from this trace.</p>
+<p>One nice feature of analyzing MCMC samples is that the choice of nuisance parameters is completely irrelevant during the sampling.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samples_q</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">traces_signoise</span><span class="p">[</span><span class="s1">&#39;is_outlier&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">samples_q</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+<span class="n">fast_violin</span><span class="p">(</span><span class="n">samples_q</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">))</span>
+<span class="n">ticks</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">samples_q</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lbls</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s1">&#39;x$_{{</span><span class="si">{0:d}</span><span class="s1">}}$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ticks</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">,</span> <span class="n">lbls</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">([</span><span class="mf">0.5</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">100</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;q_i&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/1a75286b67fc3b485831e7ea41f46c48610275ee8053a8a942b25c93ffa96bfd.png" src="../../../_images/1a75286b67fc3b485831e7ea41f46c48610275ee8053a8a942b25c93ffa96bfd.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">samples_q</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">outliers</span> <span class="o">=</span> <span class="p">(</span><span class="n">q</span> <span class="o">&lt;=</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># arbitrary choice</span>
+<span class="n">n_outliers</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;line_outlier.dat&#39;</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sy</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
+<span class="n">ypred_brute</span> <span class="o">=</span> <span class="n">sample</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sample</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ypred_blind</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">rasterized</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ypred_brute</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">rasterized</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">outliers</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">outliers</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> 
+         <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">);</span>
+
+
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;Without outlier modeling:</span>
+<span class="s2">* $\alpha$ = </span><span class="si">{1:0.3g}</span><span class="s2"> [</span><span class="si">{0:0.3g}</span><span class="s2">, </span><span class="si">{2:0.3g}</span><span class="s2">]</span>
+<span class="s2">* $\beta$ = </span><span class="si">{4:0.3g}</span><span class="s2"> [</span><span class="si">{3:0.3g}</span><span class="s2">, </span><span class="si">{5:0.3g}</span><span class="s2">]</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">percs_blind</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+<span class="p">))</span>
+
+<span class="n">percs_brute</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">sample</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">84</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;With outlier modeling: 22 parameters</span>
+<span class="s2">* $\alpha$ = </span><span class="si">{1:0.3g}</span><span class="s2"> [</span><span class="si">{0:0.3g}</span><span class="s2">, </span><span class="si">{2:0.3g}</span><span class="s2">]</span>
+<span class="s2">* $\beta$ = </span><span class="si">{4:0.3g}</span><span class="s2"> [</span><span class="si">{3:0.3g}</span><span class="s2">, </span><span class="si">{5:0.3g}</span><span class="s2">]</span>
+<span class="s2">* number of outliers: $</span><span class="si">{6:d}</span><span class="s2">$</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">percs_brute</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">n_outliers</span><span class="p">)</span>
+<span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>Without outlier modeling:</p>
+<ul class="simple">
+<li><p>$\alpha$ = 39.7 [38.5, 40.9]</p></li>
+<li><p>$\beta$ = 0.236 [0.208, 0.263]</p></li>
+</ul>
+<p>With outlier modeling: 22 parameters</p>
+<ul class="simple">
+<li><p>$\alpha$ = 31.2 [29.7, 32.7]</p></li>
+<li><p>$\beta$ = 0.47 [0.435, 0.506]</p></li>
+<li><p>number of outliers: $3$</p></li>
+</ul>
+<img alt="../../../_images/89d1709392c280e78972843f1c8f4ca517974d3be93c83ce2b0c3d63cb376cda.png" src="../../../_images/89d1709392c280e78972843f1c8f4ca517974d3be93c83ce2b0c3d63cb376cda.png" />
+</div>
+</div>
+<p>The result shown in orange matches our intuition. In addition, the points automatically identified as outliers are the ones we would identify by eye to be suspicious. The blue shaded region indicates the previous “blind” result.</p>
+</section>
+<section id="the-smarter-version">
+<h3>The smarter version<a class="headerlink" href="#the-smarter-version" title="Permalink to this heading">#</a></h3>
+<p>This previous model of outliers takes a simple linear model of <span class="math notranslate nohighlight">\(2\)</span> parameters and transforms it into a <span class="math notranslate nohighlight">\((N+2)\)</span> parameters, <span class="math notranslate nohighlight">\(N\)</span> being the number of datapoints. This leads to <span class="math notranslate nohighlight">\(22\)</span> parameters in our case. What happens if you have <span class="math notranslate nohighlight">\(200\)</span> data points?</p>
+<p>The problem with the previous model was that it adds one parameter for each data point, which not only makes the fitting expensive, but also makes the problem untracktable very quickly.</p>
+<p>Based on the same formulation, we can consider one global <span class="math notranslate nohighlight">\(q\)</span> instead individuals, which will characterize on the ensemble the probability of having an outlier. In other words, the fraction of outliers relative to the dataset.</p>
+<div class="math notranslate nohighlight">
+\[ P = \prod_i P_i = \prod_i \left(q \cdot P_{in, i} + (1 - q) \cdot P_{out, i}\right).\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{ll}
+p(\{x_i\}, \{y_i\}~|~\theta,q,\{\sigma_i\}, \sigma_{out}) = &amp; \frac{q}{\sqrt{2\pi \sigma_i^2}}\exp\left[\frac{-\left(\hat{y}(x_i~|~\theta) - y_i\right)^2}{2\sigma_i^2}\right] \\
+&amp;+ \frac{1 - q}{\sqrt{2\pi \sigma_{out}^2}}\exp\left[\frac{-\left(\hat{y}(x_i~|~\theta) - y_i\right)^2}{2\sigma_{out}^2}\right]
+\end{array}
+\end{split}\]</div>
+<p>We simply have <span class="math notranslate nohighlight">\(1\)</span> nuisance parameters: <span class="math notranslate nohighlight">\(q\)</span> which ranges from 0 to 1.</p>
+<p>Similarly to the previous model, <span class="math notranslate nohighlight">\(q=0\)</span> indicates an outlier, in which case a Gaussian of width <span class="math notranslate nohighlight">\(\sigma_B\)</span> is used in the computation of the likelihood. This <span class="math notranslate nohighlight">\(\sigma_B\)</span> can also be a nuisance parameter.</p>
+<p>From this model, we can estimate the odds of being an outlier with
+$<span class="math notranslate nohighlight">\( Odds_{outlier}(x_i, y_i, \sigma_i) = \frac{(1-q) P(x_i, y_i | \sigma_{out})}{q\,P(x_i, y_i | \sigma_i, \alpha, \beta) + (1-q) P(x_i, y_i | \sigma_{out})}\)</span>$</p>
+<p>Our likelihood can be expressed directly with tensor operations (otherwise we’d need to use theano’s <code class="docutils literal notranslate"><span class="pre">&#64;as_op</span></code>
+decorator). This means we get the likelihood gradient for free thanks to the Theano backend, which makes the MCMC sampler more efficient (HMC methods)</p>
+<p>We now make the probabilistic equations that link the various variables together:</p>
+<p>We would like to fit a linear model to this above dataset:</p>
+<div class="math notranslate nohighlight">
+\[ \hat{y}_{in}(x ~\mid~\alpha, \beta) = \alpha x + \beta \]</div>
+<p>One must provide some prior to properly implement the model. Let’s suppose weak informative normal priors (they correspond to a Ridge regression context)</p>
+<div class="math notranslate nohighlight">
+\[ \alpha \rightsquigarrow \mathcal{U}(0, 100) \]</div>
+<div class="math notranslate nohighlight">
+\[ \beta \rightsquigarrow \mathcal{U}(0, 100) \]</div>
+<p>We also have the outlier component <span class="math notranslate nohighlight">\(\hat{y}_{out}\)</span>
+$<span class="math notranslate nohighlight">\( \hat{y}_{out} \rightsquigarrow \mathcal{N}(\hat{y}_{out}, \sigma_{out})\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\sigma_{out}<span class="math notranslate nohighlight">\( is unknown but positively constrained (half-Normal prior)
+\)</span><span class="math notranslate nohighlight">\( \sigma_{out} \rightsquigarrow \mathcal{N^+}(0, 100)\)</span>$</p>
+<p><span class="math notranslate nohighlight">\(g\)</span> sets the ratio of inliers to outliers. Given our setup, it corresponds to the fraction of outliers in our model. One can set a wealky informative prior on <span class="math notranslate nohighlight">\(g\)</span> as
+$<span class="math notranslate nohighlight">\( g \rightsquigarrow \mathcal{U}(0, 0.5) \)</span>$
+(hopefully we do not have more than half of the data being made of outliers)</p>
+<p>Our final model is a mixture of the two components:</p>
+<div class="math notranslate nohighlight">
+\[ y_i ~\mid~ \hat{y}_{in}, \hat{y}_{out}, \sigma_y, \sigma_{out} \rightsquigarrow 
+(1 - g) \, \mathcal{N}(\hat{y}_{in}, \sigma_y) + g \, \mathcal{N}(\hat{y}_{out}, \sigma_{out})\]</div>
+<p>we code the probabilistic model as follow (using <code class="docutils literal notranslate"><span class="pre">DensityDist</span></code> to set the final mixture likelihood)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fit_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">data {</span>
+<span class="s2">    int&lt;lower=0&gt; N; // number of points</span>
+<span class="s2">    real x[N];      // x values</span>
+<span class="s2">    real y[N];      // y values</span>
+<span class="s2">    real sy[N];     // y uncertainties</span>
+<span class="s2">}</span>
+
+<span class="s2">parameters {</span>
+<span class="s2">    real alpha;</span>
+<span class="s2">    real beta;</span>
+<span class="s2">    real frac_outliers;</span>
+<span class="s2">}</span>
+
+<span class="s2">transformed parameters {</span>
+<span class="s2">    real yin[N];</span>
+<span class="s2">    real log_frac_out;</span>
+<span class="s2">    real log_frac_in;</span>
+<span class="s2">    real is_outlier[N];</span>
+<span class="s2">    real lnp_in[N];</span>
+<span class="s2">    real lnp_out[N];</span>
+<span class="s2">    real lnp_tot[N];</span>
+
+<span class="s2">    real sigma_y_out = 100;</span>
+<span class="s2">    </span>
+<span class="s2">    log_frac_in = log(1 - frac_outliers);</span>
+<span class="s2">    log_frac_out = log(frac_outliers);</span>
+<span class="s2">    </span>
+<span class="s2">    for (j in 1:N){</span>
+<span class="s2">        yin[j] = beta + alpha * x[j];</span>
+<span class="s2">        lnp_in[j] = normal_lpdf(y[j] | yin[j], sy[j]);</span>
+<span class="s2">        lnp_out[j] = normal_lpdf(y[j] | yin[j], sigma_y_out);</span>
+<span class="s2">        lnp_tot[j] = log_sum_exp(log_frac_in + lnp_in[j], log_frac_out + lnp_out[j]);</span>
+<span class="s2">        is_outlier[j] = exp(log_frac_out + lnp_out[j]) / exp(lnp_tot[j]);</span>
+<span class="s2">    }</span>
+<span class="s2">}</span>
+
+<span class="s2">model {</span>
+<span class="s2">    // real val_n;</span>
+<span class="s2">    alpha ~ uniform(0, 100);</span>
+<span class="s2">    beta ~ uniform(0, 100);</span>
+<span class="s2">    frac_outliers ~ uniform(1e-4, 0.5);</span>
+<span class="s2">    for (n in 1:N){</span>
+<span class="s2">        target += lnp_tot[n];</span>
+<span class="s2">    }</span>
+<span class="s2">}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="c1"># perform the fit</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">,</span> <span class="s1">&#39;beta&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;frac_outliers&#39;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">}</span>
+<span class="n">fit_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;sy&#39;</span><span class="p">:</span> <span class="n">sy</span><span class="p">}</span>
+<span class="n">posterior</span> <span class="o">=</span> <span class="n">stan</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">fit_code</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fit_data</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">traces_smart</span> <span class="o">=</span> <span class="n">posterior</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">num_chains</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">25000</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="p">[</span><span class="n">guess</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building: 36.2s, done.Messages from stanc:
+Warning in &#39;/tmp/httpstan_2fcgtd2c/model_5sfiv625.stan&#39;, line 42, column 28: Argument 1e-4 suggests there may be parameters that are not unit scale; consider rescaling with a multiplier (see manual section 22.12).
+Warning in &#39;/tmp/httpstan_2fcgtd2c/model_5sfiv625.stan&#39;, line 42, column 4: Parameter frac_outliers is given a uniform distribution. The uniform distribution is not recommended, for two reasons: (a) Except when there are logical or physical constraints, it is very unusual for you to be sure that a parameter will fall inside a specified range, and (b) The infinite gradient induced by a uniform density can cause difficulties for Stan&#39;s sampling algorithm. As a consequence, we recommend soft constraints rather than hard constraints; for example, instead of giving an elasticity parameter a uniform(0,1) distribution, try normal(0.5,0.5).
+Warning in &#39;/tmp/httpstan_2fcgtd2c/model_5sfiv625.stan&#39;, line 41, column 22: Argument 100 suggests there may be parameters that are not unit scale; consider rescaling with a multiplier (see manual section 22.12).
+Warning in &#39;/tmp/httpstan_2fcgtd2c/model_5sfiv625.stan&#39;, line 41, column 4: Parameter beta is given a uniform distribution. The uniform distribution is not recommended, for two reasons: (a) Except when there are logical or physical constraints, it is very unusual for you to be sure that a parameter will fall inside a specified range, and (b) The infinite gradient induced by a uniform density can cause difficulties for Stan&#39;s sampling algorithm. As a consequence, we recommend soft constraints rather than hard constraints; for example, instead of giving an elasticity parameter a uniform(0,1) distribution, try normal(0.5,0.5).
+Warning in &#39;/tmp/httpstan_2fcgtd2c/model_5sfiv625.stan&#39;, line 40, column 23: Argument 100 suggests there may be parameters that are not unit scale; consider rescaling with a multiplier (see manual section 22.12).
+Warning in &#39;/tmp/httpstan_2fcgtd2c/model_5sfiv625.stan&#39;, line 40, column 4: Parameter alpha is given a uniform distribution. The uniform distribution is not recommended, for two reasons: (a) Except when there are logical or physical constraints, it is very unusual for you to be sure that a parameter will fall inside a specified range, and (b) The infinite gradient induced by a uniform density can cause difficulties for Stan&#39;s sampling algorithm. As a consequence, we recommend soft constraints rather than hard constraints; for example, instead of giving an elasticity parameter a uniform(0,1) distribution, try normal(0.5,0.5).
+Sampling:   0%
+Sampling:   0% (100/104000)
+Sampling:   0% (400/104000)
+Sampling:  25% (26400/104000)
+Sampling:  50% (52300/104000)
+Sampling:  75% (78000/104000)
+Sampling: 100% (104000/104000)
+Sampling: 100% (104000/104000), done.
+Messages received during sampling:
+  Gradient evaluation took 4.9e-05 seconds
+  1000 transitions using 10 leapfrog steps per transition would take 0.49 seconds.
+  Adjust your expectations accordingly!
+  Gradient evaluation took 4.5e-05 seconds
+  1000 transitions using 10 leapfrog steps per transition would take 0.45 seconds.
+  Adjust your expectations accordingly!
+  Gradient evaluation took 1.2e-05 seconds
+  1000 transitions using 10 leapfrog steps per transition would take 0.12 seconds.
+  Adjust your expectations accordingly!
+  Gradient evaluation took 2.8e-05 seconds
+  1000 transitions using 10 leapfrog steps per transition would take 0.28 seconds.
+  Adjust your expectations accordingly!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">varnames</span> <span class="o">=</span> <span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="s1">&#39;frac_outliers&#39;</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">traces_smart</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">varnames</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">corner</span><span class="p">(</span><span class="n">sample</span><span class="p">[:,</span> <span class="p">:],</span> <span class="n">labels</span><span class="o">=</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\beta$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\alpha$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;q&#39;</span><span class="p">),</span> <span class="n">quantiles</span><span class="o">=</span><span class="p">(</span><span class="mf">0.16</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/243abb20069b9e0d4008cb72229f1ed1e1b186d018d30b39d4fd3d0ac61b2d57.png" src="../../../_images/243abb20069b9e0d4008cb72229f1ed1e1b186d018d30b39d4fd3d0ac61b2d57.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samples_q</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">traces_smart</span><span class="p">[</span><span class="s1">&#39;is_outlier&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">samples_q</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+<span class="n">fast_violin</span><span class="p">(</span><span class="n">samples_q</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">))</span>
+<span class="n">ticks</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">samples_q</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lbls</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s1">&#39;x$_{{</span><span class="si">{0:d}</span><span class="s1">}}$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ticks</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">,</span> <span class="n">lbls</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">([</span><span class="mf">0.5</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">100</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;q_i&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/85a4a950147fbc9d70c66ce289a959c8f1a448d77c5366d9a5eabb5a311b2153.png" src="../../../_images/85a4a950147fbc9d70c66ce289a959c8f1a448d77c5366d9a5eabb5a311b2153.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outliers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">traces_smart</span><span class="p">[</span><span class="s1">&#39;is_outlier&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.5</span>
+<span class="n">n_outliers</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;line_outlier.dat&#39;</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sy</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
+<span class="n">ypred_smart</span> <span class="o">=</span> <span class="n">sample</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sample</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ypred_blind</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> 
+         <span class="n">rasterized</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ypred_brute</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1000</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> 
+         <span class="n">rasterized</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ypred_smart</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1000</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span> 
+         <span class="n">rasterized</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">outliers</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">outliers</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> 
+         <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">mec</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">);</span>
+
+
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;Without outlier modeling (blue):</span>
+<span class="s2">* $\alpha$ = </span><span class="si">{1:0.3g}</span><span class="s2"> [</span><span class="si">{0:0.3g}</span><span class="s2">, </span><span class="si">{2:0.3g}</span><span class="s2">]</span>
+<span class="s2">* $\beta$ = </span><span class="si">{4:0.3g}</span><span class="s2"> [</span><span class="si">{3:0.3g}</span><span class="s2">, </span><span class="si">{5:0.3g}</span><span class="s2">]</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">percs_blind</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+<span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;With outlier modeling (orange): 22 parameters</span>
+<span class="s2">* $\alpha$ = </span><span class="si">{1:0.3g}</span><span class="s2"> [</span><span class="si">{0:0.3g}</span><span class="s2">, </span><span class="si">{2:0.3g}</span><span class="s2">]</span>
+<span class="s2">* $\beta$ = </span><span class="si">{4:0.3g}</span><span class="s2"> [</span><span class="si">{3:0.3g}</span><span class="s2">, </span><span class="si">{5:0.3g}</span><span class="s2">]</span>
+<span class="s2">* number of outliers: $</span><span class="si">{6:d}</span><span class="s2">$</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">percs_brute</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">n_outliers</span><span class="p">)</span>
+<span class="p">))</span>
+
+<span class="n">percs_smart</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">84</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;With outlier modeling (green): 3 parameters</span>
+<span class="s2">* $\alpha$ = </span><span class="si">{1:0.3g}</span><span class="s2"> [</span><span class="si">{0:0.3g}</span><span class="s2">, </span><span class="si">{2:0.3g}</span><span class="s2">]</span>
+<span class="s2">* $\beta$ = </span><span class="si">{4:0.3g}</span><span class="s2"> [</span><span class="si">{3:0.3g}</span><span class="s2">, </span><span class="si">{5:0.3g}</span><span class="s2">]</span>
+<span class="s2">* $q$ = </span><span class="si">{7:0.3g}</span><span class="s2"> [</span><span class="si">{6:0.3g}</span><span class="s2">, </span><span class="si">{8:0.3g}</span><span class="s2">]</span>
+<span class="s2">* number of outliers: $</span><span class="si">{9:d}</span><span class="s2">$</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">percs_smart</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">n_outliers</span><span class="p">)</span>
+<span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>Without outlier modeling (blue):</p>
+<ul class="simple">
+<li><p>$\alpha$ = 39.7 [38.5, 40.9]</p></li>
+<li><p>$\beta$ = 0.236 [0.208, 0.263]</p></li>
+</ul>
+<p>With outlier modeling (orange): 22 parameters</p>
+<ul class="simple">
+<li><p>$\alpha$ = 31.2 [29.7, 32.7]</p></li>
+<li><p>$\beta$ = 0.47 [0.435, 0.506]</p></li>
+<li><p>number of outliers: $3$</p></li>
+</ul>
+<p>With outlier modeling (green): 3 parameters</p>
+<ul class="simple">
+<li><p>$\alpha$ = 31.2 [29.8, 32.6]</p></li>
+<li><p>$\beta$ = 0.471 [0.436, 0.505]</p></li>
+<li><p>$q$ = 0.182 [0.108, 0.276]</p></li>
+<li><p>number of outliers: $3$</p></li>
+</ul>
+<img alt="../../../_images/209c5da5426ed6144cca021299d80c86beff02c02ab5b9e21005a626a1e7c137.png" src="../../../_images/209c5da5426ed6144cca021299d80c86beff02c02ab5b9e21005a626a1e7c137.png" />
+</div>
+</div>
+<p>The infered parameters are nearly identical but the convergence is much faster in the last approach.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/problems/straightline"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="straighlinefit_pymc3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">PyMC3 based solution</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Pystan based solution</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#m-fouesneau">M. Fouesneau</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preliminary-discussion-around-bayesian-statistics">Preliminary discussion around Bayesian statistics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#straight-line-problem">Straight line problem</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-definition">Problem definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-dataset-straight-line-with-outliers">Generate dataset: Straight line with outliers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blind-fit-no-outlier-model">Blind fit: no outlier model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equations">Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coding">Coding</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixture-model">Mixture Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphical-model">Graphical model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brutal-version-1-parameter-per-datapoint">Brutal version: 1 parameter per datapoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-smarter-version">The smarter version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Iva Momcheva & Morgan Fouesneau
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
