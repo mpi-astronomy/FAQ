@@ -1,5 +1,8 @@
 # MPI-astronomy FAQ
 
+[![GitHub last commit](https://img.shields.io/github/last-commit/mpi-astronomy/FAQ/mf?label=last%20update)](https://github.com/mpi-astronomy/FAQ/commits/mf)
+[![deploy](https://github.com/mpi-astronomy/FAQ/actions/workflows/deploy.yml/badge.svg)](https://github.com/mpi-astronomy/FAQ/actions/workflows/deploy.yml)
+
 In this repository, we collect small documents on specific challenges or problems.
 
 ## Publishing
