@@ -7,23 +7,23 @@ In this repository, we collect small documents on specific challenges or problem
 
 ## Publishing
 
-[How do I cite software in my paper?](https://github.com/mpi-astronomy/FAQ/blob/main/publishing/how-to-cite-software.md)
+[How do I cite software in my paper?](https://github.com/mpi-astronomy/FAQ/blob/main/faq/chapters/publishing/how-to-cite.md)
 
-[How do I publish my software?](https://github.com/mpi-astronomy/FAQ/blob/main/publishing/how-to-publish-software.md)
+[How do I publish my software?](https://github.com/mpi-astronomy/FAQ/blob/main/faq/chapters/publishing/how-to-publish-software.md)
 
-[How do I create accessible color plots?](https://github.com/mpi-astronomy/FAQ/blob/main/publishing/how-to-color-plots.md)
+[How do I create accessible color plots?](https://github.com/mpi-astronomy/FAQ/blob/main/faq/chapters/publishing/how-to-color-plots.md)
 
 ## Coding
 
-[How do I start a new software project?](https://github.com/mpi-astronomy/FAQ/blob/main/coding/how-to-start-project.md)
+[How do I start a new software project?](https://github.com/mpi-astronomy/FAQ/blob/main/faq/chapters//coding/how-to-start-project.md)
 
-[How do I speed up my code with `numba`?](https://github.com/mpi-astronomy/FAQ/blob/main/coding/NumbaFun.ipynb)
+[How do I speed up my code with `numba`?](https://github.com/mpi-astronomy/FAQ/blob/main/faq/chapters//coding/NumbaFun.ipynb)
 
-[The straight line fitting problem](https://github.com/mpi-astronomy/FAQ/blob/main/coding/straightline)
+[The straight line fitting problem](https://github.com/mpi-astronomy/FAQ/blob/main/faq/chapters//coding/straightline)
 
 ## Contributors
 
-We welcome and recognize all contributions. You can see a list of current contributors in the [contributors tab](https://github.com/mfouesneau/astro_ds/graphs/contributors).
+We welcome and recognize all contributions. You can see a list of current contributors in the [contributors tab](https://github.com/mpi-astronomy/FAQ/graphs/contributors).
 
 ## Credits
 
