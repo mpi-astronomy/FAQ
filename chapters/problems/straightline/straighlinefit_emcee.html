@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -141,6 +141,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../../intro.html">
@@ -183,6 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../python/parallel-code-slower.html">Why does my parallel code take much more time than a non-paralleled one?</a></li>
 
 
+<li class="toctree-l1"><a class="reference internal" href="../../python/fooocus.html">Image Generation with Stable Diffusion and Fooocus</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Straightline fitting problem</span></p>
 <ul class="current nav bd-sidenav">
@@ -353,6 +355,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -362,6 +365,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -621,7 +625,7 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/1456fb6707f507d27bd56dfffba0caff5fd0753179d81d0521b3e30dfb1042e5.png" src="../../../_images/1456fb6707f507d27bd56dfffba0caff5fd0753179d81d0521b3e30dfb1042e5.png" />
+<img alt="../../../_images/9a8c237aad2901aa07e2f9f25de0ea55c381eb7b4861c85d5db24ed8fb65a7a9.png" src="../../../_images/9a8c237aad2901aa07e2f9f25de0ea55c381eb7b4861c85d5db24ed8fb65a7a9.png" />
 </div>
 </div>
 <p>For any event <span class="math notranslate nohighlight">\(x\)</span> from <span class="math notranslate nohighlight">\(\Omega\)</span>
@@ -686,7 +690,7 @@ Once there is a generative model, we have a direct computation of the likelihood
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/832dfcdf67702c87c71c81913a3c5e9f728ebe70f7e579e5dfafd1dcb501d4c6.png" src="../../../_images/832dfcdf67702c87c71c81913a3c5e9f728ebe70f7e579e5dfafd1dcb501d4c6.png" />
+<img alt="../../../_images/d0220c222789a4beb15c5228e6a1ed4acc6f29cec0af692a3f665517076578d7.png" src="../../../_images/d0220c222789a4beb15c5228e6a1ed4acc6f29cec0af692a3f665517076578d7.png" />
 </div>
 </div>
 <p>We see three outliers, but there is an obvious linear relation between the points overall.</p>
@@ -768,100 +772,85 @@ $<span class="math notranslate nohighlight">\(P(\alpha) = Uniform[0, 1000].\)</s
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/2300 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3%|▎         | 74/2300 [00:00&lt;00:03, 735.72it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4%|▍         | 88/2300 [00:00&lt;00:02, 874.07it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  6%|▋         | 148/2300 [00:00&lt;00:02, 732.05it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  8%|▊         | 176/2300 [00:00&lt;00:02, 868.33it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 10%|▉         | 222/2300 [00:00&lt;00:02, 728.85it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 11%|█▏        | 264/2300 [00:00&lt;00:02, 869.53it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 13%|█▎        | 295/2300 [00:00&lt;00:02, 726.94it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 15%|█▌        | 352/2300 [00:00&lt;00:02, 870.99it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 16%|█▌        | 368/2300 [00:00&lt;00:02, 723.26it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 19%|█▉        | 440/2300 [00:00&lt;00:02, 872.97it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 19%|█▉        | 441/2300 [00:00&lt;00:02, 722.30it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 23%|██▎       | 528/2300 [00:00&lt;00:02, 874.19it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 22%|██▏       | 514/2300 [00:00&lt;00:02, 722.34it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 27%|██▋       | 616/2300 [00:00&lt;00:01, 875.14it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 26%|██▌       | 587/2300 [00:00&lt;00:02, 722.62it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 31%|███       | 704/2300 [00:00&lt;00:01, 872.81it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 29%|██▊       | 660/2300 [00:00&lt;00:02, 721.40it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 34%|███▍      | 792/2300 [00:00&lt;00:01, 871.79it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 32%|███▏      | 733/2300 [00:01&lt;00:02, 721.87it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 38%|███▊      | 880/2300 [00:01&lt;00:01, 871.01it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 35%|███▌      | 806/2300 [00:01&lt;00:02, 721.78it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 42%|████▏     | 968/2300 [00:01&lt;00:01, 871.60it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 38%|███▊      | 879/2300 [00:01&lt;00:01, 722.38it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 46%|████▌     | 1056/2300 [00:01&lt;00:01, 866.04it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 41%|████▏     | 952/2300 [00:01&lt;00:01, 722.59it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|████▉     | 1144/2300 [00:01&lt;00:01, 868.98it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 45%|████▍     | 1025/2300 [00:01&lt;00:01, 722.37it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 54%|█████▎    | 1232/2300 [00:01&lt;00:01, 870.72it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 48%|████▊     | 1098/2300 [00:01&lt;00:01, 724.17it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|█████▋    | 1320/2300 [00:01&lt;00:01, 872.52it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 51%|█████     | 1171/2300 [00:01&lt;00:01, 725.02it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 61%|██████    | 1408/2300 [00:01&lt;00:01, 871.39it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 54%|█████▍    | 1245/2300 [00:01&lt;00:01, 726.92it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 65%|██████▌   | 1496/2300 [00:01&lt;00:00, 872.23it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|█████▋    | 1319/2300 [00:01&lt;00:01, 728.64it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 69%|██████▉   | 1584/2300 [00:01&lt;00:00, 872.40it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 61%|██████    | 1392/2300 [00:01&lt;00:01, 727.87it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 73%|███████▎  | 1672/2300 [00:01&lt;00:00, 866.61it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 64%|██████▎   | 1465/2300 [00:02&lt;00:01, 727.25it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 76%|███████▋  | 1759/2300 [00:02&lt;00:00, 780.82it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 67%|██████▋   | 1538/2300 [00:02&lt;00:01, 727.96it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 80%|████████  | 1845/2300 [00:02&lt;00:00, 802.05it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|███████   | 1612/2300 [00:02&lt;00:00, 729.05it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 84%|████████▍ | 1931/2300 [00:02&lt;00:00, 816.60it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 73%|███████▎  | 1686/2300 [00:02&lt;00:00, 731.21it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 88%|████████▊ | 2019/2300 [00:02&lt;00:00, 832.34it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 77%|███████▋  | 1760/2300 [00:02&lt;00:00, 730.53it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 92%|█████████▏| 2107/2300 [00:02&lt;00:00, 843.28it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 80%|███████▉  | 1834/2300 [00:02&lt;00:00, 730.12it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 95%|█████████▌| 2195/2300 [00:02&lt;00:00, 851.58it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 83%|████████▎ | 1908/2300 [00:02&lt;00:00, 731.89it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 99%|█████████▉| 2283/2300 [00:02&lt;00:00, 858.13it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 86%|████████▌ | 1982/2300 [00:02&lt;00:00, 731.29it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 89%|████████▉ | 2056/2300 [00:02&lt;00:00, 730.24it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 93%|█████████▎| 2130/2300 [00:02&lt;00:00, 728.72it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 96%|█████████▌| 2203/2300 [00:03&lt;00:00, 726.97it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 99%|█████████▉| 2277/2300 [00:03&lt;00:00, 728.98it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 2300/2300 [00:03&lt;00:00, 726.26it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 2300/2300 [00:02&lt;00:00, 857.16it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -888,7 +877,7 @@ $<span class="math notranslate nohighlight">\(P(\alpha) = Uniform[0, 1000].\)</s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/9b27547f75400ee1ee540430cdf3bda9b95301bc6ed809f6ecf54c5c3a599a31.png" src="../../../_images/9b27547f75400ee1ee540430cdf3bda9b95301bc6ed809f6ecf54c5c3a599a31.png" />
+<img alt="../../../_images/974245bdc64cf81ab893052c9b830e4999b1fea940662955882c5f4487c3a593.png" src="../../../_images/974245bdc64cf81ab893052c9b830e4999b1fea940662955882c5f4487c3a593.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -912,10 +901,10 @@ $<span class="math notranslate nohighlight">\(P(\alpha) = Uniform[0, 1000].\)</s
 <div class="cell_output docutils container">
 <p>Without outlier modeling:</p>
 <ul class="simple">
-<li><p>$\alpha$ = 39.7 [38.5, 41]</p></li>
-<li><p>$\beta$ = 0.236 [0.208, 0.264]</p></li>
+<li><p>$\alpha$ = 39.8 [38.6, 41]</p></li>
+<li><p>$\beta$ = 0.234 [0.209, 0.261]</p></li>
 </ul>
-<img alt="../../../_images/b04fb7c4904b9a8c485ae01923774a512fe8013223b32f6daf8452079616c014.png" src="../../../_images/b04fb7c4904b9a8c485ae01923774a512fe8013223b32f6daf8452079616c014.png" />
+<img alt="../../../_images/4ddbd8b88e7183c57d14ea6824e72dc2cd926741a9b9bf9e5e3a78539258b91a.png" src="../../../_images/4ddbd8b88e7183c57d14ea6824e72dc2cd926741a9b9bf9e5e3a78539258b91a.png" />
 </div>
 </div>
 <p>It’s clear from this plot that the outliers exerts a disproportionate influence on the fit.</p>
@@ -1393,7 +1382,7 @@ $<span class="math notranslate nohighlight">\( Odds_{outlier}(x_i, y_i, \sigma_i
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="README.html"
@@ -1464,13 +1453,14 @@ $<span class="math notranslate nohighlight">\( Odds_{outlier}(x_i, y_i, \sigma_i
   <div class="footer-item">
     
 <p class="component-author">
-By Iva Momcheva & Morgan Fouesneau
+By Iva Momcheva, Morgan Fouesneau, and Raphael E. Hviding
 </p>
 
   </div>
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1497,8 +1487,8 @@ By Iva Momcheva & Morgan Fouesneau
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

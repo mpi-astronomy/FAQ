@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/python/parallel-code-slower';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Introduction" href="../problems/straightline/README.html" />
+    <link rel="next" title="Image Generation with Stable Diffusion and Fooocus" href="fooocus.html" />
     <link rel="prev" title="Some Fun with Numba" href="NumbaFun.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -141,6 +141,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../intro.html">
@@ -183,6 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Why does my parallel code take much more time than a non-paralleled one?</a></li>
 
 
+<li class="toctree-l1"><a class="reference internal" href="fooocus.html">Image Generation with Stable Diffusion and Fooocus</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Straightline fitting problem</span></p>
 <ul class="nav bd-sidenav">
@@ -353,6 +355,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -362,6 +365,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -456,7 +460,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sequential: 426 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sequential: 361 ms
 </pre></div>
 </div>
 </div>
@@ -471,7 +475,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Joblib Parallel+delayed: 6.56 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Joblib Parallel+delayed: 4.7 s
 </pre></div>
 </div>
 </div>
@@ -486,7 +490,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.Pool: 247 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.Pool: 160 ms
 </pre></div>
 </div>
 </div>
@@ -501,7 +505,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.ThreadPool: 139 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.ThreadPool: 112 ms
 </pre></div>
 </div>
 </div>
@@ -563,7 +567,7 @@ $<span class="math notranslate nohighlight">\(\begin{aligned}\textrm{total speed
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/60abd45e12fbf65e25f1909b6435008db1da34439f42a86658bfb277f48c1291.png" src="../../_images/60abd45e12fbf65e25f1909b6435008db1da34439f42a86658bfb277f48c1291.png" />
+<img alt="../../_images/837c1a518a77a697ed4b72c4ed492806b3098d381355faabfc18b7aebc5a457c.png" src="../../_images/837c1a518a77a697ed4b72c4ed492806b3098d381355faabfc18b7aebc5a457c.png" />
 </div>
 </div>
 <p>For example, if a task can be parallelized 80% (red curve above) of the time and there are 4 processors, the maximum speedup would be 16. This means that the task could be completed in 1/16th of the time it would take to run on a single processor.
@@ -616,14 +620,16 @@ However, the Amdahl’s law shows that there is a limit to the speedup that can 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Serial: 421 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Serial: 368 ms
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Joblib Parallel+delayed: 6.22 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Joblib Parallel+delayed: 4.47 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.Pool: 250 ms
-Multiprocessing.ThreadPool: 142 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.Pool: 167 ms
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.ThreadPool: 98.1 ms
 </pre></div>
 </div>
 </div>
@@ -664,7 +670,7 @@ There are good reasons to prefer some libraries over others (which we do not dis
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="NumbaFun.html"
@@ -676,11 +682,11 @@ There are good reasons to prefer some libraries over others (which we do not dis
       </div>
     </a>
     <a class="right-next"
-       href="../problems/straightline/README.html"
+       href="fooocus.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction</p>
+        <p class="prev-next-title">Image Generation with Stable Diffusion and Fooocus</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -721,13 +727,14 @@ There are good reasons to prefer some libraries over others (which we do not dis
   <div class="footer-item">
     
 <p class="component-author">
-By Iva Momcheva & Morgan Fouesneau
+By Iva Momcheva, Morgan Fouesneau, and Raphael E. Hviding
 </p>
 
   </div>
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -754,8 +761,8 @@ By Iva Momcheva & Morgan Fouesneau
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

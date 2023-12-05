@@ -1,15 +1,4 @@
 Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 778, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 189, in ensure_async
-    result = await obj
-  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/jupyter_client/channels.py", line 315, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
   File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 1305, in execute
@@ -20,18 +9,61 @@ Traceback (most recent call last):
     return future.result()
   File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 1001, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 802, in _async_poll_for_reply
-    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
-  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 852, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-['import numpy as np', '# pystan 3 bug fixing', '# RuntimeError: asyncio.run() cannot be called from a running event loop', 'import nest_asyncio', 'nest_asyncio.apply()']
-...
-["fit_data = {'N': len(x), 'x': x, 'y': y, 'sy': sy}", 'posterior = stan.build(fit_code, data=fit_data, random_seed=1)', 'traces_ols = posterior.sample(num_chains=4, num_samples=25000, init=[guess] * 4)', '# extract the traces', "traces = [traces_ols['alpha'], traces_ols['beta']]"]
--------------------
+  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import daft
+
+# Instantiate the PGM.
+pgm = daft.PGM([4, 4], origin=[-0.5, -0.0], grid_unit=4, 
+               node_unit=2, label_params=dict(fontsize='x-large'))
+
+# Hierarchical parameters.
+pgm.add_node(daft.Node("sout", r"$\sigma_{out}$", 0.9, 3.5, fixed=False))
+pgm.add_node(daft.Node("g", r"$g$", 0.2, 3.5, fixed=False))
+pgm.add_node(daft.Node("beta", r"$\beta$", 2.4, 3.5))
+pgm.add_node(daft.Node("alpha", r"$\alpha$", 1.6, 3.5))
+
+# Latent variable.
+pgm.add_node(daft.Node("x", r"$x_i$", 1, 1))
+pgm.add_node(daft.Node("gn", r"$g_i$", 0.2, 2, observed=False))
+pgm.add_node(daft.Node("yin", r"$\hat{y}_{in}$", 2.5, 2, observed=False))
+pgm.add_node(daft.Node("yout", r"$\hat{y}_{out}$", 1.5, 2, observed=False))
+
+# Data.
+pgm.add_node(daft.Node("y", r"$y_i$", 2, 1, observed=True))
+
+# And a plate.
+pgm.add_plate(daft.Plate([-0.2, 0.5, 3.2, 2.2], 
+                         label=r"$i = 1, \cdots, N$", shift=-0.1,
+                         bbox={"color": "none"}))
+
+# add relations
+pgm.add_edge("x", "y")
+pgm.add_edge("alpha", "yin")
+pgm.add_edge("beta", "yin")
+pgm.add_edge("alpha", "yout")
+pgm.add_edge("beta", "yout")
+pgm.add_edge("sout", "yout")
+pgm.add_edge("g", "gn")
+pgm.add_edge("gn", "y")
+pgm.add_edge("yin", "y")
+pgm.add_edge("yout", "y")
+
+pgm.render();
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[10], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mdaft[39;00m
+[1;32m      3[0m [38;5;66;03m# Instantiate the PGM.[39;00m
+[1;32m      4[0m pgm [38;5;241m=[39m daft[38;5;241m.[39mPGM([[38;5;241m4[39m, [38;5;241m4[39m], origin[38;5;241m=[39m[[38;5;241m-[39m[38;5;241m0.5[39m, [38;5;241m-[39m[38;5;241m0.0[39m], grid_unit[38;5;241m=[39m[38;5;241m4[39m, 
+[1;32m      5[0m                node_unit[38;5;241m=[39m[38;5;241m2[39m, label_params[38;5;241m=[39m[38;5;28mdict[39m(fontsize[38;5;241m=[39m[38;5;124m'[39m[38;5;124mx-large[39m[38;5;124m'[39m))
+
+[0;31mModuleNotFoundError[0m: No module named 'daft'
 
