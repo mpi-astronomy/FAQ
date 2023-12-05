@@ -30,6 +30,11 @@ jobs:
     - name: Build the book
       run: |
         jupyter-book build faq
+    
+    - name: automate contributors in readme
+      uses: akhilmhdh/contributors-readme-action@v2.3.6
+      with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # Deploy the book's HTML to gh-pages branch
     - name: GitHub Pages action
