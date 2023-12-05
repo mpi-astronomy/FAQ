@@ -11,6 +11,9 @@ See the built website https://mpi-astronomy.github.io/FAQ/
 
 We welcome and recognize all contributions. You can see a list of current contributors in the [contributors tab](https://github.com/mpi-astronomy/FAQ/graphs/contributors).
 
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
+
 ## Credits
 
 This project is created using the excellent open-source [Jupyter Book](https://jupyterbook.org/) project](https://jupyterbook.org/) and the [executablebooks/cookiecutter-jupyter-book template](https://github.com/executablebooks/cookiecutter-jupyter-book).
