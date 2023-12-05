@@ -6,7 +6,7 @@
 #######################################################################################
 # Book settings
 title                       : MPI-astronomy-FAQ  # The title of the book. Will be placed in the left navbar.
-author                      : Iva Momcheva & Morgan Fouesneau  # The author of the book
+author                      : Iva Momcheva, Morgan Fouesneau, and Raphael E. Hviding  # The author of the book
 copyright                   : "2023"  # Copyright year to be placed in the footer
 logo                        : assets/logo.png  # A path to the book logo
 
