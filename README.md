@@ -5,21 +5,7 @@
 
 In this repository, we collect small documents on specific challenges or problems.
 
-## Publishing
-
-[How do I cite software in my paper?](https://github.com/mpi-astronomy/FAQ/blob/main/faq/chapters/publishing/how-to-cite.md)
-
-[How do I publish my software?](https://github.com/mpi-astronomy/FAQ/blob/main/faq/chapters/publishing/how-to-publish-software.md)
-
-[How do I create accessible color plots?](https://github.com/mpi-astronomy/FAQ/blob/main/faq/chapters/publishing/how-to-color-plots.md)
-
-## Coding
-
-[How do I start a new software project?](https://github.com/mpi-astronomy/FAQ/blob/main/faq/chapters//coding/how-to-start-project.md)
-
-[How do I speed up my code with `numba`?](https://github.com/mpi-astronomy/FAQ/blob/main/faq/chapters//coding/NumbaFun.ipynb)
-
-[The straight line fitting problem](https://github.com/mpi-astronomy/FAQ/blob/main/faq/chapters//coding/straightline)
+Please visit https://mpi-astronomy.github.io/FAQ/ 
 
 ## Contributors
 
