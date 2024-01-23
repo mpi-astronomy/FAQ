@@ -454,8 +454,10 @@ nvidia-smi
 <p class="admonition-title">Note</p>
 <p>This view also allows us to see what the GPU usage is. Of course, the less utilization, the faster our model will run. This is makes <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code> a quick and easy way to check the current GPU utilization on the <code class="docutils literal notranslate"><span class="pre">astro-gpu-node</span></code> servers.</p>
 </div>
-<p>We are going to follow the default Fooocus installation instructions with a slight modification to account for the outdated CUDA version available on the GPU nodes.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/lllyasviel/Fooocus.git
+<p>We are going to follow the default Fooocus installation instructions with a slight modification to account for the outdated CUDA version available on the GPU nodes. We’ll be loading the native Anaconda module on the astro-nodes to install the software.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>purge<span class="w"> </span><span class="c1"># Optional, gets rid of any previously loaded modules</span>
+module<span class="w"> </span>load<span class="w"> </span>anaconda3-py3.10
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/lllyasviel/Fooocus.git
 <span class="nb">cd</span><span class="w"> </span>Fooocus
 conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yaml
 conda<span class="w"> </span>activate<span class="w"> </span>fooocus

@@ -779,210 +779,76 @@ and
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp: In constructor ‘model_wkjnhig4_namespace::model_wkjnhig4::model_wkjnhig4(stan::io::var_context&amp;, unsigned int, std::ostream*)’:
-/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp:50:11: warning: variable ‘pos__’ set but not used [-Wunused-but-set-variable]
-   50 |       int pos__ = std::numeric_limits&lt;int&gt;::min();
-      |           ^~~~~
-In file included from /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun.hpp:124,
-                 from /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/rev/fun/multiply.hpp:7,
-                 from /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/rev/fun/elt_multiply.hpp:9,
-                 from /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/rev/fun.hpp:55,
-                 from /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/rev.hpp:10,
-                 from /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math.hpp:19,
-                 from /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/model/model_header.hpp:4,
-                 from /home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp:2:
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_2F1.hpp: In instantiation of ‘TupleT stan::math::internal::grad_2F1_impl(const T1&amp;, const T2&amp;, const T3&amp;, const T_z&amp;, double, int) [with bool calc_a1 = true; bool calc_a2 = true; bool calc_b1 = true; bool calc_z = true; T1 = double; T2 = double; T3 = double; T_z = double; ScalarT = double; TupleT = std::tuple&lt;double, double, double, double&gt;]’:
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_2F1.hpp:307:57:   required from ‘auto stan::math::grad_2F1(const T1&amp;, const T2&amp;, const T3&amp;, const T_z&amp;, double, int) [with bool ReturnSameT = true; T1 = double; T2 = double; T3 = double; T_z = double; stan::require_t&lt;std::integral_constant&lt;bool, __v&gt; &gt;* &lt;anonymous&gt; = 0]’
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_inc_beta.hpp:37:25:   required from here
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_2F1.hpp:192:12: warning: unused variable ‘pre_mult’ [-Wunused-variable]
-  192 |       auto pre_mult = a2 * pow(1 - z, -1 - a2);
-      |            ^~~~~~~~
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_2F1.hpp: In instantiation of ‘TupleT stan::math::internal::grad_2F1_impl(const T1&amp;, const T2&amp;, const T3&amp;, const T_z&amp;, double, int) [with bool calc_a1 = true; bool calc_a2 = true; bool calc_b1 = true; bool calc_z = true; T1 = stan::math::var_value&lt;double&gt;; T2 = stan::math::var_value&lt;double&gt;; T3 = stan::math::var_value&lt;double&gt;; T_z = stan::math::var_value&lt;double&gt;; ScalarT = stan::math::var_value&lt;double&gt;; TupleT = std::tuple&lt;stan::math::var_value&lt;double, void&gt;, stan::math::var_value&lt;double, void&gt;, stan::math::var_value&lt;double, void&gt;, stan::math::var_value&lt;double, void&gt; &gt;]’:
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_2F1.hpp:307:57:   required from ‘auto stan::math::grad_2F1(const T1&amp;, const T2&amp;, const T3&amp;, const T_z&amp;, double, int) [with bool ReturnSameT = true; T1 = stan::math::var_value&lt;double&gt;; T2 = stan::math::var_value&lt;double&gt;; T3 = stan::math::var_value&lt;double&gt;; T_z = stan::math::var_value&lt;double&gt;; stan::require_t&lt;std::integral_constant&lt;bool, __v&gt; &gt;* &lt;anonymous&gt; = 0]’
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/rev/fun/grad_inc_beta.hpp:49:25:   required from here
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_2F1.hpp:192:12: warning: variable ‘pre_mult’ set but not used [-Wunused-but-set-variable]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp: In instantiation of ‘void model_wkjnhig4_namespace::model_wkjnhig4::transform_inits_impl(const stan::io::var_context&amp;, VecVar&amp;, std::ostream*) const [with VecVar = std::vector&lt;double, std::allocator&lt;double&gt; &gt;; stan::require_vector_t&lt;T_y&gt;* &lt;anonymous&gt; = 0; std::ostream = std::basic_ostream&lt;char&gt;]’:
-/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp:388:25:   required from here
-/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp:255:11: warning: variable ‘pos__’ set but not used [-Wunused-but-set-variable]
-  255 |       int pos__ = std::numeric_limits&lt;int&gt;::min();
-      |           ^~~~~
-/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp: In instantiation of ‘void model_wkjnhig4_namespace::model_wkjnhig4::unconstrain_array_impl(const VecVar&amp;, const VecI&amp;, VecVar&amp;, std::ostream*) const [with VecVar = std::vector&lt;double, std::allocator&lt;double&gt; &gt;; VecI = std::vector&lt;int&gt;; stan::require_vector_t&lt;T_y&gt;* &lt;anonymous&gt; = 0; stan::require_vector_like_vt&lt;std::is_integral, VecI&gt;* &lt;anonymous&gt; = 0; std::ostream = std::basic_ostream&lt;char&gt;]’:
-/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp:397:27:   required from here
-/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp:224:11: warning: variable ‘pos__’ set but not used [-Wunused-but-set-variable]
-  224 |       int pos__ = std::numeric_limits&lt;int&gt;::min();
-      |           ^~~~~
-/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp: In instantiation of ‘void model_wkjnhig4_namespace::model_wkjnhig4::unconstrain_array_impl(const VecVar&amp;, const VecI&amp;, VecVar&amp;, std::ostream*) const [with VecVar = Eigen::Matrix&lt;double, -1, 1&gt;; VecI = std::vector&lt;int&gt;; stan::require_vector_t&lt;T_y&gt;* &lt;anonymous&gt; = 0; stan::require_vector_like_vt&lt;std::is_integral, VecI&gt;* &lt;anonymous&gt; = 0; std::ostream = std::basic_ostream&lt;char&gt;]’:
-/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp:407:27:   required from here
-/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp:224:11: warning: variable ‘pos__’ set but not used [-Wunused-but-set-variable]
-In file included from /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun.hpp:124,
-                 from /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/rev/fun/multiply.hpp:7,
-                 from /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/rev/fun/elt_multiply.hpp:9,
-                 from /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/rev/fun.hpp:55,
-                 from /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/rev.hpp:10,
-                 from /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math.hpp:19,
-                 from /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/model/model_header.hpp:4,
-                 from /home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp:2:
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_2F1.hpp: In instantiation of ‘TupleT stan::math::internal::grad_2F1_impl_ab(const T1&amp;, const T2&amp;, const T3&amp;, const T_z&amp;, double, int) [with bool calc_a1 = true; bool calc_a2 = true; bool calc_b1 = true; T1 = double; T2 = double; T3 = double; T_z = double; ScalarT = double; TupleT = std::tuple&lt;double, double, double&gt;]’:
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_2F1.hpp:205:78:   required from ‘TupleT stan::math::internal::grad_2F1_impl(const T1&amp;, const T2&amp;, const T3&amp;, const T_z&amp;, double, int) [with bool calc_a1 = true; bool calc_a2 = true; bool calc_b1 = true; bool calc_z = true; T1 = double; T2 = double; T3 = double; T_z = double; ScalarT = double; TupleT = std::tuple&lt;double, double, double, double&gt;]’
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_2F1.hpp:307:57:   required from ‘auto stan::math::grad_2F1(const T1&amp;, const T2&amp;, const T3&amp;, const T_z&amp;, double, int) [with bool ReturnSameT = true; T1 = double; T2 = double; T3 = double; T_z = double; stan::require_t&lt;std::integral_constant&lt;bool, __v&gt; &gt;* &lt;anonymous&gt; = 0]’
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_inc_beta.hpp:37:25:   required from here
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_2F1.hpp:68:10: warning: unused variable ‘log_precision’ [-Wunused-variable]
-   68 |   double log_precision = log(precision);
-      |          ^~~~~~~~~~~~~
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_2F1.hpp: In instantiation of ‘TupleT stan::math::internal::grad_2F1_impl_ab(const T1&amp;, const T2&amp;, const T3&amp;, const T_z&amp;, double, int) [with bool calc_a1 = true; bool calc_a2 = true; bool calc_b1 = true; T1 = stan::math::var_value&lt;double&gt;; T2 = stan::math::var_value&lt;double&gt;; T3 = stan::math::var_value&lt;double&gt;; T_z = stan::math::var_value&lt;double&gt;; ScalarT = stan::math::var_value&lt;double&gt;; TupleT = std::tuple&lt;stan::math::var_value&lt;double, void&gt;, stan::math::var_value&lt;double, void&gt;, stan::math::var_value&lt;double, void&gt; &gt;]’:
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_2F1.hpp:205:78:   required from ‘TupleT stan::math::internal::grad_2F1_impl(const T1&amp;, const T2&amp;, const T3&amp;, const T_z&amp;, double, int) [with bool calc_a1 = true; bool calc_a2 = true; bool calc_b1 = true; bool calc_z = true; T1 = stan::math::var_value&lt;double&gt;; T2 = stan::math::var_value&lt;double&gt;; T3 = stan::math::var_value&lt;double&gt;; T_z = stan::math::var_value&lt;double&gt;; ScalarT = stan::math::var_value&lt;double&gt;; TupleT = std::tuple&lt;stan::math::var_value&lt;double, void&gt;, stan::math::var_value&lt;double, void&gt;, stan::math::var_value&lt;double, void&gt;, stan::math::var_value&lt;double, void&gt; &gt;]’
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_2F1.hpp:307:57:   required from ‘auto stan::math::grad_2F1(const T1&amp;, const T2&amp;, const T3&amp;, const T_z&amp;, double, int) [with bool ReturnSameT = true; T1 = stan::math::var_value&lt;double&gt;; T2 = stan::math::var_value&lt;double&gt;; T3 = stan::math::var_value&lt;double&gt;; T_z = stan::math::var_value&lt;double&gt;; stan::require_t&lt;std::integral_constant&lt;bool, __v&gt; &gt;* &lt;anonymous&gt; = 0]’
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/rev/fun/grad_inc_beta.hpp:49:25:   required from here
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/math/prim/fun/grad_2F1.hpp:68:10: warning: unused variable ‘log_precision’ [-Wunused-variable]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp: In instantiation of ‘void model_wkjnhig4_namespace::model_wkjnhig4::write_array_impl(RNG&amp;, VecR&amp;, VecI&amp;, VecVar&amp;, bool, bool, std::ostream*) const [with RNG = boost::random::additive_combine_engine&lt;boost::random::linear_congruential_engine&lt;unsigned int, 40014, 0, 2147483563&gt;, boost::random::linear_congruential_engine&lt;unsigned int, 40692, 0, 2147483399&gt; &gt;; VecR = Eigen::Matrix&lt;double, -1, 1&gt;; VecI = std::vector&lt;int&gt;; VecVar = Eigen::Matrix&lt;double, -1, 1&gt;; stan::require_vector_like_vt&lt;std::is_floating_point, VecR&gt;* &lt;anonymous&gt; = 0; stan::require_vector_like_vt&lt;std::is_integral, VecI&gt;* &lt;anonymous&gt; = 0; stan::require_vector_vt&lt;std::is_floating_point, VecVar&gt;* &lt;anonymous&gt; = 0; std::ostream = std::basic_ostream&lt;char&gt;]’:
-/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp:344:21:   required from ‘void model_wkjnhig4_namespace::model_wkjnhig4::write_array(RNG&amp;, Eigen::Matrix&lt;double, -1, 1&gt;&amp;, Eigen::Matrix&lt;double, -1, 1&gt;&amp;, bool, bool, std::ostream*) const [with RNG = boost::random::additive_combine_engine&lt;boost::random::linear_congruential_engine&lt;unsigned int, 40014, 0, 2147483563&gt;, boost::random::linear_congruential_engine&lt;unsigned int, 40692, 0, 2147483399&gt; &gt;; std::ostream = std::basic_ostream&lt;char&gt;]’
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/model/model_base_crtp.hpp:140:61:   required from ‘void stan::model::model_base_crtp&lt;M&gt;::write_array(boost::random::ecuyer1988&amp;, Eigen::VectorXd&amp;, Eigen::VectorXd&amp;, bool, bool, std::ostream*) const [with M = model_wkjnhig4_namespace::model_wkjnhig4; boost::random::ecuyer1988 = boost::random::additive_combine_engine&lt;boost::random::linear_congruential_engine&lt;unsigned int, 40014, 0, 2147483563&gt;, boost::random::linear_congruential_engine&lt;unsigned int, 40692, 0, 2147483399&gt; &gt;; Eigen::VectorXd = Eigen::Matrix&lt;double, -1, 1&gt;; std::ostream = std::basic_ostream&lt;char&gt;]’
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/model/model_base_crtp.hpp:136:8:   required from here
-/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp:172:20: warning: unused variable ‘jacobian__’ [-Wunused-variable]
-  172 |     constexpr bool jacobian__ = false;
-      |                    ^~~~~~~~~~
-/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp: In instantiation of ‘void model_wkjnhig4_namespace::model_wkjnhig4::write_array_impl(RNG&amp;, VecR&amp;, VecI&amp;, VecVar&amp;, bool, bool, std::ostream*) const [with RNG = boost::random::additive_combine_engine&lt;boost::random::linear_congruential_engine&lt;unsigned int, 40014, 0, 2147483563&gt;, boost::random::linear_congruential_engine&lt;unsigned int, 40692, 0, 2147483399&gt; &gt;; VecR = std::vector&lt;double, std::allocator&lt;double&gt; &gt;; VecI = std::vector&lt;int&gt;; VecVar = std::vector&lt;double, std::allocator&lt;double&gt; &gt;; stan::require_vector_like_vt&lt;std::is_floating_point, VecR&gt;* &lt;anonymous&gt; = 0; stan::require_vector_like_vt&lt;std::is_integral, VecI&gt;* &lt;anonymous&gt; = 0; stan::require_vector_vt&lt;std::is_floating_point, VecVar&gt;* &lt;anonymous&gt; = 0; std::ostream = std::basic_ostream&lt;char&gt;]’:
-/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp:360:21:   required from ‘void model_wkjnhig4_namespace::model_wkjnhig4::write_array(RNG&amp;, std::vector&lt;double, std::allocator&lt;double&gt; &gt;&amp;, std::vector&lt;int&gt;&amp;, std::vector&lt;double, std::allocator&lt;double&gt; &gt;&amp;, bool, bool, std::ostream*) const [with RNG = boost::random::additive_combine_engine&lt;boost::random::linear_congruential_engine&lt;unsigned int, 40014, 0, 2147483563&gt;, boost::random::linear_congruential_engine&lt;unsigned int, 40692, 0, 2147483399&gt; &gt;; std::ostream = std::basic_ostream&lt;char&gt;]’
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/model/model_base_crtp.hpp:202:61:   required from ‘void stan::model::model_base_crtp&lt;M&gt;::write_array(boost::random::ecuyer1988&amp;, std::vector&lt;double, std::allocator&lt;double&gt; &gt;&amp;, std::vector&lt;int&gt;&amp;, std::vector&lt;double, std::allocator&lt;double&gt; &gt;&amp;, bool, bool, std::ostream*) const [with M = model_wkjnhig4_namespace::model_wkjnhig4; boost::random::ecuyer1988 = boost::random::additive_combine_engine&lt;boost::random::linear_congruential_engine&lt;unsigned int, 40014, 0, 2147483563&gt;, boost::random::linear_congruential_engine&lt;unsigned int, 40692, 0, 2147483399&gt; &gt;; std::ostream = std::basic_ostream&lt;char&gt;]’
-/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/httpstan/include/stan/model/model_base_crtp.hpp:198:8:   required from here
-/home/runner/.cache/httpstan/4.10.1/models/wkjnhig4/model_wkjnhig4.cpp:172:20: warning: unused variable ‘jacobian__’ [-Wunused-variable]
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building: 20.5s, done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Messages from stanc:
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning in &#39;/tmp/httpstan_h_689vl0/model_wkjnhig4.stan&#39;, line 4, column 4: Declaration
-    of arrays by placing brackets after a variable name is deprecated and
-    will be removed in Stan 2.33.0. Instead use the array keyword before the
-    type. This can be changed automatically using the auto-format flag to
-    stanc
-Warning in &#39;/tmp/httpstan_h_689vl0/model_wkjnhig4.stan&#39;, line 5, column 4: Declaration
-    of arrays by placing brackets after a variable name is deprecated and
-    will be removed in Stan 2.33.0. Instead use the array keyword before the
-    type. This can be changed automatically using the auto-format flag to
-    stanc
-Warning in &#39;/tmp/httpstan_h_689vl0/model_wkjnhig4.stan&#39;, line 6, column 4: Declaration
-    of arrays by placing brackets after a variable name is deprecated and
-    will be removed in Stan 2.33.0. Instead use the array keyword before the
-    type. This can be changed automatically using the auto-format flag to
-    stanc
-Warning in &#39;/tmp/httpstan_h_689vl0/model_wkjnhig4.stan&#39;, line 15, column 4: Declaration
-    of arrays by placing brackets after a variable name is deprecated and
-    will be removed in Stan 2.33.0. Instead use the array keyword before the
-    type. This can be changed automatically using the auto-format flag to
-    stanc
-Warning in &#39;/tmp/httpstan_h_689vl0/model_wkjnhig4.stan&#39;, line 22, column 22: Argument
-    100 suggests there may be parameters that are not unit scale; consider
-    rescaling with a multiplier (see manual section 22.12).
-Warning in &#39;/tmp/httpstan_h_689vl0/model_wkjnhig4.stan&#39;, line 22, column 4: Parameter
-    beta is given a uniform distribution. The uniform distribution is not
-    recommended, for two reasons: (a) Except when there are logical or
-    physical constraints, it is very unusual for you to be sure that a
-    parameter will fall inside a specified range, and (b) The infinite
-    gradient induced by a uniform density can cause difficulties for Stan&#39;s
-    sampling algorithm. As a consequence, we recommend soft constraints
-    rather than hard constraints; for example, instead of giving an
-    elasticity parameter a uniform(0,1) distribution, try normal(0.5,0.5).
-Warning in &#39;/tmp/httpstan_h_689vl0/model_wkjnhig4.stan&#39;, line 21, column 23: Argument
-    100 suggests there may be parameters that are not unit scale; consider
-    rescaling with a multiplier (see manual section 22.12).
-Warning in &#39;/tmp/httpstan_h_689vl0/model_wkjnhig4.stan&#39;, line 21, column 4: Parameter
-    alpha is given a uniform distribution. The uniform distribution is not
-    recommended, for two reasons: (a) Except when there are logical or
-    physical constraints, it is very unusual for you to be sure that a
-    parameter will fall inside a specified range, and (b) The infinite
-    gradient induced by a uniform density can cause difficulties for Stan&#39;s
-    sampling algorithm. As a consequence, we recommend soft constraints
-    rather than hard constraints; for example, instead of giving an
-    elasticity parameter a uniform(0,1) distribution, try normal(0.5,0.5).
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling:   0%
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling:  25% (26000/104000)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling:  50% (52000/104000)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling:  75% (78000/104000)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling: 100% (104000/104000)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling: 100% (104000/104000), done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Messages received during sampling:
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Gradient evaluation took 3.4e-05 seconds
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1000 transitions using 10 leapfrog steps per transition would take 0.34 seconds.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Adjust your expectations accordingly!
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Gradient evaluation took 2.7e-05 seconds
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1000 transitions using 10 leapfrog steps per transition would take 0.27 seconds.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Adjust your expectations accordingly!
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Gradient evaluation took 2.7e-05 seconds
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1000 transitions using 10 leapfrog steps per transition would take 0.27 seconds.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Adjust your expectations accordingly!
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Gradient evaluation took 2.5e-05 seconds
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1000 transitions using 10 leapfrog steps per transition would take 0.25 seconds.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Adjust your expectations accordingly!
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">41</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="n">guess</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">,</span> <span class="s1">&#39;beta&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="n">fit_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;sy&#39;</span><span class="p">:</span> <span class="n">sy</span><span class="p">}</span>
+<span class="ne">---&gt; </span><span class="mi">41</span> <span class="n">posterior</span> <span class="o">=</span> <span class="n">stan</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">fit_code</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fit_data</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">traces_ols</span> <span class="o">=</span> <span class="n">posterior</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">num_chains</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">25000</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="p">[</span><span class="n">guess</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="c1"># extract the traces</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/stan/model.py:519,</span> in <span class="ni">build</span><span class="nt">(program_code, data, random_seed)</span>
+<span class="g g-Whitespace">    </span><span class="mi">516</span>         <span class="k">return</span> <span class="n">Model</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">program_code</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">param_names</span><span class="p">,</span> <span class="n">constrained_param_names</span><span class="p">,</span> <span class="n">dims</span><span class="p">,</span> <span class="n">random_seed</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">518</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">519</span>     <span class="k">return</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">go</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">520</span> <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">521</span>     <span class="k">return</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nest_asyncio.py:30,</span> in <span class="ni">_patch_asyncio.&lt;locals&gt;.run</span><span class="nt">(main, debug)</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">ensure_future</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">30</span>     <span class="k">return</span> <span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">task</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nest_asyncio.py:98,</span> in <span class="ni">_patch_loop.&lt;locals&gt;.run_until_complete</span><span class="nt">(self, future)</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">f</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>         <span class="s1">&#39;Event loop stopped before Future completed.&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">98</span> <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/asyncio/futures.py:178,</span> in <span class="ni">Future.result</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span> <span class="bp">self</span><span class="o">.</span><span class="n">__log_traceback</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">178</span>     <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">179</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_result</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/asyncio/tasks.py:280,</span> in <span class="ni">Task.__step</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">276</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span>     <span class="k">if</span> <span class="n">exc</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span>         <span class="c1"># We use the `send` method directly, because coroutines</span>
+<span class="g g-Whitespace">    </span><span class="mi">279</span>         <span class="c1"># don&#39;t have `__iter__` and `__next__` methods.</span>
+<span class="ne">--&gt; </span><span class="mi">280</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">coro</span><span class="o">.</span><span class="n">throw</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/stan/model.py:498,</span> in <span class="ni">build.&lt;locals&gt;.go</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">496</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_type</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">497</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">498</span>         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">exception_body</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span> <span class="n">building_output</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span> <span class="k">if</span> <span class="n">io</span><span class="o">.</span><span class="n">supports_ansi</span><span class="p">()</span> <span class="k">else</span> <span class="n">building_output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">500</span> <span class="k">if</span> <span class="n">model_in_cache</span><span class="p">:</span>
+
+<span class="ne">RuntimeError</span>: Error in &#39;/tmp/httpstan_xjvrp2uz/model_vagcoyy3.stan&#39;, line 15, column 4: Declaration
+    <span class="n">of</span> <span class="n">arrays</span> <span class="n">by</span> <span class="n">placing</span> <span class="n">brackets</span> <span class="n">after</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">name</span> <span class="n">was</span> <span class="n">removed</span> <span class="ow">in</span> <span class="n">Stan</span>
+<span class="g g-Whitespace">    </span><span class="mi">2</span><span class="mf">.33.0</span><span class="o">.</span> <span class="n">Instead</span> <span class="n">use</span> <span class="n">the</span> <span class="n">array</span> <span class="n">keyword</span> <span class="n">before</span> <span class="n">the</span> <span class="nb">type</span><span class="o">.</span> <span class="n">This</span> <span class="n">can</span> <span class="n">be</span>
+    <span class="n">changed</span> <span class="n">automatically</span> <span class="n">using</span> <span class="n">the</span> <span class="n">auto</span><span class="o">-</span><span class="nb">format</span> <span class="n">flag</span> <span class="n">to</span> <span class="n">stanc</span>
+<span class="n">Error</span> <span class="ow">in</span> <span class="s1">&#39;/tmp/httpstan_xjvrp2uz/model_vagcoyy3.stan&#39;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">6</span><span class="p">,</span> <span class="n">column</span> <span class="mi">4</span><span class="p">:</span> <span class="n">Declaration</span>
+    <span class="n">of</span> <span class="n">arrays</span> <span class="n">by</span> <span class="n">placing</span> <span class="n">brackets</span> <span class="n">after</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">name</span> <span class="n">was</span> <span class="n">removed</span> <span class="ow">in</span> <span class="n">Stan</span>
+<span class="g g-Whitespace">    </span><span class="mi">2</span><span class="mf">.33.0</span><span class="o">.</span> <span class="n">Instead</span> <span class="n">use</span> <span class="n">the</span> <span class="n">array</span> <span class="n">keyword</span> <span class="n">before</span> <span class="n">the</span> <span class="nb">type</span><span class="o">.</span> <span class="n">This</span> <span class="n">can</span> <span class="n">be</span>
+    <span class="n">changed</span> <span class="n">automatically</span> <span class="n">using</span> <span class="n">the</span> <span class="n">auto</span><span class="o">-</span><span class="nb">format</span> <span class="n">flag</span> <span class="n">to</span> <span class="n">stanc</span>
+<span class="n">Error</span> <span class="ow">in</span> <span class="s1">&#39;/tmp/httpstan_xjvrp2uz/model_vagcoyy3.stan&#39;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">5</span><span class="p">,</span> <span class="n">column</span> <span class="mi">4</span><span class="p">:</span> <span class="n">Declaration</span>
+    <span class="n">of</span> <span class="n">arrays</span> <span class="n">by</span> <span class="n">placing</span> <span class="n">brackets</span> <span class="n">after</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">name</span> <span class="n">was</span> <span class="n">removed</span> <span class="ow">in</span> <span class="n">Stan</span>
+<span class="g g-Whitespace">    </span><span class="mi">2</span><span class="mf">.33.0</span><span class="o">.</span> <span class="n">Instead</span> <span class="n">use</span> <span class="n">the</span> <span class="n">array</span> <span class="n">keyword</span> <span class="n">before</span> <span class="n">the</span> <span class="nb">type</span><span class="o">.</span> <span class="n">This</span> <span class="n">can</span> <span class="n">be</span>
+    <span class="n">changed</span> <span class="n">automatically</span> <span class="n">using</span> <span class="n">the</span> <span class="n">auto</span><span class="o">-</span><span class="nb">format</span> <span class="n">flag</span> <span class="n">to</span> <span class="n">stanc</span>
+<span class="n">Error</span> <span class="ow">in</span> <span class="s1">&#39;/tmp/httpstan_xjvrp2uz/model_vagcoyy3.stan&#39;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="mi">4</span><span class="p">:</span> <span class="n">Declaration</span>
+    <span class="n">of</span> <span class="n">arrays</span> <span class="n">by</span> <span class="n">placing</span> <span class="n">brackets</span> <span class="n">after</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">name</span> <span class="n">was</span> <span class="n">removed</span> <span class="ow">in</span> <span class="n">Stan</span>
+<span class="g g-Whitespace">    </span><span class="mi">2</span><span class="mf">.33.0</span><span class="o">.</span> <span class="n">Instead</span> <span class="n">use</span> <span class="n">the</span> <span class="n">array</span> <span class="n">keyword</span> <span class="n">before</span> <span class="n">the</span> <span class="nb">type</span><span class="o">.</span> <span class="n">This</span> <span class="n">can</span> <span class="n">be</span>
+    <span class="n">changed</span> <span class="n">automatically</span> <span class="n">using</span> <span class="n">the</span> <span class="n">auto</span><span class="o">-</span><span class="nb">format</span> <span class="n">flag</span> <span class="n">to</span> <span class="n">stanc</span>
 </pre></div>
 </div>
 </div>
@@ -996,7 +862,7 @@ Warning in &#39;/tmp/httpstan_h_689vl0/model_wkjnhig4.stan&#39;, line 21, column
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/7b4de0070b863c980cd6b7b8b8c48ab349e96bf162a78ce8b85d18f70c907a40.png" src="../../../_images/7b4de0070b863c980cd6b7b8b8c48ab349e96bf162a78ce8b85d18f70c907a40.png" />
+<img alt="../../../_images/942238af41bb166060f97da2878c843fe9bbad36c4c435c587c9033460fb89e5.png" src="../../../_images/942238af41bb166060f97da2878c843fe9bbad36c4c435c587c9033460fb89e5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1023,7 +889,7 @@ Warning in &#39;/tmp/httpstan_h_689vl0/model_wkjnhig4.stan&#39;, line 21, column
 <li><p>$\alpha$ = 39.7 [38.5, 40.9]</p></li>
 <li><p>$\beta$ = 0.236 [0.208, 0.263]</p></li>
 </ul>
-<img alt="../../../_images/3d61ae3eae855c2de0f2c70dcab49d3531dc4c4cd229a1bd2981f9f2df52af17.png" src="../../../_images/3d61ae3eae855c2de0f2c70dcab49d3531dc4c4cd229a1bd2981f9f2df52af17.png" />
+<img alt="../../../_images/4d3666c43d38bdd3759552b93ff9a8109110382f00bae95fead117b4e342f39d.png" src="../../../_images/4d3666c43d38bdd3759552b93ff9a8109110382f00bae95fead117b4e342f39d.png" />
 </div>
 </div>
 <p>It’s clear from this plot that the outliers exerts a disproportionate influence on the fit.</p>
@@ -1089,17 +955,7 @@ One outlier that is, say <span class="math notranslate nohighlight">\(10-\sigma\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">daft</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Instantiate the PGM.</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">pgm</span> <span class="o">=</span> <span class="n">daft</span><span class="o">.</span><span class="n">PGM</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">],</span> <span class="n">grid_unit</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span>                <span class="n">node_unit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label_params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-large&#39;</span><span class="p">))</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;daft&#39;
-</pre></div>
-</div>
+<img alt="../../../_images/8987713f218e6fdd4575ea223c57e588d51d2367f4011e574177b31c7cf80e20.png" src="../../../_images/8987713f218e6fdd4575ea223c57e588d51d2367f4011e574177b31c7cf80e20.png" />
 </div>
 </div>
 <p>There are multiple ways to define this mixture modeling.</p>

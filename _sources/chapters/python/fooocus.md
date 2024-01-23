@@ -43,9 +43,11 @@ We need to note the CUDA version listed here for following installation steps.
 This view also allows us to see what the GPU usage is. Of course, the less utilization, the faster our model will run. This is makes `nvidia-smi` a quick and easy way to check the current GPU utilization on the `astro-gpu-node` servers. 
 ```
 
-We are going to follow the default Fooocus installation instructions with a slight modification to account for the outdated CUDA version available on the GPU nodes. 
+We are going to follow the default Fooocus installation instructions with a slight modification to account for the outdated CUDA version available on the GPU nodes. We'll be loading the native Anaconda module on the astro-nodes to install the software. 
 
 ```bash
+module purge # Optional, gets rid of any previously loaded modules
+module load anaconda3-py3.10
 git clone https://github.com/lllyasviel/Fooocus.git
 cd Fooocus
 conda env create -f environment.yaml
