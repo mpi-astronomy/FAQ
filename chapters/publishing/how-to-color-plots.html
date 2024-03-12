@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>How to color plots &#8212; MPI-astronomy-FAQ</title>
+    <title>How to use color in scientific plots &#8212; MPI-astronomy-FAQ</title>
   
   
   
@@ -172,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="how-to-cite.html">How do I cite software in my papers?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how-to-publish-software.html">How do I publish my software?</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">How to color plots</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">How to use color in scientific plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="old-code.html">What to do with “legacy” code?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
@@ -372,7 +372,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -383,11 +385,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>How to color plots</h1>
+    <h1>How to use color in scientific plots</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#color-selection-tools">Color Selection Tools:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-resources">Further resources:</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -397,19 +409,43 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="how-to-color-plots">
-<h1>How to color plots<a class="headerlink" href="#how-to-color-plots" title="Permalink to this heading">#</a></h1>
-<p><strong>DRAFT</strong></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="how-to-use-color-in-scientific-plots">
+<h1>How to use color in scientific plots<a class="headerlink" href="#how-to-use-color-in-scientific-plots" title="Permalink to this heading">#</a></h1>
+<p><strong>;tldr</strong> Creating readable and accessible science plots is not rocket science, follow the simple rules below.</p>
+<p>Color is a powerful tool in scientific visualization, aiding in the effective communication of complex data. When creating scientific figures, careful consideration of color choices is essential to ensure clarity, accessibility, and visual appeal. Here we provide a brief overview of the key principles of using color in scientific figures, emphasizing accessibility, meaningfulness, and best practices for effective data visualization.</p>
+<section id="best-practices">
+<h2>Best Practices:<a class="headerlink" href="#best-practices" title="Permalink to this heading">#</a></h2>
+<p>• <strong>Do not use rainbows</strong>. Use a perceptually uniform colour map, such as viridis or cividis.</p>
+<p>• Avoid red. Red does not appear as bright and vivid color. Especially avoid using red in combination with green or red symbols on a dark background.</p>
+<p>• Be mindful of existing norms associated with colors when selecting a color palette (e.g., colors of hot vs. cool stars). Ensure that your choices align with the intended message and audience of your visualization.</p>
+<p>• If in doubt, go grey. Check if your figure can colors/symbols are still distingishable in greyscale. Or display greayscale images in addition to the color ones.</p>
+<p>• Pick a palette. Choose one that works for everyone. See some suggestions below.</p>
+<p>• Do not use color as the sole encoding. Show difference BOTH in color and shapes/line textures to disambiguate colour.</p>
+<p>• For graphs and line drawings, label elements of the graph on the graph itself rather than making a separate color-coded key, since matching same colors in distant places is extremely difficult.</p>
+<p>• Test drive. Use a simulator such as Color Oracle or Coblis to ensure images can be interpreted accurately by everyone.</p>
+<p>A number of tools and resources can make your life easier. Please consider consulting them next time when you are making science figures for a talk or a paper.</p>
+</section>
+<section id="color-selection-tools">
+<h2>Color Selection Tools:<a class="headerlink" href="#color-selection-tools" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong><a class="reference external" href="https://colorcyclepicker.mpetroff.net">Color Cycle Picker</a></strong>: Utilize tools like the Color Cycle Picker to select color schemes that are colorblind-friendly and visually distinct.</p></li>
+<li><p><strong><a class="reference external" href="https://colorbrewer2.org">ColorBrewer</a></strong>: Explore ColorBrewer, which offers a “colorblind safe” option for choosing appropriate color schemes.</p></li>
+<li><p><strong><a class="reference external" href="https://matplotlib.org/cmocean/">Matplotlib Colormaps</a></strong>: At the very least use the viridis (now default) and cividis color maps. Consider using packages like <a class="reference external" href="https://matplotlib.org/cmocean/">cmocean</a> and <a class="reference external" href="https://colorcet.holoviz.org/">colorcet</a> for perceptually uniform colormaps in Python’s Matplotlib library.</p></li>
+<li><p><strong><a class="reference external" href="https://www.color-blindness.com/coblis-color-blindness-simulator/">Color Blindness Simulator, Colibris</a></strong>: Validate your color choices using tools like Coblis Color Blindness Simulator to ensure compatibility with different types of color vision deficiencies. Other available tools is <a class="reference external" href="https://colororacle.org/">ColorOracle</a>(a standalone application that applies a filter to your screen).</p></li>
+</ol>
+<p>If you’d like to make your own digital workspace more accessible, consider using the <a class="reference external" href="https://ethanschoonover.com/solarized/">Solarized color palette</a> developed by Ethan Schoonover. This color palette is available for many terminal emulators, text editors and IDEs. Morgan created his own Python implementations which can be found [here]( My python implementation: <a class="reference external" href="https://keeper.mpdl.mpg.de/f/0bc11f7fb56c43a088a0/">https://keeper.mpdl.mpg.de/f/0bc11f7fb56c43a088a0/</a>).</p>
+<p>If you’d like to dive deeper into the issue, this article on <a class="reference external" href="https://betterfigures.org/2015/06/23/picking-a-colour-scale-for-scientific-graphics/">Picking a Colour Scale for Scientific Graphics</a> is a great starting point.</p>
+<p>By following these guidelines and leveraging the recommended tools, scientists can create figures that are not only visually engaging but also inclusive and informative for a diverse audience.</p>
+<hr class="docutils" />
+</section>
+<section id="further-resources">
+<h2>Further resources:<a class="headerlink" href="#further-resources" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Color-cycle picker for colorblind friendly color schemes: <a class="reference external" href="https://colorcyclepicker.mpetroff.net/">https://colorcyclepicker.mpetroff.net/</a></p></li>
-<li><p><a class="reference external" href="https://colorbrewer2.org/">https://colorbrewer2.org/</a> which has a “colorblind safe” option.</p></li>
-<li><p>For matplotlib, great packages for perceptually unifom colourmaps are cmocean (<a class="reference external" href="https://matplotlib.org/cmocean/">https://matplotlib.org/cmocean/</a>) and colorcet (<a class="reference external" href="https://colorcet.holoviz.org/">https://colorcet.holoviz.org/</a>)</p></li>
-<li><p>I also use the Okabe Ito scale a lot (google will give the RGB values and implementations for multiple programming languages).</p></li>
-<li><p>And this is my favorite tool for checking if a choice of colors actually works <a class="reference external" href="https://www.color-blindness.com/coblis-color-blindness-simulator/">https://www.color-blindness.com/coblis-color-blindness-simulator/</a></p></li>
-<li><p>Paper for the Okabe Ito work: <a class="reference external" href="https://jfly.uni-koeln.de/color/">https://jfly.uni-koeln.de/color/</a></p></li>
-<li><p>My python implementation: <a class="reference external" href="https://keeper.mpdl.mpg.de/f/0bc11f7fb56c43a088a0/">https://keeper.mpdl.mpg.de/f/0bc11f7fb56c43a088a0/</a></p></li>
-<li><p>Nature article: <a class="reference external" href="https://www.nature.com/articles/d41586-021-02696-z">https://www.nature.com/articles/d41586-021-02696-z</a></p></li>
+<li><p>One of the seminal publications in the field is <a class="reference external" href="https://web.archive.org/web/20030821055411/http://jfly.iam.u-tokyo.ac.jp/color/text.html">Okabe &amp; Ito (2002)</a>.</p></li>
+<li><p>“Colour me better: fixing figures for colour blindness”, <span class="xref myst">Katsnelson, Nature, 2021</span>:</p></li>
+<li><p>A lengthy discussion on a <a class="reference external" href="https://github.com/matplotlib/matplotlib/issues/9460">matplotlib issue</a> of color palettes</p></li>
 </ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -466,6 +502,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#color-selection-tools">Color Selection Tools:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-resources">Further resources:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

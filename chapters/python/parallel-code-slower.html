@@ -174,7 +174,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../publishing/how-to-cite.html">How do I cite software in my papers?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../publishing/how-to-publish-software.html">How do I publish my software?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../publishing/how-to-color-plots.html">How to color plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publishing/how-to-color-plots.html">How to use color in scientific plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../publishing/old-code.html">What to do with “legacy” code?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
@@ -460,7 +460,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sequential: 373 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sequential: 362 ms
 </pre></div>
 </div>
 </div>
@@ -475,7 +475,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Joblib Parallel+delayed: 4.84 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Joblib Parallel+delayed: 4.97 s
 </pre></div>
 </div>
 </div>
@@ -490,7 +490,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.Pool: 205 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.Pool: 177 ms
 </pre></div>
 </div>
 </div>
@@ -505,7 +505,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.ThreadPool: 102 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.ThreadPool: 104 ms
 </pre></div>
 </div>
 </div>
@@ -567,7 +567,7 @@ $<span class="math notranslate nohighlight">\(\begin{aligned}\textrm{total speed
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/837c1a518a77a697ed4b72c4ed492806b3098d381355faabfc18b7aebc5a457c.png" src="../../_images/837c1a518a77a697ed4b72c4ed492806b3098d381355faabfc18b7aebc5a457c.png" />
+<img alt="../../_images/268d49fc9e606aaa528a927ba9f80e56221410220611561fdbfe10c7d28cdc4d.png" src="../../_images/268d49fc9e606aaa528a927ba9f80e56221410220611561fdbfe10c7d28cdc4d.png" />
 </div>
 </div>
 <p>For example, if a task can be parallelized 80% (red curve above) of the time and there are 4 processors, the maximum speedup would be 16. This means that the task could be completed in 1/16th of the time it would take to run on a single processor.
@@ -620,16 +620,16 @@ However, the Amdahl’s law shows that there is a limit to the speedup that can 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Serial: 380 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Serial: 384 ms
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Joblib Parallel+delayed: 4.69 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Joblib Parallel+delayed: 4.79 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.Pool: 175 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.Pool: 173 ms
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.ThreadPool: 101 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiprocessing.ThreadPool: 102 ms
 </pre></div>
 </div>
 </div>
