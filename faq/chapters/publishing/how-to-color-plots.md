@@ -1,6 +1,6 @@
 # How to use color in scientific plots
 
-**;tldr** Creating readable and accessible science plots is not rocket science, follow the simple rules below.
+**[tl;dr]** Creating readable and accessible science plots is not rocket science, follow the simple rules below.
 
 Color is a powerful tool in scientific visualization, aiding in the effective communication of complex data. When creating scientific figures, careful consideration of color choices is essential to ensure clarity, accessibility, and visual appeal. Here we provide a brief overview of the key principles of using color in scientific figures, emphasizing accessibility, meaningfulness, and best practices for effective data visualization.
 
