@@ -1,4 +1,4 @@
-# How to use color in scientific plots
+# How to use color in scientific plots?
 
 **[tl;dr]** Creating readable and accessible science plots is not rocket science, follow the simple rules below.
 
