@@ -8,8 +8,9 @@ While in most cases our contributions do not raise to the level of co-authorship
 
 
 ```
-We acknowledge the support of the Data Science Group at the Max Planck Institute for Astronomy (MPIA) and especially X, Y, Z for 
-their invaluable assistance in [analyzing the data, developing the software, other contributions] for this research paper.
+We acknowledge the support of the Data Science Group at the Max Planck Institute for Astronomy (MPIA)
+and especially X, Y, Z for their invaluable assistance in [analyzing the data, developing the software,
+other contributions] for this research paper.
 ```
 
 
