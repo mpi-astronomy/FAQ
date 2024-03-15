@@ -11,6 +11,7 @@ parts:
     - file: chapters/publishing/how-to-publish-software
     - file: chapters/publishing/how-to-color-plots
     - file: chapters/publishing/old-code
+    - file: chapters/publishing/how-to-acknowledge
 
   - caption: Python
     chapters:
