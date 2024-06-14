@@ -20,7 +20,6 @@ parts:
     - file: chapters/python/parallel-code-slower
     - file: chapters/python/fooocus
 
-
   - caption: Straightline fitting problem
     chapters:
     - file: chapters/problems/straightline/README
@@ -28,3 +27,7 @@ parts:
     - file: chapters/problems/straightline/straighlinefit_jax.ipynb
     - file: chapters/problems/straightline/straighlinefit_pymc3.ipynb
     - file: chapters/problems/straightline/straighlinefit_pystan.ipynb
+
+  - caption: Computing tips 
+    chapters:
+    - file: chapters/computing/mac-touchid-sudo
