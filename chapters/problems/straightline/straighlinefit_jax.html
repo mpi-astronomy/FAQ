@@ -204,6 +204,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computing tips</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../computing/mac-touchid-sudo.html">Mac OS: How to Configure Touch ID for the <code class="docutils literal notranslate"><span class="pre">sudo</span></code> command</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -773,15 +777,15 @@ y_i &amp;\sim \textrm{Normal}(\alpha \cdot x_i + \beta, \sigma_i)
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/graphviz/backend/execute.py:79,</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, quiet, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">78</span>         <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;stdout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;stderr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
-<span class="ne">---&gt; </span><span class="mi">79</span>     <span class="n">proc</span> <span class="o">=</span> <span class="n">_run_input_lines</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">input_lines</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">80</span> <span class="k">else</span><span class="p">:</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/graphviz/backend/execute.py:76,</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, quiet, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>         <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;stdout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;stderr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
+<span class="ne">---&gt; </span><span class="mi">76</span>     <span class="n">proc</span> <span class="o">=</span> <span class="n">_run_input_lines</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">input_lines</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span> <span class="k">else</span><span class="p">:</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/graphviz/backend/execute.py:99,</span> in <span class="ni">_run_input_lines</span><span class="nt">(cmd, input_lines, kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">def</span> <span class="nf">_run_input_lines</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">input_lines</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">99</span>     <span class="n">popen</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="n">stdin_write</span> <span class="o">=</span> <span class="n">popen</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">write</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/graphviz/backend/execute.py:96,</span> in <span class="ni">_run_input_lines</span><span class="nt">(cmd, input_lines, kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="k">def</span> <span class="nf">_run_input_lines</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">input_lines</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>     <span class="n">popen</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="n">stdin_write</span> <span class="o">=</span> <span class="n">popen</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">write</span>
 
 <span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/subprocess.py:858,</span> in <span class="ni">Popen.__init__</span><span class="nt">(self, args, bufsize, executable, stdin, stdout, stderr, preexec_fn, close_fds, shell, cwd, env, universal_newlines, startupinfo, creationflags, restore_signals, start_new_session, pass_fds, encoding, errors, text)</span>
 <span class="g g-Whitespace">    </span><span class="mi">855</span>             <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">TextIOWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span>
@@ -896,17 +900,17 @@ y_i &amp;\sim \textrm{Normal}(\alpha \cdot x_i + \beta, \sigma_i)
 <span class="ne">--&gt; </span><span class="mi">212</span> <span class="n">proc</span> <span class="o">=</span> <span class="n">execute</span><span class="o">.</span><span class="n">run_check</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="n">quiet</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">213</span> <span class="k">return</span> <span class="n">proc</span><span class="o">.</span><span class="n">stdout</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/graphviz/backend/execute.py:84,</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, quiet, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span> <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span>     <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">ENOENT</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">84</span>         <span class="k">raise</span> <span class="n">ExecutableNotFound</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span>     <span class="k">raise</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">quiet</span> <span class="ow">and</span> <span class="n">proc</span><span class="o">.</span><span class="n">stderr</span><span class="p">:</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/graphviz/backend/execute.py:81,</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, quiet, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span> <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span>     <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">ENOENT</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">81</span>         <span class="k">raise</span> <span class="n">ExecutableNotFound</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="k">raise</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">quiet</span> <span class="ow">and</span> <span class="n">proc</span><span class="o">.</span><span class="n">stderr</span><span class="p">:</span>
 
 <span class="ne">ExecutableNotFound</span>: failed to execute PosixPath(&#39;dot&#39;), make sure the Graphviz executables are on your systems&#39; PATH
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;graphviz.graphs.Digraph at 0x784425cd3580&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;graphviz.graphs.Digraph at 0x7f24f7fa8f70&gt;
 </pre></div>
 </div>
 </div>
@@ -928,15 +932,15 @@ y_i &amp;\sim \textrm{Normal}(\alpha \cdot x_i + \beta, \sigma_i)
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/graphviz/backend/execute.py:79,</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, quiet, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">78</span>         <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;stdout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;stderr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
-<span class="ne">---&gt; </span><span class="mi">79</span>     <span class="n">proc</span> <span class="o">=</span> <span class="n">_run_input_lines</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">input_lines</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">80</span> <span class="k">else</span><span class="p">:</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/graphviz/backend/execute.py:76,</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, quiet, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>         <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;stdout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;stderr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
+<span class="ne">---&gt; </span><span class="mi">76</span>     <span class="n">proc</span> <span class="o">=</span> <span class="n">_run_input_lines</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">input_lines</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span> <span class="k">else</span><span class="p">:</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/graphviz/backend/execute.py:99,</span> in <span class="ni">_run_input_lines</span><span class="nt">(cmd, input_lines, kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">def</span> <span class="nf">_run_input_lines</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">input_lines</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">99</span>     <span class="n">popen</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="n">stdin_write</span> <span class="o">=</span> <span class="n">popen</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">write</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/graphviz/backend/execute.py:96,</span> in <span class="ni">_run_input_lines</span><span class="nt">(cmd, input_lines, kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="k">def</span> <span class="nf">_run_input_lines</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">input_lines</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>     <span class="n">popen</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="n">stdin_write</span> <span class="o">=</span> <span class="n">popen</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">write</span>
 
 <span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/subprocess.py:858,</span> in <span class="ni">Popen.__init__</span><span class="nt">(self, args, bufsize, executable, stdin, stdout, stderr, preexec_fn, close_fds, shell, cwd, env, universal_newlines, startupinfo, creationflags, restore_signals, start_new_session, pass_fds, encoding, errors, text)</span>
 <span class="g g-Whitespace">    </span><span class="mi">855</span>             <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">TextIOWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span>
@@ -1051,17 +1055,17 @@ y_i &amp;\sim \textrm{Normal}(\alpha \cdot x_i + \beta, \sigma_i)
 <span class="ne">--&gt; </span><span class="mi">212</span> <span class="n">proc</span> <span class="o">=</span> <span class="n">execute</span><span class="o">.</span><span class="n">run_check</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="n">quiet</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">213</span> <span class="k">return</span> <span class="n">proc</span><span class="o">.</span><span class="n">stdout</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/graphviz/backend/execute.py:84,</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, quiet, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span> <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span>     <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">ENOENT</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">84</span>         <span class="k">raise</span> <span class="n">ExecutableNotFound</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span>     <span class="k">raise</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">quiet</span> <span class="ow">and</span> <span class="n">proc</span><span class="o">.</span><span class="n">stderr</span><span class="p">:</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/graphviz/backend/execute.py:81,</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, quiet, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span> <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span>     <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">ENOENT</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">81</span>         <span class="k">raise</span> <span class="n">ExecutableNotFound</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="k">raise</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">quiet</span> <span class="ow">and</span> <span class="n">proc</span><span class="o">.</span><span class="n">stderr</span><span class="p">:</span>
 
 <span class="ne">ExecutableNotFound</span>: failed to execute PosixPath(&#39;dot&#39;), make sure the Graphviz executables are on your systems&#39; PATH
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;graphviz.graphs.Digraph at 0x784430d55d90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;graphviz.graphs.Digraph at 0x7f24f7fc4be0&gt;
 </pre></div>
 </div>
 </div>
