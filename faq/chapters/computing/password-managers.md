@@ -70,16 +70,16 @@ What made me pick it?
 * Free version: There is a free tier that has most of the features I need.
 * Reasonable price: The premium tier is affordable ($1/month) and offers additional features like 2FA token storage, secure file storage, and password health reports.
 
-I did hesitate with [1Password](https://1password.com/). It is a great password manager with a polished UI (better than BitWarden) and excellent features. However, I did not choose it for the following reasons:
+I hesitated about [1Password](https://1password.com/). It is a great password manager with a polished UI (better than BitWarden) and excellent features. However, I did not choose it for the following reasons:
 * Price. I am not against a subscription, but their price ($3/month) is higher than Bitwarden for the same features.
 * Closed-source. I am not against closed-source software, but it's a plus when a security company is fully transparent.
-However, 1Password is an excellent choice if you are looking for a polished UI and are willing to pay for it. Especially if you plan to share passwords with family members or colleagues, their family tier is a better choice.
+However, 1Password is an excellent choice if you are looking for a polished UI and are willing to pay for it. Their family tier is a better choice if you plan to share passwords with family members or colleagues.
 
-Researching and choosing a password manager that aligns with your specific needs and preferences is essential. Regularly update your password manager and use strong, unique master passwords to ensure maximum security.
+It is essential to research and choose a password manager that aligns with your specific needs and preferences. To ensure maximum security, you should regularly update your password manager and use strong, unique master passwords.
 
 
 ## Should I Store my 2FA Tokens in my password manager?
-_This section is opinionated and may not reflect the views of the entire community. I wrote this part to share how I see this debate _and maybe convince you to be careful._
+_This section is opinionated and may not reflect the views of the entire community. I wrote this part to share how I see this debate and maybe convince you to be careful._
 
 Storing your 2FA TOTP tokens in your password manager has become hotly debated. While password managers are great for storing passwords, in a perfect world, you should never keep 2FA (two-factor authentication) tokens in your password manager. But let's be honest, we are not living in an ideal world.
 
@@ -94,7 +94,7 @@ There are four main reasons why storing your 2FA inside your password manager is
 
 3. **Same device anyway**: If you use a password manager on your phone, you already use the same device for both your password and 2FA. So, if someone has access to your phone, they may have access to your password and 2FA. Many popular TOTP apps do not even require a password or PIN to access the codes.
 
-4. **Convenience**: Sometimes you do have to use 2FA. Many password manager apps like Bitwarden or 1Password will either fill 2FA codes for you after the password or copy it to the clipboard so you can paste it. It's convenient to have everything in one automatically backed-up place. If you lose your phone, you can still access your 2FA tokens from your password manager. It is easier to secure one place to the highest level than multiple places badly.
+4. **Convenience**: Sometimes, you do have to use 2FA. Many password manager apps like Bitwarden or 1Password will either fill in 2FA codes for you after the password or copy the code to the clipboard so you can paste it. It's convenient to have everything in one automatically backed-up place. If you lose your phone, you can still access your 2FA tokens from your password manager. It is easier to secure one place to the highest level than multiple places badly.
 
 
-💡 Security Is About Trade-Offs: there will never be a perfect system. Use what works best for you. Storing your 2FA in your password manager is fine for an average person. But at the very least, you should use a password manager and give every account a unique password. Adding 2FA is just the cherry on top or an imposed curse, depending on how you see it. Adapt to best practice.
+💡 Security Is About Trade-Offs. There will never be a perfect system. Use what works best for you. Storing your 2FA in your password manager is fine for an average person. But at the very least, you should use a password manager and give every account a unique password. Adding 2FA is just the cherry on top or an imposed curse, depending on how you see it. Adapt to best practices.
