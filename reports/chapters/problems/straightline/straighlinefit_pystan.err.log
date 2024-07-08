@@ -118,19 +118,19 @@ File [0;32m/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/s
 [1;32m    499[0m building_output[38;5;241m.[39mclear() [38;5;28;01mif[39;00m io[38;5;241m.[39msupports_ansi() [38;5;28;01melse[39;00m building_output[38;5;241m.[39mwrite([38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
 [1;32m    500[0m [38;5;28;01mif[39;00m model_in_cache:
 
-[0;31mRuntimeError[0m: Error in '/tmp/httpstan_ip4mezh5/model_vagcoyy3.stan', line 15, column 4: Declaration
+[0;31mRuntimeError[0m: Error in '/tmp/httpstan_86iv0091/model_be57el6h.stan', line 15, column 4: Declaration
     of arrays by placing brackets after a variable name was removed in Stan
     2.33.0. Instead use the array keyword before the type. This can be
     changed automatically using the auto-format flag to stanc
-Error in '/tmp/httpstan_ip4mezh5/model_vagcoyy3.stan', line 6, column 4: Declaration
+Error in '/tmp/httpstan_86iv0091/model_be57el6h.stan', line 6, column 4: Declaration
     of arrays by placing brackets after a variable name was removed in Stan
     2.33.0. Instead use the array keyword before the type. This can be
     changed automatically using the auto-format flag to stanc
-Error in '/tmp/httpstan_ip4mezh5/model_vagcoyy3.stan', line 5, column 4: Declaration
+Error in '/tmp/httpstan_86iv0091/model_be57el6h.stan', line 5, column 4: Declaration
     of arrays by placing brackets after a variable name was removed in Stan
     2.33.0. Instead use the array keyword before the type. This can be
     changed automatically using the auto-format flag to stanc
-Error in '/tmp/httpstan_ip4mezh5/model_vagcoyy3.stan', line 4, column 4: Declaration
+Error in '/tmp/httpstan_86iv0091/model_be57el6h.stan', line 4, column 4: Declaration
     of arrays by placing brackets after a variable name was removed in Stan
     2.33.0. Instead use the array keyword before the type. This can be
     changed automatically using the auto-format flag to stanc
