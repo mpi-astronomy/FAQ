@@ -31,3 +31,4 @@ parts:
   - caption: Computing tips 
     chapters:
     - file: chapters/computing/mac-touchid-sudo
+    - file: chapters/computing/password-managers
