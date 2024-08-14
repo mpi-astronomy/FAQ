@@ -8,18 +8,18 @@ Some of us may struggle to remember them, and many find tips to strengthen them,
 
 ## Why should we all use password managers?
 
-Worryingly, studies have shown that many people have become careless with their passwords. Nearly 35 percent of us use the same password for most online logins. Worse still, 42 percent of tech users have reported having an account hacked at least once (source [YouGov](https://today.yougov.com/technology/articles/19411-28-americans-use-one-password-most-or-all-online-l)). Despite these statistics, it is essential to understand the risks associated with poor password security and that we use our laptops and email accounts to store a massive amount of sensitive and valuable data, from banking to personal life information. People are not lax about their passwords because they don't care about their data; they are lax because they are overwhelmed by the number of passwords they need to remember.
+Worryingly, studies have shown that many people have become careless with their passwords. Nearly 35 percent of us use the same password for most online logins. Worse still, 42 percent of tech users have reported having an account hacked at least once (source [YouGov](https://today.yougov.com/technology/articles/19411-28-americans-use-one-password-most-or-all-online-l)). Because of these statistics, it is essential to understand the risks associated with poor password security and that we use our laptops and email accounts to store a massive amount of sensitive and valuable data, from banking to personal life information. People are not lax about their passwords because they don't care about their data; they are lax because they are overwhelmed by the number of passwords they need to remember.
 
 That's where password managers come in. Password managers are software applications that help you securely store and manage your passwords. They generate unique passwords for each account, store them securely, and automatically fill them in when needed. 
 
 
 Password managers offer several benefits, including:
 
-* **A password manager stores all your passwords in a single account**. The master password to your safe is the only password you’ll ever need to remember. You can also link this password to biometrics so that even that password can be highly complex. [Is it reasonable to have it all in one place?]
+* **A password manager stores all your passwords in a single account**. The master password to your safe is the only password you’ll ever need to remember. You can also link this password to biometrics (e.g., fingerprint, facial recognition) so that even that password can be highly complex. [Is it reasonable to have it all in one place?]
 
 * **Password managers generate strong, unique passwords for each of your accounts**, reducing the risk of password reuse and making it harder for hackers to gain unauthorized access.
 
-* **Password managers can automatically fill in your login credentials**, saving time and effort when logging into websites and applications. 
+* **Password managers can automatically fill in your login credentials**, saving time and effort when logging into websites and applications. Auto-fill functionality works across devices (laptop, phone, tablet) and different applications (browsers, apps, etc.)
 
 * **Easily change your password**. If you suspect that one of your accounts has been compromised, you can quickly change the password for that account without having to remember it. Some password managers can even automatically update your passwords with a few clicks.
 
@@ -66,7 +66,7 @@ What made me pick it?
 * Stores more than passwords: I can store my passwords, SSH keys, API tokens, secure notes, and other sensitive information.
 * Cloud-based synchronization: I can access my passwords from any device with an internet connection, but also when offline (useful if you store sensitive notes or documents).
 * Multiple vaults: I can separate and organize my personal and professional passwords in folders.
-* Bio-metric authentication: I can use my fingerprint to unlock the vault on my phone, Mac laptop, etc.
+* Biometric authentication: I can use my fingerprint to unlock the vault on my phone, Mac laptop, etc.
 * Free version: There is a free tier that has most of the features I need.
 * Reasonable price: The premium tier is affordable ($1/month) and offers additional features like 2FA token storage, secure file storage, and password health reports.
 
