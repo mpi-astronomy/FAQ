@@ -1,6 +1,9 @@
 # Which password manager should I use?
 
-> ⚠️ DISCLAIMER: I am not a security expert. I recommend you do your research and choose the password manager that best fits your needs.
+```{admonition} DISCLAIMER
+:class: warning
+I am not a security expert. I recommend you do your research and choose the password manager that best fits your needs.
+```
 
 Passwords are necessary for everyone with a computer, smartphone, or other smart device. 
 Some of us may struggle to remember them, and many find tips to strengthen them, but eventually, remembering them is their primary weakness. Using multiple complex passwords can be challenging, leading many people to reuse weak passwords (sometimes with slight variations) or store them insecurely.
@@ -96,5 +99,6 @@ There are four main reasons why storing your 2FA inside your password manager is
 
 4. **Convenience**: Sometimes, you do have to use 2FA. Many password manager apps like Bitwarden or 1Password will either fill in 2FA codes for you after the password or copy the code to the clipboard so you can paste it. It's convenient to have everything in one automatically backed-up place. If you lose your phone, you can still access your 2FA tokens from your password manager. It is easier to secure one place to the highest level than multiple places badly.
 
-
-💡 Security Is About Trade-Offs. There will never be a perfect system. Use what works best for you. Storing your 2FA in your password manager is fine for an average person. But at the very least, you should use a password manager and give every account a unique password. Adding 2FA is just the cherry on top or an imposed curse, depending on how you see it. Adapt to best practices.
+```{tip}
+Security Is About Trade-Offs. There will never be a perfect system. Use what works best for you. Storing your 2FA in your password manager is fine for an average person. But at the very least, you should use a password manager and give every account a unique password. Adding 2FA is just the cherry on top or an imposed curse, depending on how you see it. Adapt to best practices.
+```
