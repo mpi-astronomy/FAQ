@@ -97,96 +97,17 @@ deactivate
 
 Pros: It comes default with any version of Python since 3.6. It's straightforward, simple, and works well with `pip`. 
 
-Cons: The `venv` module does not offer to install a different Python version than the one used to create the environment. 
+Cons: The `venv` module does not offer to install a different Python version than the one used to create the environment. It is also not easy/designed to make environments reproducible. 
 
-## `uv`
-
-So far we have been assuming that you are only using the default system Python with default tools provided to you. Even so, we've been able to develop a powerful workflow, where the user invokes the system Pythons with `venv` to create project-scoped environments and then uses `pip` (after activating the environments) to act as the package manager for Python packages. 
-
-However, the main limitation of this workflow is the inability to access more than a single version of Python! We can fix this issue with [uv](https://docs.astral.sh/uv/) is an extremely fast Python package installer and resolver, written in Rust. It is designed as a drop-in replacement for `pip`, `pip-tools`, `pipx`, `poetry`, `pyenv`, `virtualenv` and their associated worflows.
-
-You can install `uv` using `pip` but it is recommended to avoid using the system's python and instead to use the `uv` installer script, or installing with your system's package manager (`apt-get`, `brew`, etc.):
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
+```{attention}
+The `venv` module does not offer to install a different python version than the one used to create the environment. If you need to use a different version of Python, consider using the other options below.
 ```
-
-You can create a virtual environment (similar to `venv`) with `uv`:
-
-```bash
-uv venv <directory name> --python 3.12.0
-```
-
-We can activate and add packages to 
-```bash
-source <directory name>/bin/activate
-uv pip install numpy
-```
-
-If you've been following along and trying this, you may notice that `uv` is orders of magnitude faster than pip. This is a major selling point of the software, the authors of `uv` have a track record of making fast, performant, software for Python, such as the `ruff` linter. 
-
-To deactivate the virtual environment, use the following command:
-```bash
-deactivate
-```
-
-You can create a project/workspace (similar to `Poetry`; see the next section) with `uv`, though this feature is still experimental. 
-
-```bash
-uv init <projectname>
-uv add <package>
-```
-
-Pros: If your workflow only requires `pip` and `venv` and different version of Python, look no farther than `uv`. Not only is it ludicrously fast, but it is feature rich and supports nearly all of `pip` and `venv` syntax. Just add `uv` before your regular commands and you're good to go!
-
-Cons: As with `pip`, `uv` can only install Python packages, with the exception that it can install different versions of Python. In addition, reproducible project/workspaces with `uv` are still experimental, therefore this suffers from many of the same reproducibility cons as `pip`.
-
-## `Poetry`
-
-So far we have focused on creating isolated environments and installing packages with the purpose of using them for our own work. However, we have neglected reproducibility as a core aspect of Python workflows. 
-
-[Poetry](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
-`Poetry` enforces the best practice of creating a virtual environment for each project and manages the dependencies (and versions) for you. `Poetry` generates and updates the `pyproject.toml` file of your project. The `pyproject.` toml file is a standardized configuration file used in Python projects to specify build system requirements, dependencies, and project metadata. 
-
-You can [install](https://python-poetry.org/docs/#installation) poetry as any python package or with your system's package manager (`apt-get`, `brew`, etc.):
-
-```bash
-pip install poetry
-```
-you may need `--user` option if you don't have admin rights.
-
-To create a new project with poetry, use the following command:
-```bash
-poetry new <projectname>
-```
-
-To add a package to your project, use the following command:
-```bash
-poetry add <package>
-```
-You'll notice that this automatically updates the `pyproject.toml` file with the dependencies.
-You can edit the file manually or use the `Poetry` CLI as demonstrated above.
-If you've edited manually, you can install all packages to the environment using the `poetry install` command.
-
-To activate the virtual environment, use the following command:
-```bash
-poetry shell
-```
-This sets a shell environment with your project parameters and dependencies.
-To deactivate the virtual environment and exit this new shell type `exit`.
-
-```{note} poetry run
-To run a script, you can simply use `poetry run python your_script.py`. Likewise if you have command line tools such as `pytest` or `black` you can run them using `poetry run pytest`.
-```
-
-More information on poetry can be found in the [official documentation](https://python-poetry.org/docs/). It comes with a lot of great features, include the ability to directly publish your package to PyPI! 
-
-Pros: In terms of project-scoped environment management, it's hard to think of what features would be better suited for reproducibility than what is provided by Poetry. If you are developing a Python package, Poetry is a great option. 
-
-Cons: Some parts of Poetry can be slightly slow and it also cannot specify non-Python dependencies (other than Python itself). 
 
 ## `mamba` (replacement for `conda`)
 
-It's surprising we got this far in the article without talking about `conda`, the staple in namespace-based environment management for Python. 
+We're now going to talk about `conda/mamba`, one of the staples in Python configuration management. It can handle both package and virtual environment management. 
+
+[(micro)mamba](https://mamba.readthedocs.io/en/latest/) is a reimplementation of the conda package manager in C++. It is fully compatible with `conda`, but it is much faster. `mamba` is a drop-in replacement for the conda package manager, utilizing the same configuration files, and only changing the package solving part. `micromamba` is comparable to `miniconda` as the smaller packaging that doesn't come with any installed packages by default and is the preferred method. 
 
 ```{warning} conda licensing update
 
@@ -196,8 +117,6 @@ However, earlier this year, Anaconda Inc. has changed its [software licensing mo
 
 As a drop-in replacement, `mamba` uses [conda-forge](https://conda-forge.org/), a community-driven initiative that develops conda packages which do not fall under the strict licensing of Anaconda Inc. and can therefore be used freely. Note that a lot if not most of packages are available in conda-forge, but some might be missing or slightly outdated.
 ```
-
-[Mamba](https://mamba.readthedocs.io/en/latest/) is a reimplementation of the conda package manager in C++. It is fully compatible with `conda`, but it is much faster. `mamba` is a drop-in replacement for the conda package manager, utilizing the same configuration files, and only changing the package solving part. 
 
 One of the most powerful aspects of `mamba` (like `conda`) that set it apart from all of the other solutions we have talked about before is that `mamba` can install *non Python dependencies* in your environments. The ability to specify system Packages as dependencies in environmnets means that, in essence, `mamba` is not a Python virtual environment manager, but an environment manager for packages that exist in the `conda-forge` ecosystem. 
 
@@ -239,6 +158,89 @@ Cons: The `conda` recipe format is not the most reproducible, and `mamba` is not
 
 Conclusion: If you are used to `conda`, switch to `mamba`. 
 
+## `Poetry`
+
+So far we have focused on creating isolated environments and installing packages with the purpose of using them for our own work. However, we have neglected reproducibility as a core aspect of Python workflows. 
+
+[Poetry](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
+`Poetry` enforces the best practice of creating a virtual environment for each project and manages the dependencies (and versions) for you. `Poetry` generates and updates the `pyproject.toml` file of your project. The `pyproject.toml` file is a standardized configuration file used in Python projects to specify build system requirements, dependencies, and project metadata. 
+
+You can [install](https://python-poetry.org/docs/#installation) poetry as any python package or with your system's package manager (`apt-get`, `brew`, etc.):
+
+```bash
+pip install poetry
+```
+you may need `--user` option if you don't have admin rights.
+
+To create a new project with poetry, use the following command:
+```bash
+poetry new <projectname>
+```
+
+To add a package to your project, use the following command:
+```bash
+poetry add <package>
+```
+You'll notice that this automatically updates the `pyproject.toml` file with the dependencies.
+You can edit the file manually or use the `Poetry` CLI as demonstrated above.
+If you've edited manually, you can install all packages to the environment using the `poetry install` command.
+
+To activate the virtual environment, use the following command:
+```bash
+poetry shell
+```
+This sets a shell environment with your project parameters and dependencies.
+To deactivate the virtual environment and exit this new shell type `exit`.
+
+```{note} poetry run
+To run a script, you can simply use `poetry run python your_script.py`. Likewise if you have command line tools such as `pytest` or `black` you can run them using `poetry run pytest`.
+```
+
+More information on poetry can be found in the [official documentation](https://python-poetry.org/docs/). It comes with a lot of great features, include the ability to directly publish your package to PyPI! 
+
+Pros: In terms of project-scoped environment management, it's hard to think of what features would be better suited for reproducibility than what is provided by Poetry. If you are developing a Python package, Poetry is a great option. 
+
+Cons: Some parts of Poetry can be slightly slow and it also cannot specify non-Python dependencies (other than Python itself). 
+
+## `uv`
+
+If `conda` and `poetry` seem like overkill and you just wish you could use `venv` and `pip` with different versions of Python (and you also wish `pip` was faster), you're in luck.[uv](https://docs.astral.sh/uv/) is an extremely fast Python package installer and resolver, written in Rust. It is designed as a drop-in replacement for `pip`, `pip-tools`, `pipx`, `poetry`, `pyenv`, `virtualenv` and their associated worflows.
+
+You can install `uv` using `pip` but it is recommended to avoid using the system's python and instead to use the `uv` installer script, or installing with your system's package manager (`apt-get`, `brew`, etc.):
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+You can create a virtual environment (similar to `venv`) with `uv`:
+
+```bash
+uv venv <directory name> --python 3.12.0
+```
+
+We can activate and add packages to 
+```bash
+source <directory name>/bin/activate
+uv pip install numpy
+```
+
+If you've been following along and trying this, you may notice that `uv` is orders of magnitude faster than pip. This is a major selling point of the software, the authors of `uv` have a track record of making fast, performant, software for Python, such as the `ruff` linter. 
+
+To deactivate the virtual environment, use the following command:
+```bash
+deactivate
+```
+
+You can create a project/workspace (similar to `Poetry`) with `uv`, though this feature is still experimental. 
+
+```bash
+uv init <projectname>
+uv add <package>
+```
+
+Pros: If your workflow only requires `pip` and `venv` and different version of Python, look no farther than `uv`. Not only is it ludicrously fast, but it is feature rich and supports nearly all of `pip` and `venv` syntax. Just add `uv` before your regular commands and you're good to go!
+
+Cons: As with `pip`, `uv` can only install Python packages, with the exception that it can install different versions of Python. In addition, reproducible project/workspaces with `uv` are still experimental, therefore this suffers from many of the same reproducibility cons as `pip`.
+
 ## `pixi`
 
 [`pixi'](https://pixi.sh/latest/) attempts to have the reproducibility of Poetry with the ability to add non-Python packages like `mamba` as well as be a global installation tool (more on that later). In fact, `pixi` doesn't claim to be a Python manager at all! It works with Python, R, C/C++, Rust, etc. It is a project-scoped package and environment manager that is designed with reproducibility and workflows in mind. 
@@ -254,6 +256,7 @@ pixi init pixi-hello-world
 cd pixi-hello-world
 pixi add python numpy astropy
 ```
+We can add packages for `conda-forge` or `PyPI` or any other configurable source, see their documentation to learn more.
 
 Similair to other tools we can activate the environment with `pixi shell` (exiting it with `exit`) or run commands with `pixi run` like `pixi run python --version`.
 
