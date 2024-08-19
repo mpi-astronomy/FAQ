@@ -107,7 +107,7 @@ The `venv` module does not offer to install a different python version than the 
 
 We're now going to talk about `conda/mamba`, one of the staples in Python configuration management. It can handle both package and virtual environment management. 
 
-[(micro)mamba](https://mamba.readthedocs.io/en/latest/) is a reimplementation of the conda package manager in C++. It is fully compatible with `conda`, but it is much faster. `mamba` is a drop-in replacement for the conda package manager, utilizing the same configuration files, and only changing the package solving part. `micromamba` is comparable to `miniconda` as the smaller packaging that doesn't come with any installed packages by default and is the preferred method. 
+[`(micro)mamba`](https://mamba.readthedocs.io/en/latest/) is a reimplementation of the conda package manager in C++. It is fully compatible with `conda`, but it is much faster. `mamba` is a drop-in replacement for the conda package manager, utilizing the same configuration files, and only changing the package solving part. `micromamba` is comparable to `miniconda` as the smaller packaging that doesn't come with any installed packages by default and is the preferred method. 
 
 ```{warning} conda licensing update
 
@@ -162,7 +162,7 @@ Conclusion: If you are used to `conda`, switch to `mamba`.
 
 So far we have focused on creating isolated environments and installing packages with the purpose of using them for our own work. However, we have neglected reproducibility as a core aspect of Python workflows. 
 
-[Poetry](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
+[`Poetry`](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
 `Poetry` enforces the best practice of creating a virtual environment for each project and manages the dependencies (and versions) for you. `Poetry` generates and updates the `pyproject.toml` file of your project. The `pyproject.toml` file is a standardized configuration file used in Python projects to specify build system requirements, dependencies, and project metadata. 
 
 You can [install](https://python-poetry.org/docs/#installation) poetry as any python package or with your system's package manager (`apt-get`, `brew`, etc.):
@@ -204,7 +204,7 @@ Cons: Some parts of Poetry can be slightly slow and it also cannot specify non-P
 
 ## `uv`
 
-If `conda` and `poetry` seem like overkill and you just wish you could use `venv` and `pip` with different versions of Python (and you also wish `pip` was faster), you're in luck.[uv](https://docs.astral.sh/uv/) is an extremely fast Python package installer and resolver, written in Rust. It is designed as a drop-in replacement for `pip`, `pip-tools`, `pipx`, `poetry`, `pyenv`, `virtualenv` and their associated worflows.
+If `conda` and `poetry` seem like overkill and you just wish you could use `venv` and `pip` with different versions of Python (and you also wish `pip` was faster), you're in luck. [`uv`](https://docs.astral.sh/uv/) is an extremely fast Python package installer and resolver, written in Rust. It is designed as a drop-in replacement for `pip`, `pip-tools`, `pipx`, `poetry`, `pyenv`, `virtualenv` and their associated worflows.
 
 You can install `uv` using `pip` but it is recommended to avoid using the system's python and instead to use the `uv` installer script, or installing with your system's package manager (`apt-get`, `brew`, etc.):
 ```bash
@@ -243,7 +243,7 @@ Cons: As with `pip`, `uv` can only install Python packages, with the exception t
 
 ## `pixi`
 
-[`pixi'](https://pixi.sh/latest/) attempts to have the reproducibility of Poetry with the ability to add non-Python packages like `mamba` as well as be a global installation tool (more on that later). In fact, `pixi` doesn't claim to be a Python manager at all! It works with Python, R, C/C++, Rust, etc. It is a project-scoped package and environment manager that is designed with reproducibility and workflows in mind. 
+[`pixi`](https://pixi.sh/latest/) attempts to have the reproducibility of Poetry with the ability to add non-Python packages like `mamba` as well as be a global installation tool (more on that later). In fact, `pixi` doesn't claim to be a Python manager at all! It works with Python, R, C/C++, Rust, etc. It is a project-scoped package and environment manager that is designed with reproducibility and workflows in mind. 
 
 You can install `pixi` with their provided installation script or with your system's package manager (`apt-get`, `brew`, etc.):
 ```bash
