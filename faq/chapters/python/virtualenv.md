@@ -2,10 +2,10 @@
 
 ## Introduction
 
-Writing programs in Python, especially for astronomy, will often use Python packages don’t come as part of the standard library.
+Writing programs in Python, especially for astronomy, often requires Python packages that are not part of the standard library.
 In addition, certain Python packages and/or workflows will also require certain system packages to be installed. 
-Not only will Python packages require specific packages/modules to be installed, but they will also require certain versions (or ranges of versions) of a package to be installed. 
-These installed packages in turn have their own set of requirements! 
+Python packages will require specific packages/modules to be installed, as well as certain versions (or ranges of versions) of a package. 
+These installed packages, in turn, have their own set of requirements! 
 What's worse is that a single user may want to have access to several versions of packages for different projects, or even different versions of Python as well! 
 
 `````{admonition} [Package manager](https://en.wikipedia.org/wiki/Package_manager)
@@ -19,18 +19,18 @@ This self-contained directory tree contains a Python installation with additiona
 
 `````{admonition} [Virtual environment](https://docs.python.org/3/glossary.html#term-virtual-environment)
 :class: tip
-A cooperatively isolated runtime environment that allows Python users and applications to install and upgrade Python distribution packages without interfering with the behaviour of other Python applications running on the same system.
+A cooperatively isolated runtime environment that allows Python users and applications to install and upgrade Python distribution packages without interfering with the behavior of other Python applications running on the same system.
 `````
 
 For this reason, package managers *and* virtual environment managers are essential for modern day workflows in astronomy.
-Many of these exist and you are already likely familiar with a few of them, such as `pip` and `venv`.
-Some tools can even handle both virtual environment managing and package managing, all in one tool! 
+Many of these exist, and you are likely familiar with some of them, such as `pip` and `venv`.
+Some tools can even handle both virtual environment and package managing, all in one tool! 
 This is the case for `conda`, which you also might be familiar with.
 
-In this article we will go through and describe several common resources, ranging from tools included in Python itself to relatively new software that is actively being developed. 
+In this article, we will review and describe several common resources, ranging from tools included in Python itself to relatively new software that is actively being developed. 
 
 `````{note}
-In this article we will describe a few different resources and tools to manage virtual environments. They broadly fall into two categories with slightly different philosophies:
+This article describes a few different resources and tools for managing virtual environments. They broadly fall into two categories with slightly different philosophies:
 
 1. **Namespace-Based:**
 
@@ -38,13 +38,13 @@ In this article we will describe a few different resources and tools to manage v
 
 2. **Project-Based / Project-Scoped**
 
-    In this paradigm, virtual environments are associated with a specific directory tree on the filesystem and are designed to be activated within this tree. A good example of this paradigm is `venv` where invoking the command creates a folder in the specified directory which contains scripts that the user can invoke to activate the environment. It should be noted that it is still possible to activate/access the environment from other locations on the filesystem, but it might be slightly more tedious. 
+    In this paradigm, virtual environments are associated with a specific directory tree on the filesystem and are designed to be activated within this tree. A good example of this paradigm is `venv`, where invoking the command creates a folder in the specified directory that contains scripts that the user can invoke to activate the environment. It should be noted that it is still possible to activate/access the environment from other locations on the filesystem, but it might be slightly more tedious. 
 
 `````
 
 `````{admonition} Python good practice: virtual environment per project
 :class: tip
-Regardless of the paradigm you prefer to use, it is good practice to use a virtual environment for each project you wish to work on. It will prevent interfering between projects' libraries and make package managements more transparent. In addition, it can make sharing your more straightforward, ensuring the reproducibility. 
+Regardless of the paradigm you prefer to use, it is good practice to use a virtual environment for each project you wish to work on. It will prevent interference between projects' libraries and make package management more transparent. In addition, it can make sharing more straightforward, ensuring reproducibility. 
 `````
 
 `````{admonition} Python workspace: shared virtual environment for multiple projects
@@ -54,7 +54,7 @@ Workspaces help organize large codebases by splitting them into multiple package
 It is a common workflow in academic research to combine multiple projects in one environment (probably coming from the conda ecosystem). Be aware that there are good tools like `poetry` and `uv` that can protect you from conflicts between packages and versions. 
 `````
 
-**In this article, we review a few ways to create and manage virtual environments. This is only intended to give you a high level understanding of the pros and cons between each tool, so you can better make your own decision about what tools you need. As always, *consult the documentation* for these tools directly, many of them have quite lengthy tutorials. You can also check out YouTube for demos for quite a few of these as well!**
+**In this article, we review a few ways to create and manage virtual environments. This is only intended to give you a high-level understanding of the pros and cons of each tool, so you can better make your own decision about what tools you need. As always, *consult the documentation* for these tools directly; many have lengthy tutorials. You can also check out YouTube for demos for quite a few of these as well!**
 
 `````{admonition} Shell completion
 :class: tip
@@ -70,7 +70,7 @@ Pip is able to install Python packages by pulling code from the Python Package I
 
 Pros: It's as straightforward as they come! If you need a purely Python package manager, `pip` is almost always there for you, and can get you set up quickly. 
 
-Cons: `pip` can only install Python packages, not any other kinds of packages which those packages might depend on. `pip` is also relatively slow. `pip` is also not ideal for reproducibility or package development, since it's relies on `requirements.txt` files to lock in dependencies, but it cannot handle more than single order dependencies (e.g. you cannot fix the dependencies of dependencies), you can get inconsistent package installations between systems, etc. 
+Cons: `pip` can only install Python packages, not any other kinds of packages which those packages might depend on. `pip` is also relatively slow. `pip` is also not ideal for reproducibility or package development since it relies on `pyproject.toml` or `requirements.txt` files to lock in dependencies, but it cannot handle complex dependencies (e.g., you cannot fix the dependencies of dependencies), you can get inconsistent package installations between systems, etc. 
 
 ## `venv`
 
@@ -88,7 +88,7 @@ This snippet above creates a local directory `<dirname>` (if not existing), whic
 
 Some additional options to `python -m venv` include:
 - The `--symlink` option allows you to avoid duplicating libraries from the main system (overwritten if you require specific versions.)
-- The `--prompt` options overwrites the default name of the project, so you can customize how it appears in your shell. 
+- The `--prompt` option overwrites the default name of the project, so you can customize how it appears in your shell. 
 
 To deactivate a virtual environment, simply type:
 ```bash
@@ -132,9 +132,9 @@ micromamba create --name <projectname>
 micromamba activate <projectname>
 micromamba install python=3.11 numpy cuda 
 ```
-Just like that we've installed Python, Python packages, and even non-Python packages, all in one line! These can all be written out to a share-able file with `micromamba env export --no-build`
+Just like that, we've installed Python, Python packages, and even non-Python packages in one line! These can all be written out to a share-able file with `micromamba env export --no-build`
 
-You can also use pip to install packages to the environment if they are not available in conda-forge, though it's usually recommended you do this after installing packages with conda. 
+You can also use pip to install packages to the environment if they are not available in conda-forge. However, it's usually recommended you do this after installing packages with mamba. 
 ```bash
 # example of packages to install
 pip install matplotlib numpy
@@ -152,7 +152,7 @@ To deactivate a virtual environment, type:
 micromamba deactivate
 ```
 
-Pros: `mamba` is currently the best namespace-based Python environment manager that exists, due quite largely to the fact that it is also able to install non-Python dependencies! It is relatively fast (though not the fastest we've talked about), relatively reproducible, and has a large list of packages available from `conda-forge` (you can, of course, pull packages from Anaconda, however as discussed above this may have other consequences). 
+Pros: `mamba` is currently the best namespace-based Python environment manager that exists, due quite largely to the fact that it can also install non-Python dependencies! It is relatively fast (though not the fastest we've talked about), relatively reproducible, and has a large list of packages available from `conda-forge` (you can, of course, pull packages from Anaconda, however as discussed above this may have other consequences). 
 
 Cons: The `conda` recipe format is not the most reproducible, and `mamba` is not the fastest code out there. In addition, `mamba` still has some legacy baggage that it ports over from being an attempt to replace `conda`, such as the base environment. 
 
@@ -182,8 +182,8 @@ To add a package to your project, use the following command:
 poetry add <package>
 ```
 You'll notice that this automatically updates the `pyproject.toml` file with the dependencies.
-You can edit the file manually or use the `Poetry` CLI as demonstrated above.
-If you've edited manually, you can install all packages to the environment using the `poetry install` command.
+You can edit the file manually or use the `Poetry` CLI, as demonstrated above.
+If you've edited manually, you can install all packages in the environment using the `poetry install` command.
 
 To activate the virtual environment, use the following command:
 ```bash
@@ -204,9 +204,9 @@ Cons: Some parts of Poetry can be slightly slow and it also cannot specify non-P
 
 ## `uv`
 
-If `conda` and `poetry` seem like overkill and you just wish you could use `venv` and `pip` with different versions of Python (and you also wish `pip` was faster), you're in luck.[uv](https://docs.astral.sh/uv/) is an extremely fast Python package installer and resolver, written in Rust. It is designed as a drop-in replacement for `pip`, `pip-tools`, `pipx`, `poetry`, `pyenv`, `virtualenv` and their associated worflows.
+[uv](https://docs.astral.sh/uv/) is an extremely fast Python package installer and resolver written in Rust. It is designed as a drop-in replacement for `pip`, `pip-tools`, `pipx`, `poetry`, `pyenv`, `virtualenv` and their associated workflows.
 
-You can install `uv` using `pip` but it is recommended to avoid using the system's python and instead to use the `uv` installer script, or installing with your system's package manager (`apt-get`, `brew`, etc.):
+You can install `uv` using `pip`, but it is recommended to avoid using the system's python and instead use the `uv` installer script or install with your system's package manager (`apt-get`, `brew`, etc.):
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
@@ -237,13 +237,13 @@ uv init <projectname>
 uv add <package>
 ```
 
-Pros: If your workflow only requires `pip` and `venv` and different version of Python, look no farther than `uv`. Not only is it ludicrously fast, but it is feature rich and supports nearly all of `pip` and `venv` syntax. Just add `uv` before your regular commands and you're good to go!
+Pros: If your workflow requires `pip` and `venv` and a different version of Python, look no further than `uv`. Not only is it ludicrously fast, but it is also feature-rich and supports nearly all of the `pip` and `venv` syntax. Just add `uv` before your regular commands and you're good to go!
 
-Cons: As with `pip`, `uv` can only install Python packages, with the exception that it can install different versions of Python. In addition, reproducible project/workspaces with `uv` are still experimental, therefore this suffers from many of the same reproducibility cons as `pip`.
+Cons: As with `pip`, `uv` can only install Python packages, except that it can install different versions of Python. In addition, reproducible project/workspaces (i.e. `poetry` replacement) with `uv` are still experimental.
 
 ## `pixi`
 
-[`pixi'](https://pixi.sh/latest/) attempts to have the reproducibility of Poetry with the ability to add non-Python packages like `mamba` as well as be a global installation tool (more on that later). In fact, `pixi` doesn't claim to be a Python manager at all! It works with Python, R, C/C++, Rust, etc. It is a project-scoped package and environment manager that is designed with reproducibility and workflows in mind. 
+[`pixi`](https://pixi.sh/latest/) attempts to have the reproducibility of Poetry with the ability to add non-Python packages like `mamba` as well as be a global installation tool (more on that later). In fact, `pixi` doesn't claim to be a Python manager at all! It works with Python, R, C/C++, Rust, etc. It is a project-scoped package and environment manager that is designed with reproducibility and workflows in mind. 
 
 You can install `pixi` with their provided installation script or with your system's package manager (`apt-get`, `brew`, etc.):
 ```bash
@@ -256,9 +256,9 @@ pixi init pixi-hello-world
 cd pixi-hello-world
 pixi add python numpy astropy
 ```
-We can add packages for `conda-forge` or `PyPI` or any other configurable source, see their documentation to learn more.
+We can add packages for `conda-forge`, `PyPI`, or any other configurable source. See their documentation to learn more.
 
-Similair to other tools we can activate the environment with `pixi shell` (exiting it with `exit`) or run commands with `pixi run` like `pixi run python --version`.
+Similar to other tools we can activate the environment with `pixi shell` (exiting it with `exit`) or run commands with `pixi run` like `pixi run python --version`.
 
 What's great is we can even add automated actions that can run for us:
 ```
@@ -266,13 +266,13 @@ pixi task add checkversion "python --version"
 pixi run checkversion
 ```
 
-Pixi can even be used to install packages globall, which can be extremely useful on systems were you don't have root access, for example MPCDF. You can use this to install your favorite command line tools.
+Pixi can even be used to install packages globally, which can be extremely useful on systems where you don't have root access, such as MPCDF. You can also use this to install your favorite command-line tools.
 ```
 pixi global install bat # Like cat, but with wings
 ```
 
-It even promises to be able to allow you to publish projects to conda-forge in the future, though this has not been implemented yet. 
+It even promises to allow you to publish projects to conda-forge in the future, though this still needs to be implemented. 
 
 Pros: Want one tool that can do it all? `pixi` appears to promise this. It doesn't matter what language you develop in or what platform you are on, `pixi` enables you to make highly reproducible packages and workflows with minimal effort. If you are a fan of project-scoped environments, this might be for you. 
 
-Cons: This package is still in development. It has high promise, but still has much ground to cover. 
+Cons: This package is still in development. It has high promise but still has much ground to cover. 
