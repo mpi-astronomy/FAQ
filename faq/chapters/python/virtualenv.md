@@ -107,7 +107,7 @@ The `venv` module does not offer to install a different python version than the 
 
 We're now going to talk about `conda/mamba`, one of the staples in Python configuration management. It can handle both package and virtual environment management. 
 
-[(micro)mamba](https://mamba.readthedocs.io/en/latest/) is a reimplementation of the conda package manager in C++. It is fully compatible with `conda`, but it is much faster. `mamba` is a drop-in replacement for the conda package manager, utilizing the same configuration files, and only changing the package solving part. `micromamba` is comparable to `miniconda` as the smaller packaging that doesn't come with any installed packages by default and is the preferred method. 
+[`(micro)mamba`](https://mamba.readthedocs.io/en/latest/) is a reimplementation of the conda package manager in C++. It is fully compatible with `conda`, but it is much faster. `mamba` is a drop-in replacement for the conda package manager, utilizing the same configuration files, and only changing the package solving part. `micromamba` is comparable to `miniconda` as the smaller packaging that doesn't come with any installed packages by default and is the preferred method. 
 
 ```{warning} conda licensing update
 
@@ -162,7 +162,7 @@ Conclusion: If you are used to `conda`, switch to `mamba`.
 
 So far we have focused on creating isolated environments and installing packages with the purpose of using them for our own work. However, we have neglected reproducibility as a core aspect of Python workflows. 
 
-[Poetry](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
+[`Poetry`](https://python-poetry.org/) is a tool for dependency management and packaging in Python.
 `Poetry` enforces the best practice of creating a virtual environment for each project and manages the dependencies (and versions) for you. `Poetry` generates and updates the `pyproject.toml` file of your project. The `pyproject.toml` file is a standardized configuration file used in Python projects to specify build system requirements, dependencies, and project metadata. 
 
 You can [install](https://python-poetry.org/docs/#installation) poetry as any python package or with your system's package manager (`apt-get`, `brew`, etc.):
