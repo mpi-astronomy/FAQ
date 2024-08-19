@@ -1,15 +1,6 @@
-git+https://github.com/mfouesneau/ezdata
-git+https://github.com/mfouesneau/mf_jupyter
 numpy
 scipy
 matplotlib
-#emcee
 corner
-seaborn
-pandas
 daft
-pymc3
-#pystan
-#tqdm
-#numpyro
-#funsor
+pystan
