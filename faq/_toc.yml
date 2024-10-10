@@ -19,6 +19,7 @@ parts:
     - file: chapters/python/NumbaFun
     - file: chapters/python/parallel-code-slower
     - file: chapters/python/fooocus
+    - file: chapters/python/migrating-from-conda
 
   - caption: Straightline fitting problem
     chapters:

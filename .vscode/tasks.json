@@ -6,7 +6,7 @@
         {
             "label": "compile book",
             "type": "shell",
-            "command": "jupyter-book build astro_ds",
+            "command": "jupyter-book build faq",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
@@ -16,7 +16,7 @@
         {
             "label": "serve book",
             "type": "shell",
-            "command": "python -m http.server --directory astro_ds/_build/html/",
+            "command": "python -m http.server --directory faq/_build/html/",
             "problemMatcher": [],
             "group": {
                 "kind": "test",
