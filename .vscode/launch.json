@@ -4,13 +4,13 @@
         {
             "name": "Compile book",
             "type": "node-terminal",
-            "command": "jupyter-book build astro_ds",
+            "command": "jupyter-book build faq",
             "request": "launch",
         },
         {
             "name": "Serve book",
             "type": "node-terminal",
-            "command": "python -m http.server --directory astro_ds/_build/html/",
+            "command": "python -m http.server --directory faq/_build/html/",
             "request": "launch",
         }
     ]
