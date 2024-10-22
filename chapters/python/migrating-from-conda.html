@@ -1,0 +1,696 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Migrating from Anaconda/Miniconda install to a Miniforge installation &#8212; MPI-astronomy-FAQ</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/python/migrating-from-conda';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Introduction" href="../problems/straightline/README.html" />
+    <link rel="prev" title="Image Generation with Stable Diffusion and Fooocus" href="fooocus.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="MPI-astronomy-FAQ - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="MPI-astronomy-FAQ - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    MPI-astronomy FAQ
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Publishing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../publishing/how-to-cite.html">How do I cite software in my papers?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publishing/how-to-publish-software.html">How do I publish my software?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publishing/how-to-color-plots.html">How to use color in scientific plots?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publishing/old-code.html">What to do with “legacy” code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publishing/how-to-acknowledge.html">How do I acknowledge the contributions of the MPIA Data Science group in my paper?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="virtualenv.html">Python Package and Environment Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NumbaFun.html">Some Fun with Numba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel-code-slower.html">Why does my parallel code take much more time than a non-paralleled one?</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="fooocus.html">Image Generation with Stable Diffusion and Fooocus</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Migrating from Anaconda/Miniconda install to a Miniforge installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Straightline fitting problem</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../problems/straightline/README.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problems/straightline/straighlinefit_emcee.html">Emcee based solution</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../problems/straightline/straighlinefit_jax.html">Numpyro+jax based solution</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../problems/straightline/straighlinefit_pymc3.html">PyMC3 based solution</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../problems/straightline/straighlinefit_pystan.html">Pystan based solution</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computing tips</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../computing/mac-touchid-sudo.html">Mac OS: How to Configure Touch ID for the <code class="docutils literal notranslate"><span class="pre">sudo</span></code> command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/password-managers.html">Which password manager should I use?</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/mpi-astronomy/FAQ" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/mpi-astronomy/FAQ/issues/new?title=Issue%20on%20page%20%2Fchapters/python/migrating-from-conda.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/python/migrating-from-conda.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Migrating from Anaconda/Miniconda install to a Miniforge installation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-get-info-on-current-conda-install">Step 1 – Get info on current conda install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-clean-up-your-conda-references">Step 2 - Clean up your conda references</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-install-miniforge-if-not-already-done">Step 3 - Install Miniforge (if not already done)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-recreate-environments-using-the-cleaned-yaml-files">Step 4 - recreate environments using the cleaned yaml files</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="migrating-from-anaconda-miniconda-install-to-a-miniforge-installation">
+<h1>Migrating from Anaconda/Miniconda install to a Miniforge installation<a class="headerlink" href="#migrating-from-anaconda-miniconda-install-to-a-miniforge-installation" title="Permalink to this heading">#</a></h1>
+<p>The Anaconda Python Distribution has been the foundation for Python user applications, offering a large selection of important packages such as NumPy, SciPy, matplotlib, etc. in compatible versions and using optimized builds and libraries.</p>
+<p>However, earlier this year, Anaconda Inc. has changed its <a class="reference external" href="https://legal.anaconda.com/policies/en?name=terms-of-service#terms-of-service">software licensing model</a> such that it would cost licensing fees to use the Anaconda distribution of Python (this includes the conda). The individual scope of the free tier remains unclear. For those reasons, MPCDF/MPIA is not allowed to install new versions of Anaconda Python any more.</p>
+<p>There are alternatives to the Anaconda ecosystem. You can look at <a class="reference internal" href="virtualenv.html"><span class="doc std std-doc">Python Package and Environment Management</span></a> article for more information. As MPCDF/MPIA are adopting miniforge as a replacement for Anaconda, this article will guide you through the migration process from Anaconda/Miniconda to Miniforge.</p>
+<p><a class="reference external" href="https://github.com/conda-forge/miniforge">Miniforge</a> is a minimalistic, community-driven distribution of the Conda package manager and the Python programming language. It is designed to be a lightweight alternative to the larger Anaconda distribution, focusing on providing only the essential tools needed for package management and Python development. Miniforge is particularly useful for users who want a more streamlined and customizable environment without the extensive set of pre-installed packages that come with Anaconda. It supports various platforms, including Windows, macOS, and Linux, and allows users to easily create and manage virtual environments for their projects. Miniforge is maintained by the community and is often updated to include the latest features and improvements from the Conda ecosystem.</p>
+<p>We detail below a step-by-step guide to migrate your environment(s) from Anaconda/Miniconda to Miniforge. Of course some of these steps are fully applicable to migrating to other package/environment managers as well.</p>
+<section id="step-1-get-info-on-current-conda-install">
+<h2>Step 1 – Get info on current conda install<a class="headerlink" href="#step-1-get-info-on-current-conda-install" title="Permalink to this heading">#</a></h2>
+<p>You first need to get a list of packages and an environment export in YML format from your current conda installation</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># list all packages in the activated environment</span>
+conda<span class="w"> </span>list<span class="w"> </span>&gt;<span class="w"> </span>base_pkg_list.txt
+conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--name<span class="w"> </span>base<span class="w"> </span>&gt;<span class="w"> </span>base_env.yml<span class="w"> </span>
+</pre></div>
+</div>
+<p>If you have several environments in your distribution, repeat the above steps for each one after activating them. Ensure you modify the filenames accordingly (e.g., replace “base” in the filenames).</p>
+</section>
+<section id="step-2-clean-up-your-conda-references">
+<h2>Step 2 - Clean up your conda references<a class="headerlink" href="#step-2-clean-up-your-conda-references" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Edit all the environment YML files you created and remove <code class="docutils literal notranslate"><span class="pre">defaults</span></code> and anything with the full term <code class="docutils literal notranslate"><span class="pre">anaconda</span></code> from the channels. In addition, make sure <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> is in the channels or add it manually.</p></li>
+</ul>
+<p>Example of yaml file before cleaning:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">base</span>
+<span class="nt">channels</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">defaults</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_libgcc_mutex=0.1=main</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_openmp_mutex=5.1=1_gnu</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda-anon-usage=0.4.4=py310hfc0e8ea_100</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda-client=1.12.3=py310h06a4308_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda-cloud-auth=0.5.1=py310h06a4308_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda-navigator=2.6.0=py310h06a4308_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anaconda-project=0.11.1=py310h06a4308_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">annotated-types=0.6.0=py310h06a4308_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">archspec=0.2.3=pyhd3eb1b0_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attrs=23.1.0=py310h06a4308_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backports=1.1=pyhd3eb1b0_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backports.functools_lru_cache=1.6.4=pyhd3eb1b0_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backports.tempfile=1.0=pyhd3eb1b0_1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backports.weakref=1.0.post1=py_1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beautifulsoup4=4.12.2=py310h06a4308_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">boltons=23.0.0=py310h06a4308_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">brotli-python=1.0.9=py310h6a678d5_8</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bzip2=1.0.8=h5eee18b_6</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">c-ares=1.19.1=h5eee18b_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ca-certificates=2024.3.11=h06a4308_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">certifi=2024.2.2=py310h06a4308_0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cffi=1.16.0=py310h5eee18b_1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chardet=4.0.0=py310h06a4308_1003</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">charset-normalizer=2.0.4=pyhd3eb1b0_0</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pip</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">absl-py==2.1.0</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">astunparse==1.6.3</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contourpy==1.2.1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cycler==0.12.1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flatbuffers==24.3.25</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fonttools==4.52.4</span>
+</pre></div>
+</div>
+<p>If you want to try to recover the exact same python and package versions you had
+in your Anaconda install then we clean the yaml file by first removing the
+<code class="docutils literal notranslate"><span class="pre">defaults</span></code> channel (and other anaconda ones) and then removing the build strings from the package lines.</p>
+<p>The following line will do this for you if you adapt it to you file names:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep<span class="w"> </span>-v<span class="w"> </span>-ie<span class="w"> </span><span class="s1">&#39;.*anaconda.*&#39;</span><span class="w"> </span>base_env.yml<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;defaults&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;s/([^=])=[^=]*$/\1/&#39;</span>
+</pre></div>
+</div>
+<p>if you want the latest versions of the packages instead, you can replace the sed expression</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep<span class="w"> </span>-v<span class="w"> </span>-ie<span class="w"> </span><span class="s1">&#39;.*anaconda.*&#39;</span><span class="w"> </span>base_env.yml<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;defaults&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;s/=*$//&#39;</span>
+</pre></div>
+</div>
+<p>The yaml file should then look like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">base</span>
+<span class="nt">channels</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_libgcc_mutex=0.1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_openmp_mutex=5.1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">annotated-types=0.6.0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">archspec=0.2.3</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pip</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">absl-py==2.1.0</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">astunparse==1.6.3</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contourpy==1.2.1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cycler==0.12.1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flatbuffers==24.3.25</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fonttools==4.52.4</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Save a copy of potential profile information files (you can skip if the files do not exist on your system):</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mv<span class="w"> </span>~/.condarc<span class="w"> </span>~/bkp.condarc
+mv<span class="w"> </span>~/.anaconda<span class="w"> </span>~/bkp.anaconda
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Remove potential cached files from <code class="docutils literal notranslate"><span class="pre">pip</span></code> to avoid reusing Anaconda licensed packages:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-rf<span class="w"> </span>~/.cache/pip
+</pre></div>
+</div>
+</section>
+<section id="step-3-install-miniforge-if-not-already-done">
+<h2>Step 3 - Install Miniforge (if not already done)<a class="headerlink" href="#step-3-install-miniforge-if-not-already-done" title="Permalink to this heading">#</a></h2>
+<p>Download the Miniforge installer for your platform from the <a class="reference external" href="https://github.com/conda-forge/miniforge">Miniforge GitHub releases page</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># on Mac and Linux</span>
+curl<span class="w"> </span>-LsSf<span class="w"> </span><span class="s2">&quot;https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-</span><span class="k">$(</span>uname<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span><span class="s2">.sh&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+
+<span class="c1"># on Windows</span>
+powershell<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;irm https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe | iex&quot;</span>
+</pre></div>
+</div>
+<p>After this, follow the instructions on the screen (agree to terms and where to install)</p>
+<p>The default location is <code class="docutils literal notranslate"><span class="pre">~/miniforge3</span></code>. If you want a seemless replacement of anaconda, use the path where anaconda was installed (but move it aside first) although this may have unexpected side effects.</p>
+<p>After the installation, you should make sure the channels are configured properly.
+Check the list, which by default shows only <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>config<span class="w"> </span>--show<span class="w"> </span>channels
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">channels</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
+</pre></div>
+</div>
+<p>If you see <code class="docutils literal notranslate"><span class="pre">defaults</span></code>, remove it with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">-remove</span> <span class="pre">channel</span> <span class="pre">defaults</span></code> (Anaconda channel which requires a license).</p>
+<p>Add any other channels <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--add</span> <span class="pre">channels</span> <span class="pre">&lt;....&gt;</span></code></p>
+</section>
+<section id="step-4-recreate-environments-using-the-cleaned-yaml-files">
+<h2>Step 4 - recreate environments using the cleaned yaml files<a class="headerlink" href="#step-4-recreate-environments-using-the-cleaned-yaml-files" title="Permalink to this heading">#</a></h2>
+<p>First, do not forget to activate the new miniforge installation in your shell environment with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>/path/to/miniforge3/bin/conda<span class="w"> </span>shell.bash<span class="w"> </span>hook<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>where you update the path that corresponds to your installation.</p>
+<p>or in some HPCs it is available as a module</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>miniforge
+</pre></div>
+</div>
+<p>You can then create an enviroment with the specific configuration you had in your Anaconda environment with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>&lt;name&gt;<span class="w"> </span>--file<span class="o">=</span>&lt;config&gt;.yml
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code> is the name of the environment you want to create and <code class="docutils literal notranslate"><span class="pre">&lt;config&gt;.yml</span></code> is the cleaned yaml file you created in step 2.</p>
+<p>If you directly want to update the active (base) one, you can use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>update<span class="w"> </span>--file<span class="o">=</span>base_environment.yml
+</pre></div>
+</div>
+<p>but this could sometimes fail with some old packages that are incompatible with new base enviroment.</p>
+<p>As a good practice, you should not install a lot of packages in your <code class="docutils literal notranslate"><span class="pre">base</span></code> enviroment but prefer to create new environments for each project (or groups of projects) you are working on.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="fooocus.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Image Generation with Stable Diffusion and Fooocus</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../problems/straightline/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-get-info-on-current-conda-install">Step 1 – Get info on current conda install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-clean-up-your-conda-references">Step 2 - Clean up your conda references</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-install-miniforge-if-not-already-done">Step 3 - Install Miniforge (if not already done)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-recreate-environments-using-the-cleaned-yaml-files">Step 4 - recreate environments using the cleaned yaml files</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Iva Momcheva, Morgan Fouesneau, and Raphael E. Hviding
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
