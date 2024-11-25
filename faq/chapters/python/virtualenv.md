@@ -54,7 +54,7 @@ Workspaces help organize large codebases by splitting them into multiple package
 It is a common workflow in academic research to combine multiple projects in one environment (probably coming from the conda ecosystem). Be aware that there are good tools like `poetry` and `uv` that can protect you from conflicts between packages and versions. 
 `````
 
-**In this article, we review a few ways to create and manage virtual environments. This is only intended to give you a high-level understanding of the pros and cons of each tool, so you can better make your own decision about what tools you need. As always, *consult the documentation* for these tools directly; many have lengthy tutorials. You can also check out YouTube for demos for quite a few of these as well!**
+**In this article, we review a few ways to create and manage virtual environments. This is only intended to give you a high-level understanding of the pros and cons of each tool, so you can better make your own decision about what tools you need. As always, *consult the documentation* for these tools directly; many have lengthy tutorials. You can also check out YouTube for demos for quite a few of these as well! Of course, nothing beats installing them and giving them a whirl!**
 
 `````{admonition} Shell completion
 :class: tip
@@ -103,22 +103,24 @@ Cons: The `venv` module does not offer to install a different Python version tha
 The `venv` module does not offer to install a different python version than the one used to create the environment. If you need to use a different version of Python, consider using the other options below.
 ```
 
-## `mamba` (replacement for `conda`)
+## `mamba` and `miniforge` (replacements for `conda`)
 
-We're now going to talk about `conda/mamba`, one of the staples in Python configuration management. It can handle both package and virtual environment management. 
-
-[`(micro)mamba`](https://mamba.readthedocs.io/en/latest/) is a reimplementation of the conda package manager in C++. It is fully compatible with `conda`, but it is much faster. `mamba` is a drop-in replacement for the conda package manager, utilizing the same configuration files, and only changing the package solving part. `micromamba` is comparable to `miniconda` as the smaller packaging that doesn't come with any installed packages by default and is the preferred method. 
+We're now going to talk about `conda`-like managers, one of the staples in Python configuration management. It can handle both package and virtual environment management. These solutions build environments using `recipes` that describe packages and their dependencies. 
 
 ```{warning} conda licensing update
 
 The Anaconda Python Distribution has been the foundation for Python user applications, offering a large selection of important packages such as NumPy, SciPy, matplotlib, etc. in compatible versions and using optimized builds and libraries. 
 
-However, earlier this year, Anaconda Inc. has changed its [software licensing model](https://legal.anaconda.com/policies/en?name=terms-of-service#terms-of-service) such that it would cost licensing fees to use the Anaconda distribution of Python (this includes the conda). The individual scope of the free tier remains unclear. For those reasons, MPCDF/MPIA is not allowed to install new versions of Anaconda Python any more.
+However, in 2024, Anaconda Inc. has changed its [software licensing model](https://legal.anaconda.com/policies/en?name=terms-of-service#terms-of-service) such that it would cost licensing fees to use the Anaconda distribution of Python (this includes conda itself). The individual scope of the free tier remains unclear. For those reasons, MPCDF/MPIA is not allowed to install new versions of Anaconda Python any more.
 
-As a drop-in replacement, `mamba` uses [conda-forge](https://conda-forge.org/), a community-driven initiative that develops conda packages which do not fall under the strict licensing of Anaconda Inc. and can therefore be used freely. Note that a lot if not most of packages are available in conda-forge, but some might be missing or slightly outdated.
+However, most conda recipes remain open source, so it is straightforward to change your existing conda install to pull from these channels instead of Anaconda. This can usually be done by changing your `.condarc` file, making sure to remove the `defaults` line as this refers to the Anaconda repositories. The most popular one substitute is [conda-forge](https://conda-forge.org/), a community-driven initiative that develops conda packages which do not fall under the strict licensing of Anaconda Inc. and can therefore be used freely. Note that a lot if not most of packages are available in conda-forge, but some might be missing or slightly outdated.
 ```
 
-One of the most powerful aspects of `mamba` (like `conda`) that set it apart from all of the other solutions we have talked about before is that `mamba` can install *non Python dependencies* in your environments. The ability to specify system Packages as dependencies in environmnets means that, in essence, `mamba` is not a Python virtual environment manager, but an environment manager for packages that exist in the `conda-forge` ecosystem. 
+[`miniforge`](https://github.com/conda-forge/miniforge) is a build of conda without the restrictive Anaconda licensing equivalent to [`miniconda`](https://docs.anaconda.com/miniconda/). It is fully compatible with `conda`.
+
+[`(micro)mamba`](https://mamba.readthedocs.io/en/latest/) is a reimplementation of the conda package manager in C++. It is fully compatible with `conda`, but it is much faster. `mamba` is a drop-in replacement for the conda package manager, utilizing the same configuration files, and only changing the package solving part. `micromamba` is comparable to `miniconda` as the smaller packaging that doesn't come with any installed packages by default and is the preferred method. In fact, conda now uses the libmamba solver as a backend to match the speed.
+
+One of the most powerful aspects of `conda`-like managers that set it apart from all of the other solutions we have talked about before is that they can install *non Python dependencies* in your environments, i.e. recipes do not only have to be for Python packages. The ability to specify system Packages as dependencies in environmnets means that, in essence, `mamba`/`miniforge`/`conda` is not a Python virtual environment manager, but an environment manager for packages that exist in the `conda-forge` ecosystem. 
 
 You can install `micromamba`, the preferred `mamba` implementation, with their provided installation script or with your system's package manager (`apt-get`, `brew`, etc.):
 ```bash
