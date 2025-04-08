@@ -505,16 +505,16 @@ document.write(`
     <span class="s1">&#39;image.aspect&#39;</span><span class="p">:</span> <span class="s1">&#39;auto&#39;</span>
 <span class="p">}</span>
 
-<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">light_minimal</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">corner</span> <span class="kn">import</span> <span class="n">corner</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">corner</span><span class="w"> </span><span class="kn">import</span> <span class="n">corner</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
 
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">cycle</span>
-<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">is_color_like</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cycle</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_color_like</span>
 
-<span class="k">def</span> <span class="nf">steppify</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">steppify</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Steppify a curve (x,y). Useful for manually filling histograms &quot;&quot;&quot;</span>
     <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
     <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">dx</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
@@ -524,7 +524,7 @@ document.write(`
     <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">dx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])],</span> <span class="n">xx</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">dx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])]))</span>
     <span class="k">return</span> <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span>
 
-<span class="k">def</span> <span class="nf">fast_violin</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">fast_violin</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> 
                 <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Make a violin plot with histograms instead of kde &quot;&quot;&quot;</span>
     
@@ -597,7 +597,7 @@ Populating the interactive namespace from numpy and matplotlib
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Baye&#39;s theorem figure { display-mode: &quot;form&quot; }</span>
-<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Ellipse</span><span class="p">,</span> <span class="n">Rectangle</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ellipse</span><span class="p">,</span> <span class="n">Rectangle</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
 
@@ -736,12 +736,12 @@ and
 <p>Because PyStan depends on the Stan package, installation can be difficult. Although I only did <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pystan</span></code> and it seemed to work just fine on my system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="c1"># pystan 3 bug fixing</span>
 <span class="c1"># RuntimeError: asyncio.run() cannot be called from a running event loop</span>
-<span class="kn">import</span> <span class="nn">nest_asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nest_asyncio</span>
 <span class="n">nest_asyncio</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
-<span class="kn">import</span> <span class="nn">stan</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">stan</span>
 
 <span class="c1">#----------------------------------------------</span>
 <span class="c1"># Create the Stan model</span>
@@ -841,19 +841,19 @@ and
 <span class="g g-Whitespace">    </span><span class="mi">499</span> <span class="n">building_output</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span> <span class="k">if</span> <span class="n">io</span><span class="o">.</span><span class="n">supports_ansi</span><span class="p">()</span> <span class="k">else</span> <span class="n">building_output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">500</span> <span class="k">if</span> <span class="n">model_in_cache</span><span class="p">:</span>
 
-<span class="ne">RuntimeError</span>: Error in &#39;/tmp/httpstan_azu728el/model_rfnfx7fe.stan&#39;, line 15, column 4: Declaration
+<span class="ne">RuntimeError</span>: Error in &#39;/tmp/httpstan_hizxbbr_/model_rwsrkbvo.stan&#39;, line 15, column 4: Declaration
     <span class="n">of</span> <span class="n">arrays</span> <span class="n">by</span> <span class="n">placing</span> <span class="n">brackets</span> <span class="n">after</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">name</span> <span class="n">was</span> <span class="n">removed</span> <span class="ow">in</span> <span class="n">Stan</span>
 <span class="g g-Whitespace">    </span><span class="mi">2</span><span class="mf">.33.0</span><span class="o">.</span> <span class="n">Instead</span> <span class="n">use</span> <span class="n">the</span> <span class="n">array</span> <span class="n">keyword</span> <span class="n">before</span> <span class="n">the</span> <span class="nb">type</span><span class="o">.</span> <span class="n">This</span> <span class="n">can</span> <span class="n">be</span>
     <span class="n">changed</span> <span class="n">automatically</span> <span class="n">using</span> <span class="n">the</span> <span class="n">auto</span><span class="o">-</span><span class="nb">format</span> <span class="n">flag</span> <span class="n">to</span> <span class="n">stanc</span>
-<span class="n">Error</span> <span class="ow">in</span> <span class="s1">&#39;/tmp/httpstan_azu728el/model_rfnfx7fe.stan&#39;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">6</span><span class="p">,</span> <span class="n">column</span> <span class="mi">4</span><span class="p">:</span> <span class="n">Declaration</span>
+<span class="n">Error</span> <span class="ow">in</span> <span class="s1">&#39;/tmp/httpstan_hizxbbr_/model_rwsrkbvo.stan&#39;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">6</span><span class="p">,</span> <span class="n">column</span> <span class="mi">4</span><span class="p">:</span> <span class="n">Declaration</span>
     <span class="n">of</span> <span class="n">arrays</span> <span class="n">by</span> <span class="n">placing</span> <span class="n">brackets</span> <span class="n">after</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">name</span> <span class="n">was</span> <span class="n">removed</span> <span class="ow">in</span> <span class="n">Stan</span>
 <span class="g g-Whitespace">    </span><span class="mi">2</span><span class="mf">.33.0</span><span class="o">.</span> <span class="n">Instead</span> <span class="n">use</span> <span class="n">the</span> <span class="n">array</span> <span class="n">keyword</span> <span class="n">before</span> <span class="n">the</span> <span class="nb">type</span><span class="o">.</span> <span class="n">This</span> <span class="n">can</span> <span class="n">be</span>
     <span class="n">changed</span> <span class="n">automatically</span> <span class="n">using</span> <span class="n">the</span> <span class="n">auto</span><span class="o">-</span><span class="nb">format</span> <span class="n">flag</span> <span class="n">to</span> <span class="n">stanc</span>
-<span class="n">Error</span> <span class="ow">in</span> <span class="s1">&#39;/tmp/httpstan_azu728el/model_rfnfx7fe.stan&#39;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">5</span><span class="p">,</span> <span class="n">column</span> <span class="mi">4</span><span class="p">:</span> <span class="n">Declaration</span>
+<span class="n">Error</span> <span class="ow">in</span> <span class="s1">&#39;/tmp/httpstan_hizxbbr_/model_rwsrkbvo.stan&#39;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">5</span><span class="p">,</span> <span class="n">column</span> <span class="mi">4</span><span class="p">:</span> <span class="n">Declaration</span>
     <span class="n">of</span> <span class="n">arrays</span> <span class="n">by</span> <span class="n">placing</span> <span class="n">brackets</span> <span class="n">after</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">name</span> <span class="n">was</span> <span class="n">removed</span> <span class="ow">in</span> <span class="n">Stan</span>
 <span class="g g-Whitespace">    </span><span class="mi">2</span><span class="mf">.33.0</span><span class="o">.</span> <span class="n">Instead</span> <span class="n">use</span> <span class="n">the</span> <span class="n">array</span> <span class="n">keyword</span> <span class="n">before</span> <span class="n">the</span> <span class="nb">type</span><span class="o">.</span> <span class="n">This</span> <span class="n">can</span> <span class="n">be</span>
     <span class="n">changed</span> <span class="n">automatically</span> <span class="n">using</span> <span class="n">the</span> <span class="n">auto</span><span class="o">-</span><span class="nb">format</span> <span class="n">flag</span> <span class="n">to</span> <span class="n">stanc</span>
-<span class="n">Error</span> <span class="ow">in</span> <span class="s1">&#39;/tmp/httpstan_azu728el/model_rfnfx7fe.stan&#39;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="mi">4</span><span class="p">:</span> <span class="n">Declaration</span>
+<span class="n">Error</span> <span class="ow">in</span> <span class="s1">&#39;/tmp/httpstan_hizxbbr_/model_rwsrkbvo.stan&#39;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="mi">4</span><span class="p">:</span> <span class="n">Declaration</span>
     <span class="n">of</span> <span class="n">arrays</span> <span class="n">by</span> <span class="n">placing</span> <span class="n">brackets</span> <span class="n">after</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">name</span> <span class="n">was</span> <span class="n">removed</span> <span class="ow">in</span> <span class="n">Stan</span>
 <span class="g g-Whitespace">    </span><span class="mi">2</span><span class="mf">.33.0</span><span class="o">.</span> <span class="n">Instead</span> <span class="n">use</span> <span class="n">the</span> <span class="n">array</span> <span class="n">keyword</span> <span class="n">before</span> <span class="n">the</span> <span class="nb">type</span><span class="o">.</span> <span class="n">This</span> <span class="n">can</span> <span class="n">be</span>
     <span class="n">changed</span> <span class="n">automatically</span> <span class="n">using</span> <span class="n">the</span> <span class="n">auto</span><span class="o">-</span><span class="nb">format</span> <span class="n">flag</span> <span class="n">to</span> <span class="n">stanc</span>
@@ -920,7 +920,7 @@ One outlier that is, say <span class="math notranslate nohighlight">\(10-\sigma\
 <p>Using <code class="docutils literal notranslate"><span class="pre">daft</span></code> a python package, I draw a (inaccurate) pgm of the straight line model with outliers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">daft</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">daft</span>
 
 <span class="c1"># Instantiate the PGM.</span>
 <span class="n">pgm</span> <span class="o">=</span> <span class="n">daft</span><span class="o">.</span><span class="n">PGM</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">],</span> <span class="n">grid_unit</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> 

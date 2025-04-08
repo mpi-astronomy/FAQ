@@ -22,7 +22,7 @@ Beware of scope creep. When working with legacy code, it is very easy for work t
 Before you touch anything, before you even change a single value, archive the current state of the code. Ideally, an archive will not live on your hard drive.
 The easiest way is to create a zip file and upload it to Google Drive, Dropbox or any other document-sharing service your institution has. Alternatively/additionally,
 upload the code to a private repository on GitLab, BitBucket or GitHub. If this code is not published, please seek the permission of the original authors
-before you put it in a public repository (see [How to publish software?](https://github.com/mpi-astronomy/FAQ/blob/main/publishing/how-to-publish-software.md)).
+before you put it in a public repository (see [How to publish software?](https://mpi-astronomy.github.io/FAQ/chapters/publishing/how-to-publish-software.html)).
 
 At his point, it is also useful to preserve any input/output files if these were not provided by the original author. Can you install and run the code? Do you have the needed inputs? Can you generate some outputs? If you can, document all these steps in a simple readme file. Write down what you had to do to get the code running. Archive any inputs or outputs together with the code. This may already be too much effort. Timebox this work. A day of solid effort trying to do this is good. More than that and you are probably going down a rabbit hole.
 
@@ -66,7 +66,7 @@ DO NOT go line by line and transpose the code. Never. Ever.
 
 ## Publish your code.
 
-[How to publish software?](https://github.com/mpi-astronomy/FAQ/blob/main/publishing/how-to-publish-software.md)
+[How to publish software?](https://mpi-astronomy.github.io/FAQ/chapters/publishing/how-to-publish-software.html)
 
 ## Resources:
 

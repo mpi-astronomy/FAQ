@@ -490,12 +490,12 @@ document.write(`
 <span class="c1"># set for retina or hi-resolution displays</span>
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;  
 
-<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">ezdata.matplotlib</span> <span class="kn">import</span> <span class="n">light_minimal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ezdata.matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">light_minimal</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">light_minimal</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">corner</span> <span class="kn">import</span> <span class="n">corner</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">corner</span><span class="w"> </span><span class="kn">import</span> <span class="n">corner</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
 </pre></div>
 </div>
 </div>
@@ -507,11 +507,11 @@ Populating the interactive namespace from numpy and matplotlib
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">---&gt; </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">ezdata.matplotlib</span> <span class="kn">import</span> <span class="n">light_minimal</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="kn">from</span><span class="w"> </span><span class="nn">ezdata.matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">light_minimal</span>
 <span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">light_minimal</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span> <span class="nn">corner</span> <span class="kn">import</span> <span class="n">corner</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span><span class="w"> </span><span class="nn">corner</span><span class="w"> </span><span class="kn">import</span> <span class="n">corner</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;ezdata&#39;
 </pre></div>
@@ -537,7 +537,7 @@ Populating the interactive namespace from numpy and matplotlib
 <p>The figure below gives the visual support</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Ellipse</span><span class="p">,</span> <span class="n">Rectangle</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ellipse</span><span class="p">,</span> <span class="n">Rectangle</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
 
@@ -672,9 +672,9 @@ and
 <h3>Coding<a class="headerlink" href="#coding" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pymc3</span> <span class="k">as</span> <span class="nn">pm</span>
-<span class="kn">import</span> <span class="nn">theano</span> <span class="k">as</span> <span class="nn">thno</span>
-<span class="kn">import</span> <span class="nn">theano.tensor</span> <span class="k">as</span> <span class="nn">T</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pymc3</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">theano</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">thno</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">theano.tensor</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">T</span>
 
 <span class="k">with</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span> <span class="k">as</span> <span class="n">mdl_ols</span><span class="p">:</span>
 
@@ -818,7 +818,7 @@ One outlier that is, say <span class="math notranslate nohighlight">\(10-\sigma\
 <p>Using <code class="docutils literal notranslate"><span class="pre">daft</span></code> a python package, I draw a (inaccurate) pgm of the straight line model with outliers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">daft</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">daft</span>
 
 <span class="c1"># Instantiate the PGM.</span>
 <span class="n">pgm</span> <span class="o">=</span> <span class="n">daft</span><span class="o">.</span><span class="n">PGM</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">],</span> <span class="n">grid_unit</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> 
@@ -890,7 +890,7 @@ However, for this example, we fix <span class="math notranslate nohighlight">\(\
 <p>We code the likelihood (using Theano) as:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">logp_signoise</span><span class="p">(</span><span class="n">yobs</span><span class="p">,</span> <span class="n">is_outlier</span><span class="p">,</span> <span class="n">ypred_in</span><span class="p">,</span> <span class="n">sigma_y_in</span><span class="p">,</span> <span class="n">ypred_out</span><span class="p">,</span> <span class="n">sigma_y_out</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">logp_signoise</span><span class="p">(</span><span class="n">yobs</span><span class="p">,</span> <span class="n">is_outlier</span><span class="p">,</span> <span class="n">ypred_in</span><span class="p">,</span> <span class="n">sigma_y_in</span><span class="p">,</span> <span class="n">ypred_out</span><span class="p">,</span> <span class="n">sigma_y_out</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Define custom loglikelihood for inliers vs outliers.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
@@ -1067,8 +1067,8 @@ CompoundStep
 <p>One nice feature of analyzing MCMC samples is that the choice of nuisance parameters is completely irrelevant during the sampling.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
 <span class="c1"># is_outlier = 1 - q</span>
 <span class="n">samples_q</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">traces_signoise</span><span class="o">.</span><span class="n">posterior</span><span class="o">.</span><span class="n">is_outlier</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
@@ -1185,7 +1185,7 @@ $<span class="math notranslate nohighlight">\( g \rightsquigarrow \mathcal{U}(0,
 <p>we code the probabilistic model as follow (using <code class="docutils literal notranslate"><span class="pre">DensityDist</span></code> to set the final mixture likelihood)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">logp_smart</span><span class="p">(</span><span class="n">yobs</span><span class="p">,</span> <span class="n">is_outlier</span><span class="p">,</span> <span class="n">ypred_in</span><span class="p">,</span> <span class="n">sigma_y_in</span><span class="p">,</span> <span class="n">ypred_out</span><span class="p">,</span> <span class="n">sigma_y_out</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">logp_smart</span><span class="p">(</span><span class="n">yobs</span><span class="p">,</span> <span class="n">is_outlier</span><span class="p">,</span> <span class="n">ypred_in</span><span class="p">,</span> <span class="n">sigma_y_in</span><span class="p">,</span> <span class="n">ypred_out</span><span class="p">,</span> <span class="n">sigma_y_out</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Define custom loglikelihood for inliers vs outliers.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
@@ -1328,7 +1328,7 @@ NUTS: [frac_outliers, ypred_out, alpha, beta]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">odds_outlier_full</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sy</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">odds_outlier_full</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sy</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Odds of being an outlier</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">beta</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
@@ -1342,7 +1342,7 @@ NUTS: [frac_outliers, ypred_out, alpha, beta]
     <span class="k">if</span> <span class="n">alpha</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
 
-    <span class="k">def</span> <span class="nf">lnp</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sy</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">lnp</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sy</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;log-likelihood&quot;&quot;&quot;</span>
         <span class="n">dy</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">theta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span>
         <span class="n">logL</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">sy</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span> <span class="n">dy</span> <span class="o">/</span> <span class="n">sy</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
