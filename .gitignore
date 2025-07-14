@@ -133,3 +133,6 @@ dmypy.json
 
 # builds
 **/_build/**
+
+# MyST build outputs
+_build
