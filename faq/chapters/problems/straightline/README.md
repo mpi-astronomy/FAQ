@@ -1,3 +1,22 @@
+---
+title: How to fit a straight line?
+authors:
+- name: Morgan Fouesneau
+  orcid: 0000-0001-9256-5516
+  affiliation: mpia
+affiliations:
+    - id: mpia
+      institution: Max Planck Institute for Astronomy, Königstuhl 17, 69117 Heidelberg, Germany 
+      ror: https://ror.org/01vhnrs90
+      isni: 0000 0004 0491 677X
+      department: Data Science Department
+      address: Königstuhl 17
+      city: Heidelberg
+      country: Germany
+      postal_code: 69117
+date: 2018-08-10
+---
+
 # Introduction
 
 In astronomy, we commonly have to fit a model to data. A very typical example is the fit of a straight line to a set of points in a two-dimensional plane.  Astronomers are very good at finding a representation or a transformation of their data in which they can identify linear correlations (e.g., plotting in log-log space, action angles for orbits, etc).  Consequently, a polynomial remains a "line" in a more complicated representation space.
@@ -10,15 +29,23 @@ Once there is a generative model, we have a direct computation of the likelihood
 
 We explore solutions with various common frameworks
 
-* `emcee`
-[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/mpi-astronomy/FAQ/blob/main/coding/straightline/straighlinefit_emcee.ipynb)
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/mpi-astronomy/FAQ/blob/main/coding/straightline/straighlinefit_emcee.ipynb)
-* `PyMC3`
-[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/mpi-astronomy/FAQ/blob/main/coding/straightline/straighlinefit_pymc3.ipynb)
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/mpi-astronomy/FAQ/blob/main/coding/straightline/straighlinefit_pymc3.ipynb)
-* `pyStan`,
-[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/mpi-astronomy/FAQ/blob/main/coding/straightline/straighlinefit_pystan.ipynb)
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/mpi-astronomy/FAQ/blob/main/coding/straightline/straighlinefit_pystan.ipynb)
-* and `jax + numpyro`
-[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/mpi-astronomy/FAQ/blob/main/coding/straightline/straighlinefit_jax.ipynb)
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/mpi-astronomy/FAQ/blob/main/coding/straightline/straighlinefit_jax.ipynb)
+:::::{grid} 1 2 3 4
+
+::::{card}
+:url: /straighlinefit-emcee
+Emcee
+::::
+::::{card}
+:url: /straighlinefit-jax
+Numpyro + JAX
+::::
+::::{card}
+:url: /straighlinefit-pymc3
+PyMC3
+::::
+::::{card}
+:url: /straighlinefit-pystan
+PyStan
+::::
+
+:::::
