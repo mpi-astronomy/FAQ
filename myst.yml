@@ -40,6 +40,7 @@ project:
           children:
             - file: faq/chapters/computing/mac-touchid-sudo.md
             - file: faq/chapters/computing/password-managers.md
+            - file: faq/chapters/computing/gwdg-ai-services.md
     - file: CODE_OF_CONDUCT.md
     - file: CONTRIBUTING.md
     

@@ -33,3 +33,5 @@ parts:
     chapters:
     - file: chapters/computing/mac-touchid-sudo
     - file: chapters/computing/password-managers
+    - file: chapters/computing/gwdg-ai-services
+

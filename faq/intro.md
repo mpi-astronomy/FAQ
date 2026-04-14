@@ -88,6 +88,11 @@ How to use TouchID for sudo on Mac?
 Which password manager should I use?
 ::::
 
+::::{card}
+:url: /gwdg-ai-services
+What AI services are available at GWDG?
+::::
+
 :::::
 
 
